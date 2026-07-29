@@ -7,6 +7,30 @@ from typing import Any
 from providers.base import ModelResponse, ToolCall
 
 
+def _coerce_text(content: Any) -> str | None:
+    if content is None:
+        return None
+    if isinstance(content, str):
+        return content
+    if isinstance(content, (list, tuple)):
+        parts: list[str] = []
+        for item in content:
+            text = _coerce_text(item)
+            if text:
+                parts.append(text)
+        return "\n".join(part for part in parts if part) or None
+    if isinstance(content, dict):
+        if isinstance(content.get("text"), str):
+            return content["text"]
+        if "content" in content:
+            return _coerce_text(content["content"])
+        return None
+    text = getattr(content, "text", None)
+    if isinstance(text, str):
+        return text
+    return None
+
+
 def _to_gemini_declarations(tools: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
     declarations: list[dict[str, Any]] = []
     for item in tools or []:
@@ -142,4 +166,5 @@ class GeminiProvider:
                 seen.add(key)
                 deduped_calls.append(call)
 
-        return ModelResponse(text="\n".join(part for part in text_parts if part) or None, tool_calls=deduped_calls, raw=resp)
+        text = _coerce_text(text_parts) or "\n".join(part for part in text_parts if part)
+        return ModelResponse(text=text or None, tool_calls=deduped_calls, raw=resp)

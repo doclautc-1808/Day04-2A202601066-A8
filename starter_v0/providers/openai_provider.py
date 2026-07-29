@@ -7,6 +7,30 @@ from typing import Any
 from providers.base import ModelResponse, ToolCall
 
 
+def _coerce_text(content: Any) -> str | None:
+    if content is None:
+        return None
+    if isinstance(content, str):
+        return content
+    if isinstance(content, (list, tuple)):
+        parts: list[str] = []
+        for item in content:
+            text = _coerce_text(item)
+            if text:
+                parts.append(text)
+        return "\n".join(part for part in parts if part) or None
+    if isinstance(content, dict):
+        if isinstance(content.get("text"), str):
+            return content["text"]
+        if "content" in content:
+            return _coerce_text(content["content"])
+        return None
+    text = getattr(content, "text", None)
+    if isinstance(text, str):
+        return text
+    return None
+
+
 class OpenAIProvider:
     """OpenAI Chat Completions provider with normalized tool_calls output."""
 
@@ -53,7 +77,7 @@ class OpenAIProvider:
         resp = client.chat.completions.create(**kwargs)
         msg = resp.choices[0].message
         calls: list[ToolCall] = []
-        for call in msg.tool_calls or []:
+        for call in getattr(msg, "tool_calls", None) or []:
             args = json.loads(call.function.arguments or "{}")
             calls.append(ToolCall(name=call.function.name, args=args))
-        return ModelResponse(text=msg.content, tool_calls=calls, raw=resp)
+        return ModelResponse(text=_coerce_text(getattr(msg, "content", None)), tool_calls=calls, raw=resp)

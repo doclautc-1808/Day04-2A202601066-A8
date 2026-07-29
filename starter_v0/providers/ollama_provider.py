@@ -7,6 +7,30 @@ from typing import Any
 from providers.base import ModelResponse, ToolCall
 
 
+def _coerce_text(content: Any) -> str | None:
+    if content is None:
+        return None
+    if isinstance(content, str):
+        return content
+    if isinstance(content, (list, tuple)):
+        parts: list[str] = []
+        for item in content:
+            text = _coerce_text(item)
+            if text:
+                parts.append(text)
+        return "\n".join(part for part in parts if part) or None
+    if isinstance(content, dict):
+        if isinstance(content.get("text"), str):
+            return content["text"]
+        if "content" in content:
+            return _coerce_text(content["content"])
+        return None
+    text = getattr(content, "text", None)
+    if isinstance(text, str):
+        return text
+    return None
+
+
 class OllamaProvider:
     """Local Ollama provider through its OpenAI-compatible API."""
 
@@ -70,4 +94,4 @@ class OllamaProvider:
                 ) from exc
             calls.append(ToolCall(name=call.function.name, args=args))
 
-        return ModelResponse(text=message.content, tool_calls=calls, raw=response)
+        return ModelResponse(text=_coerce_text(getattr(message, "content", None)), tool_calls=calls, raw=response)

@@ -6,6 +6,30 @@ from typing import Any
 from providers.base import ModelResponse, ToolCall
 
 
+def _coerce_text(content: Any) -> str | None:
+    if content is None:
+        return None
+    if isinstance(content, str):
+        return content
+    if isinstance(content, (list, tuple)):
+        parts: list[str] = []
+        for item in content:
+            text = _coerce_text(item)
+            if text:
+                parts.append(text)
+        return "\n".join(part for part in parts if part) or None
+    if isinstance(content, dict):
+        if isinstance(content.get("text"), str):
+            return content["text"]
+        if "content" in content:
+            return _coerce_text(content["content"])
+        return None
+    text = getattr(content, "text", None)
+    if isinstance(text, str):
+        return text
+    return None
+
+
 def _to_anthropic_tools(tools: list[dict[str, Any]] | None) -> list[dict[str, Any]]:
     converted: list[dict[str, Any]] = []
     for item in tools or []:
@@ -79,10 +103,11 @@ class AnthropicProvider:
         resp = Anthropic(api_key=api_key).messages.create(**kwargs)
         text_parts: list[str] = []
         calls: list[ToolCall] = []
-        for block in resp.content:
+        for block in getattr(resp, "content", []) or []:
             block_type = getattr(block, "type", None)
             if block_type == "text":
                 text_parts.append(getattr(block, "text", ""))
             elif block_type == "tool_use":
                 calls.append(ToolCall(name=getattr(block, "name"), args=dict(getattr(block, "input", {}) or {})))
-        return ModelResponse(text="\n".join(part for part in text_parts if part) or None, tool_calls=calls, raw=resp)
+        text = _coerce_text(text_parts) or "\n".join(part for part in text_parts if part)
+        return ModelResponse(text=text or None, tool_calls=calls, raw=resp)
