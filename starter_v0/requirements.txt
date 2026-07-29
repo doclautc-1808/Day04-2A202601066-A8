@@ -10,3 +10,4 @@ pypdf>=4.0.0
 # Research Scout web UI:
 fastapi>=0.115.0
 uvicorn[standard]>=0.30.0
+streamlit>=1.30.0
