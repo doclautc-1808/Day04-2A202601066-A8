@@ -1,7 +1,248 @@
 {
   "dataset_id": "day04_v2_research_group",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
-  "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "description": "Bộ 10 eval cases thiết kế cho Đề tài 03 Research Paper Scout.",
+  "allowed_failure_types": [
+    "wrong_tool",
+    "wrong_arg_value",
+    "wrong_boundary",
+    "unnecessary_tool",
+    "out_of_scope",
+    "missing_info"
+  ],
+  "cases": [
+    {
+      "id": "G01",
+      "phase": "B",
+      "query": "Tìm 3 bài báo khoa học mới nhất về chủ đề RAG.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "papers",
+            "args": {
+              "query": "RAG",
+              "max_results": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Single-turn: Tìm kiếm bài báo khoa học dùng tool papers."
+      }
+    },
+    {
+      "id": "G02",
+      "phase": "B",
+      "query": "Đọc nội dung chi tiết của bài báo arXiv ID 2301.00001.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "arxiv_url": "2301.00001"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Single-turn: Đọc text bài báo với arxiv_url."
+      }
+    },
+    {
+      "id": "G03",
+      "phase": "B",
+      "query": "Tóm tắt phương pháp nghiên cứu của bài báo ID 2301.00001.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "paper_id": "2301.00001",
+              "focus_area": "methodology"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Single-turn: Gọi custom tool summarize_paper với focus_area methodology."
+      }
+    },
+    {
+      "id": "G04",
+      "phase": "B",
+      "query": "Trích xuất kết quả chính từ bài báo ID 2402.12345.",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "paper_id": "2402.12345",
+              "focus_area": "results"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Single-turn: Custom tool summarize_paper với focus_area results."
+      }
+    },
+    {
+      "id": "G05",
+      "phase": "B",
+      "query": "Tra cứu các tài liệu nội bộ về chính sách trích dẫn nguồn AI research.",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "policy",
+            "args": {
+              "query": "chính sách trích dẫn nguồn AI research",
+              "policy_area": "source_citation"
+            }
+          }
+        ]
+      },
+      "metadata": {
+"what_it_tests": "Single-turn: Tra cứu chính sách nội bộ bằng policy."
+      }
+    },
+    {
+      "id": "G06",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Hãy tìm bài báo về Direct Preference Optimization."
+        },
+        {
+          "role": "user",
+          "content": "Bây giờ hãy tóm tắt phương pháp nghiên cứu của bài báo đó."
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "focus_area": "methodology"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Tóm tắt phương pháp sau lượt hội thoại tìm kiếm."
+      }
+    },
+    {
+      "id": "G07",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm 2 bài báo về LoRA fine-tuning."
+        },
+        {
+          "role": "user",
+          "content": "Đọc nội dung chi tiết bài báo thứ nhất và trích xuất kết quả chính."
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "focus_area": "results"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Đọc nội dung và trích xuất kết quả ở lượt cuối."
+      }
+    },
+    {
+      "id": "G08",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Tìm bài báo về Agentic Workflow năm 2024."
+        },
+        {
+          "role": "user",
+          "content": "Lập bản tóm tắt định dạng brief cho bài báo vừa tìm được."
+        }
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "format",
+            "args": {
+              "template": "brief"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Định dạng bài báo tìm được thành dạng brief."
+      }
+    },
+    {
+      "id": "G09",
+      "phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Đọc nội dung bài báo arXiv ID 2301.00001."
+        },
+        {
+          "role": "user",
+          "content": "Tóm tắt hạn chế của bài báo này."
+        }
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {
+            "name": "paper_text",
+            "args": {
+              "paper_id": "2301.00001",
+              "focus_area": "limitations"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Tóm tắt hạn chế (limitations) của bài báo ở lượt sau."
+      }
+    },
+    {
+      "id": "G10",
+"phase": "B",
+      "turns": [
+        {
+          "role": "user",
+          "content": "Đọc nội dung bài báo arXiv ID 2301.00001 và 2301.00002."
+        },
+        {
+          "role": "user",
+          "content": "Cảm ơn, hiện tại tôi không cần tìm thêm thông tin gì nữa."
+        }
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: Lượt cuối người dùng từ chối thao tác, hệ thống không gọi tool thừa."
+      }
+    }
+  ]
 }
