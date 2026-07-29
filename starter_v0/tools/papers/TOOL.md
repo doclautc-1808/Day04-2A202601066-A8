@@ -10,5 +10,10 @@ side_effect: false
 ---
 # papers
 
-Searches arXiv via the official Atom API. Rate-limited (waits ~3s between
-in-process requests).
+Searches arXiv through the official public Atom API; no data API key is needed.
+Requests carry `ARXIV_USER_AGENT` and are spaced by at least three seconds.
+
+Use this tool for topic-based paper discovery. Results include canonical abstract
+and PDF URLs, dates, categories, authors, and a reminder that arXiv preprints are
+not automatically peer reviewed. Prefer topical relevance first and the updated
+date as a tie-breaker when building a shortlist.
