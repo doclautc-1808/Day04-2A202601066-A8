@@ -1,15 +1,14 @@
-# starter_v0 — tool declarations (intentionally vague).
-# Names and descriptions here are a rough first draft. Routing rules, name->handle
-# mapping, arg conventions (news/timeframe/Top), and the send-confirmation boundary
-# are NOT spelled out anywhere yet. Your job is to make these declarations + the
-# system prompt good enough that the agent routes correctly on the eval.
+# starter_v0 — tool declarations (revised).
+# Routing rules, name->handle mapping, arg conventions (news/timeframe/Top), and the
+# send-confirmation boundary are now spelled out in each tool's description below,
+# so the agent can route correctly without guessing.
 #
 # If you rename a tool, keep the name in sync across:
 #   this file  ->  tools/__init__.py (TOOL_FUNCTIONS)  ->  data/eval_base.json + data/eval_research_extension.json
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: "Gửi một câu hỏi cho người dùng. CHỈ dùng khi thiếu một thông tin QUAN TRỌNG mà nếu đoán sai sẽ làm lệch kết quả hoặc gây hậu quả không mong muốn — ví dụ: bài đăng/tài khoản của AI cụ thể nào, gửi/đăng nội dung cho ai, hoặc xin xác nhận trước khi công khai (dùng cùng với tool `send`). KHÔNG dùng cho các chi tiết nhỏ (định dạng, độ dài, nguồn nào trong nhiều nguồn tương đương) — những việc đó hãy tự chọn phương án hợp lý và làm luôn."
     parameters:
       type: object
       properties:
@@ -19,16 +18,16 @@ tools:
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: "Lấy các bài đăng gần đây từ một tài khoản mạng xã hội (X/Twitter) cụ thể. `screenname` phải là handle chính xác (không có dấu @), lấy từ tin nhắn người dùng, kết quả `social_search`, hoặc `lookup` — KHÔNG được tự đoán/bịa một tài khoản nổi tiếng nào đó khi người dùng không nêu rõ chủ nhân bài đăng; nếu không xác định được, dùng `clarify` để hỏi lại."
     parameters:
       type: object
       properties:
-        screenname: {type: string, default: "", description: "Tên tài khoản"}
+        screenname: {type: string, default: "", description: "Tên tài khoản (handle, không có @)"}
         limit: {type: integer, default: 5, description: "Số lượng"}
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Tìm bài đăng trên mạng xã hội (X/Twitter) theo từ khóa, không gắn với một tài khoản cụ thể. Dùng `search_type: Latest` cho tin mới nhất theo thời gian thực; dùng `search_type: Top` khi người dùng muốn bài nổi bật/được tương tác nhiều nhất, không nhất thiết là mới nhất."
     parameters:
       type: object
       properties:
@@ -38,18 +37,18 @@ tools:
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: "Tra cứu thông tin trên internet (tìm kiếm web chung). Dùng `topic: news` khi người dùng cần tin tức/sự kiện thời sự — khi đó `timeframe` quyết định khoảng thời gian lọc kết quả (day/week/month/year). Dùng `topic: general` cho tra cứu kiến thức không phụ thuộc thời gian; trong trường hợp này bỏ qua `timeframe`."
     parameters:
       type: object
       properties:
         query: {type: string, default: "", description: "Truy vấn"}
         topic: {type: string, enum: [general, news], default: "general", description: "Phân loại"}
-        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian"}
+        timeframe: {type: string, enum: [day, week, month, year], default: "week", description: "Khoảng thời gian, chỉ áp dụng khi topic=news"}
         max_results: {type: integer, default: 5, description: "Số kết quả"}
       required: [query]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: "Lấy nội dung từ một địa chỉ URL. Chỉ dùng URL có thật — do người dùng cung cấp trực tiếp, hoặc lấy từ kết quả của `lookup`/`social_search`/`papers`. KHÔNG được tự đoán hoặc bịa ra một URL."
     parameters:
       type: object
       properties:
@@ -57,7 +56,7 @@ tools:
       required: [url]
 
   - name: format
-    description: "Trình bày dữ liệu đã có thành văn bản."
+    description: "Trình bày dữ liệu đã thu thập được thành văn bản hoàn chỉnh, KHÔNG tự thực hiện việc gửi/đăng. Chọn `template` theo yêu cầu: brief (tóm tắt ngắn gọn), sections (chia mục theo chủ đề), bullets (liệt kê gạch đầu dòng), thread (chuỗi bài đăng ngắn nối tiếp, dùng khi output sẽ được đăng lên mạng xã hội), daily_ai_vn (bản tin AI hằng ngày bằng tiếng Việt, có tiêu đề + các mục theo `section`, dùng khi người dùng yêu cầu digest/bản tin tổng hợp tin AI)."
     parameters:
       type: object
       properties:
@@ -79,16 +78,16 @@ tools:
 
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: "Gửi/đăng công khai một đoạn văn bản (ví dụ đăng bài, gửi tin nhắn). Đây là hành động KHÔNG THỂ THU HỒI và hiển thị ra bên ngoài. BẮT BUỘC: chỉ được gọi với `confirmed: true` SAU KHI người dùng đã xác nhận rõ ràng nội dung cụ thể trong cuộc hội thoại (ví dụ đã xem bản nháp và đồng ý). Nếu chưa có xác nhận, gọi `send` với `confirmed: false` chỉ để lưu/hiển thị bản nháp, hoặc dùng `clarify` để xin xác nhận trước — tuyệt đối không tự suy luận rằng người dùng đã đồng ý."
     parameters:
       type: object
       properties:
         text: {type: string, default: "", description: "Nội dung"}
-        confirmed: {type: boolean, default: false, description: "Cờ xác nhận"}
+        confirmed: {type: boolean, default: false, description: "true CHỈ KHI người dùng đã xác nhận rõ ràng trong hội thoại; mặc định luôn là false"}
       required: [text]
 
   - name: policy
-    description: "Tìm trong tài liệu nội bộ."
+    description: "Tìm trong tài liệu chính sách nội bộ. Dùng `policy_area: external_publishing` trước khi thực hiện `send` nếu có nghi vấn về quy định công bố ra bên ngoài; dùng `source_citation` khi cần quy tắc trích dẫn nguồn; dùng `data_privacy` khi nội dung liên quan thông tin cá nhân/nhạy cảm."
     parameters:
       type: object
       properties:
@@ -98,7 +97,7 @@ tools:
       required: [query]
 
   - name: papers
-    description: "Tìm bài báo khoa học."
+    description: "Tìm bài báo khoa học trên arXiv theo từ khóa. Dùng `sort_by: relevance` mặc định cho tìm kiếm theo chủ đề; dùng `lastUpdatedDate`/`submittedDate` khi người dùng cần bài mới nhất."
     parameters:
       type: object
       properties:
@@ -108,7 +107,7 @@ tools:
       required: [query]
 
   - name: paper_text
-    description: "Lấy nội dung text của một bài báo."
+    description: "Lấy nội dung text của một bài báo khoa học trên arXiv, dùng arxiv_url/ID lấy được từ kết quả `papers` (không tự bịa ID)."
     parameters:
       type: object
       properties:
