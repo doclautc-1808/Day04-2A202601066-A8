@@ -65,6 +65,41 @@ class AppScenarioTests(unittest.TestCase):
         self.assertEqual(payload["summary"]["tool_call_count"], 1)
         self.assertTrue(payload["transcript_path"].endswith(".transcript.json"))
 
+    def test_run_scenario_uses_last_round_text_when_final_answer_is_empty(self) -> None:
+        fake_result = {
+            "status": "answered",
+            "assistant_text": "",
+            "rounds": [
+                {
+                    "round": 1,
+                    "assistant_text": "Đây là câu trả lời cuối",
+                    "tool_calls": [],
+                    "tool_results": [],
+                }
+            ],
+            "tool_events": [],
+        }
+
+        with (
+            patch.object(app, "run_model_tool_loop", return_value=fake_result),
+            patch.object(app, "load_tool_declarations", return_value=[]),
+            patch.object(app, "to_openai_tools", return_value=[]),
+            tempfile.TemporaryDirectory() as tmpdir,
+        ):
+            payload = app.run_scenario(
+                provider=DummyProvider(),
+                request_text="Test fallback",
+                version="v2",
+                system_prompt_path=Path("artifacts/system_prompt.md"),
+                tools_path=Path("artifacts/tools.yaml"),
+                transcripts_dir=Path(tmpdir),
+                history_window=2,
+                max_tool_rounds=2,
+                model=None,
+            )
+
+        self.assertEqual(payload["response"], "Đây là câu trả lời cuối")
+
 
 if __name__ == "__main__":
     unittest.main()

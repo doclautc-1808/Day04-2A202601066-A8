@@ -118,6 +118,15 @@ def run_scenario(
         max_tool_rounds=max_tool_rounds,
     )
 
+    assistant_text = result.get("assistant_text") or ""
+    if not assistant_text:
+        for round_data in reversed(result.get("rounds", [])):
+            round_text = round_data.get("assistant_text") or ""
+            if round_text.strip():
+                assistant_text = round_text
+                break
+    result = {**result, "assistant_text": assistant_text}
+
     transcript: dict[str, Any] = {
         "transcript_id": transcript_id,
         **artifact_version_dict(artifact_version),
@@ -131,7 +140,7 @@ def run_scenario(
         "updated_at": datetime.now().isoformat(timespec="seconds"),
         "request": request_text,
         "status": result.get("status", "answered"),
-        "assistant_text": result.get("assistant_text", ""),
+        "assistant_text": assistant_text,
         "rounds": result.get("rounds", []),
         "tool_events": result.get("tool_events", []),
     }
@@ -143,12 +152,12 @@ def run_scenario(
         "status": result.get("status", "answered"),
         "tool_call_count": sum(len(round_data.get("tool_calls", [])) for round_data in result.get("rounds", [])),
         "round_count": len(result.get("rounds", [])),
-        "response_preview": (result.get("assistant_text") or "").strip()[:220],
+        "response_preview": assistant_text.strip()[:220],
     }
 
     return {
         "request": request_text,
-        "response": result.get("assistant_text", ""),
+        "response": assistant_text,
         "artifact_version": artifact_version.artifact_version,
         "transcript_path": str(transcript_path),
         "transcript": transcript,
