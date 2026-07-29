@@ -10,6 +10,8 @@ import yaml
 from .clarify.tool import ask_user
 from .papers.tool import arxiv_search
 from .paper_text.tool import get_arxiv_paper_text
+from .paper_rank.tool import rank_arxiv_papers
+from .citation_audit.tool import audit_arxiv_citations
 from .timeline.tool import get_user_tweets
 from .fetch.tool import read_url
 from .format.tool import render_digest
@@ -35,6 +37,8 @@ TOOL_FUNCTIONS = {
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "paper_rank": rank_arxiv_papers,
+    "citation_audit": audit_arxiv_citations,
 }
 
 
@@ -51,4 +55,3 @@ def to_openai_tools(declarations: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "parameters": item.get("parameters", {"type": "object", "properties": {}}),
         },
     } for item in declarations]
-
