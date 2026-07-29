@@ -3,9 +3,10 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import time
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from env_loader import load_lab_env
 from providers import make_provider
@@ -17,6 +18,7 @@ from versioning import artifact_version_dict, build_artifact_version
 ROOT = Path(__file__).parent
 ARTIFACTS_DIR = ROOT / "artifacts"
 load_lab_env(ROOT)
+EventHandler = Callable[[str, dict[str, Any]], None]
 
 
 def now_iso() -> str:
@@ -56,6 +58,16 @@ def execute_tool_call(call: ToolCall) -> dict[str, Any]:
     return {"tool": call.name, "args": call.args, "result": result}
 
 
+def emit_event(
+    event_handler: EventHandler | None,
+    event_name: str,
+    payload: dict[str, Any],
+) -> None:
+    """Emit trace events without coupling the agent loop to a transport."""
+    if event_handler is not None:
+        event_handler(event_name, payload)
+
+
 def tool_results_message(events: list[dict[str, Any]]) -> dict[str, str]:
     return {
         "role": "user",
@@ -84,13 +96,17 @@ def run_model_tool_loop(
     tools: list[dict[str, Any]],
     model: str | None,
     max_tool_rounds: int,
+    event_handler: EventHandler | None = None,
 ) -> dict[str, Any]:
     working_messages = list(messages)
     rounds: list[dict[str, Any]] = []
     all_tool_events: list[dict[str, Any]] = []
 
     for round_index in range(1, max_tool_rounds + 1):
+        emit_event(event_handler, "round_started", {"round": round_index})
+        model_started_at = time.perf_counter()
         response = provider.complete(working_messages, tools, model=model, temperature=0.0)
+        model_duration_ms = round((time.perf_counter() - model_started_at) * 1000)
         calls = response.tool_calls
         round_record: dict[str, Any] = {
             "round": round_index,
@@ -98,6 +114,16 @@ def run_model_tool_loop(
             "tool_calls": [{"name": call.name, "args": call.args} for call in calls],
             "tool_results": [],
         }
+        emit_event(
+            event_handler,
+            "model_completed",
+            {
+                "round": round_index,
+                "duration_ms": model_duration_ms,
+                "has_text": bool(response.text),
+                "tool_call_count": len(calls),
+            },
+        )
 
         if not calls:
             rounds.append(round_record)
@@ -113,13 +139,40 @@ def run_model_tool_loop(
 
         for call in calls:
             print(f"🔧 {call.name}({json.dumps(call.args, ensure_ascii=False, sort_keys=True)})")
+            call_index = len(all_tool_events) + 1
+            emit_event(
+                event_handler,
+                "tool_started",
+                {
+                    "round": round_index,
+                    "call_index": call_index,
+                    "name": call.name,
+                    "args": call.args,
+                },
+            )
+            tool_started_at = time.perf_counter()
             event = execute_tool_call(call)
+            tool_duration_ms = round((time.perf_counter() - tool_started_at) * 1000)
             round_record["tool_results"].append(event)
             all_tool_events.append(event)
+            result = event.get("result", {})
+            tool_status = "error" if isinstance(result, dict) and result.get("error") else "ok"
+            emit_event(
+                event_handler,
+                "tool_completed",
+                {
+                    "round": round_index,
+                    "call_index": call_index,
+                    "name": call.name,
+                    "args": call.args,
+                    "result": result,
+                    "status": tool_status,
+                    "duration_ms": tool_duration_ms,
+                },
+            )
 
             # Detect the clarification/pause tool by its output flag (rename-proof),
             # not by a hard-coded tool name.
-            result = event.get("result", {})
             if isinstance(result, dict) and result.get("awaiting_user"):
                 question = result.get("question") or call.args.get("question") or "Bạn bổ sung thêm thông tin nhé."
                 rounds.append(round_record)

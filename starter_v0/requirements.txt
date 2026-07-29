@@ -7,3 +7,6 @@ requests>=2.31.0
 PyYAML>=6.0
 # Optional arXiv PDF extraction (`paper_text`):
 pypdf>=4.0.0
+# Research Scout web UI:
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
