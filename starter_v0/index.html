@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Research Scout — trợ lý nghiên cứu tìm, đọc và tổng hợp paper khoa học."
+    />
+    <title>Research Scout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=Spectral:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Research Scout">
+          <span class="scout-eye scout-eye--brand" aria-hidden="true"><i></i></span>
+          <span class="brand-name">Research Scout</span>
+          <span class="beta-badge">BETA</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Điều hướng chính">
+          <button class="nav-pill active" type="button">Hội thoại</button>
+          <button class="nav-pill" type="button">Thư viện</button>
+          <button class="nav-pill" type="button">Bộ sưu tập</button>
+        </nav>
+
+        <div class="topbar-actions">
+          <div class="index-status" title="Chỉ mục paper đang hoạt động">
+            <span class="status-dot pulse-dot" aria-hidden="true"></span>
+            <span id="index-status-label">đang kiểm tra backend…</span>
+          </div>
+          <button class="trace-button" id="header-trace-button" type="button">
+            <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+            LOG TRACES
+          </button>
+        </div>
+      </header>
+
+      <main class="conversation" id="conversation" aria-live="polite">
+        <div class="conversation-inner">
+          <section class="session-heading" aria-labelledby="session-title">
+            <div>
+              <p class="eyebrow">PHIÊN NGHIÊN CỨU</p>
+              <h1 id="session-title">RAG và fine-tuning trong hỏi đáp y sinh</h1>
+            </div>
+            <p class="session-meta"><span id="source-count">4 nguồn</span> · <span id="turn-count">2 lượt</span> · 29/07</p>
+          </section>
+
+          <article class="message message--user">
+            <div class="user-bubble">
+              So sánh RAG và fine-tuning cho hỏi đáp y sinh dựa trên các nghiên cứu
+              2024–2025. Ưu tiên kết quả định lượng, chi phí và độ tin cậy của trích dẫn.
+            </div>
+          </article>
+
+          <article class="message message--agent">
+            <div class="agent-avatar" aria-label="Research Scout">
+              <span class="scout-eye" aria-hidden="true"><i></i></span>
+            </div>
+            <div class="agent-content">
+              <button class="trace-summary" type="button" data-open-trace="steps">
+                <span class="trace-step-dots" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i>
+                </span>
+                <span>4 bước · 9 tool calls · 12.4s · 18.2k tokens</span>
+                <span class="trace-link">xem trace →</span>
+              </button>
+
+              <div class="answer-copy">
+                <section class="answer-section">
+                  <p class="section-label">KẾT LUẬN NGẮN</p>
+                  <p>
+                    Với hỏi đáp y sinh cần kiến thức cập nhật, RAG đang là lựa chọn thực
+                    dụng hơn: BioRAG đạt <strong>71.4 EM trên BioASQ-12</strong>, cao hơn
+                    fine-tuning thuần <strong>8.2 điểm</strong>
+                    <button class="citation-chip" type="button" data-citation="3">3</button>.
+                    Fine-tuning vẫn hữu ích khi cần ép mô hình theo một văn phong hoặc
+                    ontology ổn định, nhưng không nên là lớp tri thức chính.
+                  </p>
+                </section>
+
+                <section class="answer-section">
+                  <p class="section-label">KẾT QUẢ ĐỊNH LƯỢNG CHÍNH</p>
+                  <ul class="answer-list">
+                    <li>
+                      RAG đa tầng cải thiện khả năng trả lời câu hỏi hiếm và câu hỏi cần
+                      nối nhiều bằng chứng; mức tăng lớn nhất là <strong>+8.2 EM</strong>
+                      so với fine-tuning cùng backbone
+                      <button class="citation-chip" type="button" data-citation="3">3</button>.
+                    </li>
+                    <li>
+                      Trong chu kỳ cập nhật hàng quý, chi phí fine-tune lại cao gấp
+                      <strong>5–7 lần</strong> việc cập nhật index và embedding
+                      <button class="citation-chip" type="button" data-citation="2">2</button>.
+                    </li>
+                    <li>
+                      <strong>42% lỗi còn lại là lỗi attribution</strong>: câu trả lời hợp
+                      lý nhưng trích dẫn không nâng đỡ đúng mệnh đề
+                      <button class="citation-chip" type="button" data-citation="4">4</button>.
+                    </li>
+                  </ul>
+                </section>
+
+                <section class="answer-section">
+                  <p class="section-label">KHUYẾN NGHỊ TRIỂN KHAI</p>
+                  <p>
+                    Dùng RAG làm đường mặc định, thêm fine-tuning nhẹ cho định dạng đầu ra
+                    và từ vựng chuyên khoa. Tách riêng bước kiểm tra attribution trước khi
+                    trả lời; ưu tiên bằng chứng ở mức đoạn và lưu provenance tới bảng hoặc
+                    trang gốc.
+                  </p>
+                </section>
+
+                <section class="sources-section" aria-labelledby="sources-title">
+                  <div class="sources-heading">
+                    <p class="section-label" id="sources-title">NGUỒN ĐÃ ĐỌC</p>
+                    <span>4 / 4 truy cập được</span>
+                  </div>
+                  <div class="source-grid">
+                    <button class="source-card" type="button" data-open-trace="citations" data-citation="1">
+                      <span class="source-number">01</span>
+                      <span>
+                        <strong>A Survey of Retrieval-Augmented Generation in Biomedicine</strong>
+                        <small>arXiv 2024 · Nguyen+ · <em>4 đoạn</em></small>
+                      </span>
+                    </button>
+                    <button class="source-card" type="button" data-open-trace="citations" data-citation="2">
+                      <span class="source-number">02</span>
+                      <span>
+                        <strong>The Cost of Domain Adaptation for Medical Language Models</strong>
+                        <small>EMNLP 2024 · Patel+ · <em>6 đoạn</em></small>
+                      </span>
+                    </button>
+                    <button class="source-card" type="button" data-open-trace="citations" data-citation="3">
+                      <span class="source-number">03</span>
+                      <span>
+                        <strong>BioRAG: Multi-stage Retrieval for Biomedical QA</strong>
+                        <small>arXiv 2025 · Lin+ · <em>7 đoạn</em></small>
+                      </span>
+                    </button>
+                    <button class="source-card" type="button" data-open-trace="citations" data-citation="4">
+                      <span class="source-number">04</span>
+                      <span>
+                        <strong>Measuring Citation Faithfulness in Scientific QA</strong>
+                        <small>ACL 2025 · Rossi+ · <em>5 đoạn</em></small>
+                      </span>
+                    </button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <div id="dynamic-turns"></div>
+          <div class="conversation-spacer" aria-hidden="true"></div>
+        </div>
+      </main>
+
+      <section class="composer-shell" aria-label="Soạn câu hỏi">
+        <div class="composer-inner">
+          <div class="suggestion-row">
+            <button type="button" class="suggestion-chip">Chỉ giữ paper có công bố code</button>
+            <button type="button" class="suggestion-chip">Dựng bảng so sánh benchmark</button>
+            <button type="button" class="suggestion-chip">Tìm phản biện của kết luận này</button>
+          </div>
+          <div class="composer-box">
+            <textarea
+              id="question-input"
+              rows="1"
+              aria-label="Câu hỏi tiếp theo"
+              placeholder="Hỏi tiếp, hoặc dán link/DOI của một paper…"
+            ></textarea>
+            <div class="composer-actions">
+              <span class="send-hint">⏎ gửi</span>
+              <button id="send-button" class="send-button" type="button" aria-label="Gửi câu hỏi">↑</button>
+            </div>
+          </div>
+          <div class="composer-foot">
+            <span>arXiv + PubMed + Semantic Scholar · trace được ghi cho mọi lượt</span>
+            <span class="privacy-note">nguồn có provenance</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="drawer-layer" id="drawer-layer" aria-hidden="true">
+      <button class="drawer-backdrop" id="drawer-backdrop" type="button" aria-label="Đóng log traces"></button>
+      <aside class="trace-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+        <header class="drawer-header">
+          <div class="drawer-title-row">
+            <div class="drawer-title-wrap">
+              <h2 id="drawer-title">Log traces</h2>
+              <span class="run-status" id="run-status"><i></i> thành công</span>
+            </div>
+            <button class="drawer-close" id="drawer-close" type="button" aria-label="Đóng">✕</button>
+          </div>
+          <p class="run-meta" id="run-meta">run_8f3c2a · claude-sonnet-4.5 · scout-v2 · 29/07/2026 14:08</p>
+
+          <div class="trace-settings">
+            <label class="speed-control">
+              <span>TỐC ĐỘ MÔ PHỎNG</span>
+              <select id="speed-select" aria-label="Tốc độ mô phỏng">
+                <option value="0.4">0.4×</option>
+                <option value="0.7">0.7×</option>
+                <option value="1" selected>1×</option>
+                <option value="1.5">1.5×</option>
+                <option value="2">2×</option>
+                <option value="3">3×</option>
+              </select>
+            </label>
+            <label class="reasoning-toggle">
+              <input type="checkbox" id="reasoning-toggle" checked />
+              <span class="toggle-track"><i></i></span>
+              <span>HIỆN REASONING</span>
+            </label>
+          </div>
+
+          <div class="metrics-grid">
+            <div><span>TỔNG THỜI GIAN</span><strong id="metric-duration">12.4s</strong></div>
+            <div><span>TOOL CALLS</span><strong id="metric-tools">9</strong></div>
+            <div><span>VÒNG AGENT</span><strong id="metric-rounds">4</strong></div>
+            <div><span>LỖI TOOL</span><strong class="retry-metric" id="metric-errors">1</strong></div>
+          </div>
+
+          <nav class="drawer-tabs" aria-label="Nội dung trace">
+            <button class="drawer-tab active" type="button" data-tab="steps">CÁC BƯỚC <span id="steps-count">4</span></button>
+            <button class="drawer-tab" type="button" data-tab="tools">TOOL CALLS <span id="tools-count">9</span></button>
+            <button class="drawer-tab" type="button" data-tab="citations">TRÍCH DẪN <span id="citations-count">4</span></button>
+          </nav>
+        </header>
+
+        <div class="drawer-body">
+          <section class="tab-panel active" id="panel-steps" data-panel="steps">
+            <div class="timeline">
+              <article class="timeline-item open">
+                <span class="timeline-dot"></span>
+                <button class="step-card-head" type="button" aria-expanded="true">
+                  <span class="step-index">01</span>
+                  <strong>Lập kế hoạch</strong>
+                  <span class="tool-badge">decompose_query</span>
+                  <span class="step-stats">1.2s · 1.1k</span>
+                  <span class="chevron">▾</span>
+                </button>
+                <div class="step-card-body">
+                  <p>Chia yêu cầu thành ba trục: hiệu quả benchmark, chi phí cập nhật và độ trung thực trích dẫn.</p>
+                  <blockquote class="reasoning-block">Cần khóa khoảng thời gian 2024–2025 và ưu tiên nghiên cứu có đối chứng trực tiếp thay vì bài quan điểm.</blockquote>
+                  <div class="json-block json-block--input">
+                    <span>INPUT</span>
+                    <pre>{
+  "query": "RAG vs fine-tuning biomedical QA",
+  "years": [2024, 2025],
+  "dimensions": ["quality", "cost", "attribution"]
+}</pre>
+                  </div>
+                  <div class="json-block json-block--output">
+                    <span>OUTPUT</span>
+                    <pre>{
+  "subtasks": 3,
+  "search_queries": 5,
+  "evidence_threshold": 0.82
+}</pre>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <button class="step-card-head" type="button" aria-expanded="false">
+                  <span class="step-index">02</span>
+                  <strong>Tìm kiếm</strong>
+                  <span class="tool-badge">search_papers</span>
+                  <span class="step-stats">3.1s · 3.8k</span>
+                  <span class="chevron">▸</span>
+                </button>
+                <div class="step-card-body">
+                  <p>Truy vấn ba chỉ mục, hợp nhất DOI và lọc 38 kết quả xuống 4 nguồn phù hợp nhất.</p>
+                  <blockquote class="reasoning-block">Giữ một survey để phủ bối cảnh, hai nghiên cứu định lượng và một nghiên cứu chuyên về attribution.</blockquote>
+                  <div class="json-block json-block--input">
+                    <span>INPUT</span>
+                    <pre>{
+  "indexes": ["arXiv", "PubMed", "Semantic Scholar"],
+  "top_k": 40,
+  "require_metrics": true
+}</pre>
+                  </div>
+                  <div class="json-block json-block--output">
+                    <span>OUTPUT</span>
+                    <pre>{
+  "found": 38,
+  "deduplicated": 31,
+  "selected": 4
+}</pre>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <button class="step-card-head" type="button" aria-expanded="false">
+                  <span class="step-index">03</span>
+                  <strong>Đọc &amp; trích xuất</strong>
+                  <span class="tool-badge">read_paper ×6</span>
+                  <span class="step-stats">5.4s · 9.7k</span>
+                  <span class="chevron">▸</span>
+                </button>
+                <div class="step-card-body">
+                  <p>Đọc phần phương pháp, bảng kết quả và giới hạn; đối chiếu từng con số với vị trí trong paper.</p>
+                  <blockquote class="reasoning-block">Ba số liệu then chốt phải có provenance cụ thể và xuất hiện nhất quán trong kết luận cuối.</blockquote>
+                  <div class="json-block json-block--input">
+                    <span>INPUT</span>
+                    <pre>{
+  "papers": 4,
+  "sections": ["Methods", "Results", "Limitations"],
+  "extract_tables": true
+}</pre>
+                  </div>
+                  <div class="json-block json-block--output">
+                    <span>OUTPUT</span>
+                    <pre>{
+  "biorag_bioasq12_em": 71.4,
+  "gain_vs_finetuning_points": 8.2,
+  "retraining_cost_vs_reindex": "5–7x",
+  "remaining_errors_attribution_pct": 42,
+  "citations_verified": 4
+}</pre>
+                  </div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <button class="step-card-head" type="button" aria-expanded="false">
+                  <span class="step-index">04</span>
+                  <strong>Tổng hợp</strong>
+                  <span class="tool-badge">synthesize</span>
+                  <span class="step-stats">2.7s · 3.6k</span>
+                  <span class="chevron">▸</span>
+                </button>
+                <div class="step-card-body">
+                  <p>Tổng hợp theo mức độ mạnh của bằng chứng và viết khuyến nghị triển khai có điều kiện.</p>
+                  <blockquote class="reasoning-block">Không khẳng định RAG thắng tuyệt đối; nêu rõ vùng fine-tuning vẫn có lợi là định dạng và ontology ổn định.</blockquote>
+                  <div class="json-block json-block--input">
+                    <span>INPUT</span>
+                    <pre>{
+  "evidence_items": 12,
+  "citation_style": "inline_numeric",
+  "language": "vi"
+}</pre>
+                  </div>
+                  <div class="json-block json-block--output">
+                    <span>OUTPUT</span>
+                    <pre>{
+  "claims": 6,
+  "citations": 4,
+  "confidence": 0.91
+}</pre>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-tools" data-panel="tools">
+            <div class="tool-list" id="tool-list"></div>
+          </section>
+
+          <section class="tab-panel" id="panel-citations" data-panel="citations">
+            <p class="citation-intro">
+              Bốn luận điểm dưới đây đã được đối chiếu với nguyên văn tại nguồn. Chọn một thẻ để xem provenance.
+            </p>
+            <div class="citation-list" id="citation-list"></div>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <div class="toast" id="toast" role="status"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
