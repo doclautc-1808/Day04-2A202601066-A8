@@ -31,6 +31,35 @@ DEFAULT_SCENARIO = (
 DEFAULT_VERSIONS = ["v0", "v1", "v2", "v3"]
 
 
+def _has_api_key(env_var: str) -> bool:
+    return bool((os.getenv(env_var) or "").strip())
+
+
+def _resolve_runtime_provider(requested_provider: str, requested_model: str | None = None) -> tuple[Any, str, str | None]:
+    if requested_provider == "ollama":
+        provider = make_provider("ollama")
+        return provider, "ollama", requested_model or os.getenv("OLLAMA_MODEL") or getattr(provider, "default_model", None)
+
+    provider_key_map = {
+        "openai": "OPENAI_API_KEY",
+        "openrouter": "OPENROUTER_API_KEY",
+        "anthropic": "ANTHROPIC_API_KEY",
+        "gemini": "GEMINI_API_KEY",
+    }
+
+    if requested_provider in provider_key_map:
+        if _has_api_key(provider_key_map[requested_provider]):
+            provider = make_provider(requested_provider)
+            return provider, requested_provider, requested_model
+
+        fallback_provider = make_provider("ollama")
+        fallback_model = requested_model or os.getenv("OLLAMA_MODEL") or getattr(fallback_provider, "default_model", None)
+        return fallback_provider, "ollama", fallback_model
+
+    provider = make_provider(requested_provider)
+    return provider, requested_provider, requested_model
+
+
 def _resolve_path(path_value: str | os.PathLike[str] | Path, *, base_dir: Path | None = None) -> Path:
     path = Path(path_value)
     if path.is_absolute():
@@ -181,8 +210,11 @@ def main() -> None:
     parser.add_argument("--max-tool-rounds", type=int, default=4)
     args = parser.parse_args()
 
+    provider, runtime_provider_name, resolved_model = _resolve_runtime_provider(args.provider, args.model)
+    if runtime_provider_name != args.provider:
+        print(f"[app.py] Không tìm thấy API key cho {args.provider}; chuyển sang Ollama local ({resolved_model})")
+
     if st is None:
-        provider = make_provider(args.provider)
         payload = run_scenario(
             provider=provider,
             request_text=args.request,
@@ -191,7 +223,7 @@ def main() -> None:
             tools_path=args.tools,
             transcripts_dir=args.transcripts_dir,
             max_tool_rounds=args.max_tool_rounds,
-            model=args.model,
+            model=resolved_model,
         )
         print(json.dumps(payload["summary"], ensure_ascii=False, indent=2))
         return
@@ -203,7 +235,10 @@ def main() -> None:
     request_text = st.text_area("Request", value=args.request, height=160)
     selected_versions = st.multiselect("Chọn các version để so sánh", DEFAULT_VERSIONS, default=args.versions[:1])
     if st.button("Chạy scenario"):
-        provider = make_provider(args.provider)
+        provider, runtime_provider_name, resolved_model = _resolve_runtime_provider(args.provider, args.model)
+        if runtime_provider_name != args.provider:
+            st.info(f"Không tìm thấy API key cho {args.provider}; chuyển sang Ollama local ({resolved_model})")
+
         results: list[dict[str, Any]] = []
         for version in selected_versions:
             results.append(
@@ -215,7 +250,7 @@ def main() -> None:
                     tools_path=args.tools,
                     transcripts_dir=args.transcripts_dir,
                     max_tool_rounds=args.max_tool_rounds,
-                    model=args.model,
+                    model=resolved_model,
                 )
             )
         _render_results(results)

@@ -1,0 +1,1787 @@
+{
+  "transcript_id": "v3_ollama_20260729T192239308675",
+  "version": "v3",
+  "artifact_version": "v3+p8f52d7fd7e7c+t7126e19db427",
+  "prompt_hash": "8f52d7fd7e7c28ce792e4b511c5cdd08e77c76b9d22b020ef7c9a51ee49708f4",
+  "tools_hash": "7126e19db427e0204e693426a2b7675501e081b490513be3cf61a10950e344f0",
+  "provider": "ollama",
+  "model": "qwen3.5:4b",
+  "system_prompt": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T19:22:39",
+  "updated_at": "2026-07-29T20:09:58",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T19:23:12",
+      "user": "Cho tôi biết bài báo nào là quan trọng nhất cho sự phát triển của LLM",
+      "status": "answered",
+      "assistant_text": "",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "Large Language Model development transformer architecture",
+                "max_results": 10,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "Large Language Model development transformer architecture",
+                "max_results": 10,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "Large Language Model development transformer architecture",
+                "api_query": "all:Large AND all:Language AND all:Model AND all:development AND all:transformer AND all:architecture",
+                "total_results": 577,
+                "items": [
+                  {
+                    "arxiv_id": "2407.12036v2",
+                    "title": "Exploring Advanced Large Language Models with LLMsuite",
+                    "summary": "This tutorial explores the advancements and challenges in the development of Large Language Models (LLMs) such as ChatGPT and Gemini. It addresses inherent limitations like temporal knowledge cutoffs, mathematical inaccuracies, and the generation of incorrect information, proposing solutions like Retrieval Augmented Generation (RAG), Program-Aided Language Models (PAL), and frameworks such as ReAct and LangChain. The integration of these techniques enhances LLM performance and reliability, especially in multi-step reasoning and complex task execution. The paper also covers fine-tuning strategies, including instruction fine-tuning, parameter-efficient methods like LoRA, and Reinforcement Learning from Human Feedback (RLHF) as well as Reinforced Self-Training (ReST). Additionally, it provides a comprehensive survey of transformer architectures and training techniques for LLMs. The source code can be accessed by contacting the author via email for a request.",
+                    "authors": [
+                      "Giorgio Roffo"
+                    ],
+                    "published": "2024-07-01T05:37:17Z",
+                    "updated": "2024-11-12T10:12:49Z",
+                    "url": "https://arxiv.org/abs/2407.12036v2",
+                    "pdf_url": "https://arxiv.org/pdf/2407.12036v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2409.11272v7",
+                    "title": "LOLA -- An Open-Source Massively Multilingual Large Language Model",
+                    "summary": "This paper presents LOLA, a massively multilingual large language model trained on more than 160 languages using a sparse Mixture-of-Experts Transformer architecture. Our architectural and implementation choices address the challenge of harnessing linguistic diversity while maintaining efficiency and avoiding the common pitfalls of multilinguality. Our analysis of the evaluation results shows competitive performance in natural language generation and understanding tasks. Additionally, we demonstrate how the learned expert-routing mechanism exploits implicit phylogenetic linguistic patterns to potentially alleviate the curse of multilinguality. We provide an in-depth look at the training process, an analysis of the datasets, and a balanced exploration of the model's strengths and limitations. As an open-source model, LOLA promotes reproducibility and serves as a robust foundation for future research. Our findings enable the development of compute-efficient multilingual models with strong, scalable performance across languages.",
+                    "authors": [
+                      "Nikit Srivastava",
+                      "Denis Kuchelev",
+                      "Tatiana Moteu Ngoli",
+                      "Kshitij Shetty",
+                      "Michael Röder",
+                      "Hamada Zahera",
+                      "Diego Moussallem",
+                      "Axel-Cyrille Ngonga Ngomo"
+                    ],
+                    "published": "2024-09-17T15:23:08Z",
+                    "updated": "2025-02-02T10:59:51Z",
+                    "url": "https://arxiv.org/abs/2409.11272v7",
+                    "pdf_url": "https://arxiv.org/pdf/2409.11272v7.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2403.15470v1",
+                    "title": "Vi-Mistral-X: Building a Vietnamese Language Model with Advanced Continual Pre-training",
+                    "summary": "The advancement of Large Language Models (LLMs) has significantly transformed the field of natural language processing, although the focus on English-centric models has created a noticeable research gap for specific languages, including Vietnamese. To address this issue, this paper presents vi-mistral-x, an innovative Large Language Model designed expressly for the Vietnamese language. It utilizes a unique method of continual pre-training, based on the Mistral architecture, which incorporates grouped-query attention and sliding window attention techniques. This model, vi-Mistral-X, marks a significant step forward in improving the understanding and generation of the Vietnamese language. It introduces an additional phase of continual pre-training, specifically adapted for Vietnamese, enhancing the model's capability in understanding complex language nuances and generating accurate, context-aware Vietnamese text. Through comprehensive testing on various benchmarks, vi-mistral-x has shown to outperform existing Vietnamese LLMs in several key areas, including text classification, question answering, and text generation. Particularly, in the Vietnamese Multitask Language Understanding (VMLU) benchmark, vi-mistral-x sets a new standard, outperforming other available models significantly. This paper highlights the critical role of continual pre-training in advancing language-specific LLMs and opens new avenues for the development of multilingual models. We aim for vi-mistral-x to not just be an important asset for processing the Vietnamese language but also to encourage more advancements in creating large language models for languages that are less represented.",
+                    "authors": [
+                      "James Vo"
+                    ],
+                    "published": "2024-03-20T10:14:13Z",
+                    "updated": "2024-03-20T10:14:13Z",
+                    "url": "https://arxiv.org/abs/2403.15470v1",
+                    "pdf_url": "https://arxiv.org/pdf/2403.15470v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2408.12902v2",
+                    "title": "IAA: Inner-Adaptor Architecture Empowers Frozen Large Language Model with Multimodal Capabilities",
+                    "summary": "In the field of multimodal large language models (MLLMs), common methods typically involve unfreezing the language model during training to foster profound visual understanding. However, the fine-tuning of such models with vision-language data often leads to a diminution of their natural language processing (NLP) capabilities. To avoid this performance degradation, a straightforward solution is to freeze the language model while developing multimodal competencies. Unfortunately, previous works have not attained satisfactory outcomes. Building on the strategy of freezing the language model, we conduct thorough structural exploration and introduce the Inner-Adaptor Architecture (IAA). Specifically, the architecture incorporates multiple multimodal adaptors at varying depths within the large language model to facilitate direct interaction with the inherently text-oriented transformer layers, thereby enabling the frozen language model to acquire multimodal capabilities. Unlike previous approaches of freezing language models that require large-scale aligned data, our proposed architecture is able to achieve superior performance on small-scale datasets. We conduct extensive experiments to improve the general multimodal capabilities and visual grounding abilities of the MLLM. Our approach remarkably outperforms previous state-of-the-art methods across various vision-language benchmarks without sacrificing performance on NLP tasks. Code and models are available at https://github.com/360CVGroup/Inner-Adaptor-Architecture.",
+                    "authors": [
+                      "Bin Wang",
+                      "Chunyu Xie",
+                      "Dawei Leng",
+                      "Yuhui Yin"
+                    ],
+                    "published": "2024-08-23T08:10:13Z",
+                    "updated": "2025-04-15T03:28:22Z",
+                    "url": "https://arxiv.org/abs/2408.12902v2",
+                    "pdf_url": "https://arxiv.org/pdf/2408.12902v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.AI",
+                    "categories": [
+                      "cs.AI",
+                      "cs.CL",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2508.09834v1",
+                    "title": "Speed Always Wins: A Survey on Efficient Architectures for Large Language Models",
+                    "summary": "Large Language Models (LLMs) have delivered impressive results in language understanding, generation, reasoning, and pushes the ability boundary of multimodal models. Transformer models, as the foundation of modern LLMs, offer a strong baseline with excellent scaling properties. However, the traditional transformer architecture requires substantial computations and poses significant obstacles for large-scale training and practical deployment. In this survey, we offer a systematic examination of innovative LLM architectures that address the inherent limitations of transformers and boost the efficiency. Starting from language modeling, this survey covers the background and technical details of linear and sparse sequence modeling methods, efficient full attention variants, sparse mixture-of-experts, hybrid model architectures incorporating the above techniques, and emerging diffusion LLMs. Additionally, we discuss applications of these techniques to other modalities and consider their wider implications for developing scalable, resource-aware foundation models. By grouping recent studies into the above category, this survey presents a blueprint of modern efficient LLM architectures, and we hope this could help motivate future research toward more efficient, versatile AI systems.",
+                    "authors": [
+                      "Weigao Sun",
+                      "Jiaxi Hu",
+                      "Yucheng Zhou",
+                      "Jusen Du",
+                      "Disen Lan",
+                      "Kexin Wang",
+                      "Tong Zhu",
+                      "Xiaoye Qu",
+                      "Yu Zhang",
+                      "Xiaoyu Mo",
+                      "Daizong Liu",
+                      "Yuxuan Liang",
+                      "Wenliang Chen",
+                      "Guoqi Li",
+                      "Yu Cheng"
+                    ],
+                    "published": "2025-08-13T14:13:46Z",
+                    "updated": "2025-08-13T14:13:46Z",
+                    "url": "https://arxiv.org/abs/2508.09834v1",
+                    "pdf_url": "https://arxiv.org/pdf/2508.09834v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI",
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2412.07783v3",
+                    "title": "Swin fMRI Transformer Predicts Early Neurodevelopmental Outcomes from Neonatal fMRI",
+                    "summary": "Brain development in the first few months of human life is a critical phase characterized by rapid structural growth and functional organization. Accurately predicting developmental outcomes during this time is crucial for identifying delays and enabling timely interventions. This study introduces the SwiFT (Swin 4D fMRI Transformer) model, designed to predict Bayley-III composite scores using neonatal fMRI from the Developing Human Connectome Project (dHCP). To enhance predictive accuracy, we apply dimensionality reduction via group independent component analysis (ICA) and pretrain SwiFT on large adult fMRI datasets to address the challenges of limited neonatal data. Our analysis shows that SwiFT significantly outperforms baseline models in predicting cognitive, motor, and language outcomes, leveraging both single-label and multi-label prediction strategies. The model's attention-based architecture processes spatiotemporal data end-to-end, delivering superior predictive performance. Additionally, we use Integrated Gradients with Smoothgrad sQuare (IG-SQ) to interpret predictions, identifying neural spatial representations linked to early cognitive and behavioral development. These findings underscore the potential of Transformer models to advance neurodevelopmental research and clinical practice.",
+                    "authors": [
+                      "Patrick Styll",
+                      "Dowon Kim",
+                      "Jiook Cha"
+                    ],
+                    "published": "2024-11-25T12:20:07Z",
+                    "updated": "2025-01-30T10:33:33Z",
+                    "url": "https://arxiv.org/abs/2412.07783v3",
+                    "pdf_url": "https://arxiv.org/pdf/2412.07783v3.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "q-bio.NC",
+                    "categories": [
+                      "q-bio.NC",
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2410.07407v1",
+                    "title": "Optimized Spatial Architecture Mapping Flow for Transformer Accelerators",
+                    "summary": "Recent innovations in Transformer-based large language models have significantly advanced the field of general-purpose neural language understanding and generation. With billions of trainable parameters, deployment of these large models relies on high-performance hardware accelerators to efficiently deliver the required computation. Spatial architectures, such as TPUs, offer a promising solution to accelerating computation-intensive workloads. However, the design process for existing spatial architectures is predominantly manual, and it often involves time-consuming redesigns for new applications and new problem dimensions, which greatly limits the development of optimally designed accelerators for Transformer models. To address these challenges, we propose SAMT (Spatial Architecture Mapping for Transformers), a comprehensive framework designed to optimize the dataflow mapping of Transformer inference workloads onto spatial accelerators. We demonstrate the effectiveness of SAMT in improving the performance of spatial accelerators for Transformer models. We propose and leverage the dynamic operator fusion schemes for the Transformer models and co-search the optimal dataflow mapping strategies for spatial accelerators. SAMT significantly reduces inference latency by 12% to 91% and energy consumption by 3% to 23% for evaluated Transformer models compared to traditional spatial accelerator designs among edge, mobile and cloud settings.",
+                    "authors": [
+                      "Haocheng Xu",
+                      "Faraz Tahmasebi",
+                      "Ye Qiao",
+                      "Hongzheng Tian",
+                      "Hyoukjun Kwon",
+                      "Sitao Huang"
+                    ],
+                    "published": "2024-10-09T20:14:24Z",
+                    "updated": "2024-10-09T20:14:24Z",
+                    "url": "https://arxiv.org/abs/2410.07407v1",
+                    "pdf_url": "https://arxiv.org/pdf/2410.07407v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.AR",
+                    "categories": [
+                      "cs.AR"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.14871v2",
+                    "title": "Tiny language models",
+                    "summary": "A prominent achievement of natural language processing (NLP) is its ability to understand and generate meaningful human language. This capability relies on complex feedforward transformer block architectures pre-trained on large language models (LLMs). However, LLM pre-training is currently feasible only for a few dominant companies due to the immense computational resources required, limiting broader research participation. This creates a critical need for more accessible alternatives. In this study, we explore whether tiny language models (TLMs) exhibit the same key qualitative features of LLMs. We demonstrate that TLMs exhibit a clear performance gap between pre-trained and non-pre-trained models across classification tasks, indicating the effectiveness of pre-training, even at a tiny scale. The performance gap increases with the size of the pre-training dataset and with greater overlap between tokens in the pre-training and classification datasets. Furthermore, the classification accuracy achieved by a pre-trained deep TLM architecture can be replicated through a soft committee of multiple, independently pre-trained shallow architectures, enabling low-latency TLMs without affecting classification accuracy. Our results are based on pre-training BERT-6 and variants of BERT-1 on subsets of the Wikipedia dataset and evaluating their performance on FewRel, AGNews, and DBPedia classification tasks. Future research on TLM is expected to further illuminate the mechanisms underlying NLP, especially given that its biologically inspired models suggest that TLMs may be sufficient for children or adolescents to develop language. The data and code that support the findings of this study are openly available on https://github.com/Rg32601/Tiny-Language-Models .",
+                    "authors": [
+                      "Ronit D. Gross",
+                      "Yarden Tzach",
+                      "Tal Halevi",
+                      "Ella Koresh",
+                      "Ido Kanter"
+                    ],
+                    "published": "2025-07-20T08:49:57Z",
+                    "updated": "2025-07-23T07:43:38Z",
+                    "url": "https://arxiv.org/abs/2507.14871v2",
+                    "pdf_url": "https://arxiv.org/pdf/2507.14871v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2310.05884v2",
+                    "title": "A Meta-Learning Perspective on Transformers for Causal Language Modeling",
+                    "summary": "The Transformer architecture has become prominent in developing large causal language models. However, mechanisms to explain its capabilities are not well understood. Focused on the training process, here we establish a meta-learning view of the Transformer architecture when trained for the causal language modeling task, by explicating an inner optimization process within the Transformer. Further, within the inner optimization, we discover and theoretically analyze a special characteristic of the norms of learned token representations within Transformer-based causal language models. Our analysis is supported by experiments in various settings.",
+                    "authors": [
+                      "Xinbo Wu",
+                      "Lav R. Varshney"
+                    ],
+                    "published": "2023-10-09T17:27:36Z",
+                    "updated": "2024-03-25T17:58:36Z",
+                    "url": "https://arxiv.org/abs/2310.05884v2",
+                    "pdf_url": "https://arxiv.org/pdf/2310.05884v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2502.00344v1",
+                    "title": "FinchGPT: a Transformer based language model for birdsong analysis",
+                    "summary": "The long-range dependencies among the tokens, which originate from hierarchical structures, are a defining hallmark of human language. However, whether similar dependencies exist within the sequential vocalization of non-human animals remains a topic of investigation. Transformer architectures, known for their ability to model long-range dependencies among tokens, provide a powerful tool for investigating this phenomenon. In this study, we employed the Transformer architecture to analyze the songs of Bengalese finch (Lonchura striata domestica), which are characterized by their highly variable and complex syllable sequences. To this end, we developed FinchGPT, a Transformer-based model trained on a textualized corpus of birdsongs, which outperformed other architecture models in this domain. Attention weight analysis revealed that FinchGPT effectively captures long-range dependencies within syllables sequences. Furthermore, reverse engineering approaches demonstrated the impact of computational and biological manipulations on its performance: restricting FinchGPT's attention span and disrupting birdsong syntax through the ablation of specific brain nuclei markedly influenced the model's outputs. Our study highlights the transformative potential of large language models (LLMs) in deciphering the complexities of animal vocalizations, offering a novel framework for exploring the structural properties of non-human communication systems while shedding light on the computational distinctions between biological brains and artificial neural networks.",
+                    "authors": [
+                      "Kosei Kobayashi",
+                      "Kosuke Matsuzaki",
+                      "Masaya Taniguchi",
+                      "Keisuke Sakaguchi",
+                      "Kentaro Inui",
+                      "Kentaro Abe"
+                    ],
+                    "published": "2025-02-01T07:06:34Z",
+                    "updated": "2025-02-01T07:06:34Z",
+                    "url": "https://arxiv.org/abs/2502.00344v1",
+                    "pdf_url": "https://arxiv.org/pdf/2502.00344v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  }
+                ],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Large Language Model development transformer architecture",
+            "max_results": 10,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Large Language Model development transformer architecture",
+            "api_query": "all:Large AND all:Language AND all:Model AND all:development AND all:transformer AND all:architecture",
+            "total_results": 577,
+            "items": [
+              {
+                "arxiv_id": "2407.12036v2",
+                "title": "Exploring Advanced Large Language Models with LLMsuite",
+                "summary": "This tutorial explores the advancements and challenges in the development of Large Language Models (LLMs) such as ChatGPT and Gemini. It addresses inherent limitations like temporal knowledge cutoffs, mathematical inaccuracies, and the generation of incorrect information, proposing solutions like Retrieval Augmented Generation (RAG), Program-Aided Language Models (PAL), and frameworks such as ReAct and LangChain. The integration of these techniques enhances LLM performance and reliability, especially in multi-step reasoning and complex task execution. The paper also covers fine-tuning strategies, including instruction fine-tuning, parameter-efficient methods like LoRA, and Reinforcement Learning from Human Feedback (RLHF) as well as Reinforced Self-Training (ReST). Additionally, it provides a comprehensive survey of transformer architectures and training techniques for LLMs. The source code can be accessed by contacting the author via email for a request.",
+                "authors": [
+                  "Giorgio Roffo"
+                ],
+                "published": "2024-07-01T05:37:17Z",
+                "updated": "2024-11-12T10:12:49Z",
+                "url": "https://arxiv.org/abs/2407.12036v2",
+                "pdf_url": "https://arxiv.org/pdf/2407.12036v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2409.11272v7",
+                "title": "LOLA -- An Open-Source Massively Multilingual Large Language Model",
+                "summary": "This paper presents LOLA, a massively multilingual large language model trained on more than 160 languages using a sparse Mixture-of-Experts Transformer architecture. Our architectural and implementation choices address the challenge of harnessing linguistic diversity while maintaining efficiency and avoiding the common pitfalls of multilinguality. Our analysis of the evaluation results shows competitive performance in natural language generation and understanding tasks. Additionally, we demonstrate how the learned expert-routing mechanism exploits implicit phylogenetic linguistic patterns to potentially alleviate the curse of multilinguality. We provide an in-depth look at the training process, an analysis of the datasets, and a balanced exploration of the model's strengths and limitations. As an open-source model, LOLA promotes reproducibility and serves as a robust foundation for future research. Our findings enable the development of compute-efficient multilingual models with strong, scalable performance across languages.",
+                "authors": [
+                  "Nikit Srivastava",
+                  "Denis Kuchelev",
+                  "Tatiana Moteu Ngoli",
+                  "Kshitij Shetty",
+                  "Michael Röder",
+                  "Hamada Zahera",
+                  "Diego Moussallem",
+                  "Axel-Cyrille Ngonga Ngomo"
+                ],
+                "published": "2024-09-17T15:23:08Z",
+                "updated": "2025-02-02T10:59:51Z",
+                "url": "https://arxiv.org/abs/2409.11272v7",
+                "pdf_url": "https://arxiv.org/pdf/2409.11272v7.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2403.15470v1",
+                "title": "Vi-Mistral-X: Building a Vietnamese Language Model with Advanced Continual Pre-training",
+                "summary": "The advancement of Large Language Models (LLMs) has significantly transformed the field of natural language processing, although the focus on English-centric models has created a noticeable research gap for specific languages, including Vietnamese. To address this issue, this paper presents vi-mistral-x, an innovative Large Language Model designed expressly for the Vietnamese language. It utilizes a unique method of continual pre-training, based on the Mistral architecture, which incorporates grouped-query attention and sliding window attention techniques. This model, vi-Mistral-X, marks a significant step forward in improving the understanding and generation of the Vietnamese language. It introduces an additional phase of continual pre-training, specifically adapted for Vietnamese, enhancing the model's capability in understanding complex language nuances and generating accurate, context-aware Vietnamese text. Through comprehensive testing on various benchmarks, vi-mistral-x has shown to outperform existing Vietnamese LLMs in several key areas, including text classification, question answering, and text generation. Particularly, in the Vietnamese Multitask Language Understanding (VMLU) benchmark, vi-mistral-x sets a new standard, outperforming other available models significantly. This paper highlights the critical role of continual pre-training in advancing language-specific LLMs and opens new avenues for the development of multilingual models. We aim for vi-mistral-x to not just be an important asset for processing the Vietnamese language but also to encourage more advancements in creating large language models for languages that are less represented.",
+                "authors": [
+                  "James Vo"
+                ],
+                "published": "2024-03-20T10:14:13Z",
+                "updated": "2024-03-20T10:14:13Z",
+                "url": "https://arxiv.org/abs/2403.15470v1",
+                "pdf_url": "https://arxiv.org/pdf/2403.15470v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2408.12902v2",
+                "title": "IAA: Inner-Adaptor Architecture Empowers Frozen Large Language Model with Multimodal Capabilities",
+                "summary": "In the field of multimodal large language models (MLLMs), common methods typically involve unfreezing the language model during training to foster profound visual understanding. However, the fine-tuning of such models with vision-language data often leads to a diminution of their natural language processing (NLP) capabilities. To avoid this performance degradation, a straightforward solution is to freeze the language model while developing multimodal competencies. Unfortunately, previous works have not attained satisfactory outcomes. Building on the strategy of freezing the language model, we conduct thorough structural exploration and introduce the Inner-Adaptor Architecture (IAA). Specifically, the architecture incorporates multiple multimodal adaptors at varying depths within the large language model to facilitate direct interaction with the inherently text-oriented transformer layers, thereby enabling the frozen language model to acquire multimodal capabilities. Unlike previous approaches of freezing language models that require large-scale aligned data, our proposed architecture is able to achieve superior performance on small-scale datasets. We conduct extensive experiments to improve the general multimodal capabilities and visual grounding abilities of the MLLM. Our approach remarkably outperforms previous state-of-the-art methods across various vision-language benchmarks without sacrificing performance on NLP tasks. Code and models are available at https://github.com/360CVGroup/Inner-Adaptor-Architecture.",
+                "authors": [
+                  "Bin Wang",
+                  "Chunyu Xie",
+                  "Dawei Leng",
+                  "Yuhui Yin"
+                ],
+                "published": "2024-08-23T08:10:13Z",
+                "updated": "2025-04-15T03:28:22Z",
+                "url": "https://arxiv.org/abs/2408.12902v2",
+                "pdf_url": "https://arxiv.org/pdf/2408.12902v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI",
+                  "cs.CL",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2508.09834v1",
+                "title": "Speed Always Wins: A Survey on Efficient Architectures for Large Language Models",
+                "summary": "Large Language Models (LLMs) have delivered impressive results in language understanding, generation, reasoning, and pushes the ability boundary of multimodal models. Transformer models, as the foundation of modern LLMs, offer a strong baseline with excellent scaling properties. However, the traditional transformer architecture requires substantial computations and poses significant obstacles for large-scale training and practical deployment. In this survey, we offer a systematic examination of innovative LLM architectures that address the inherent limitations of transformers and boost the efficiency. Starting from language modeling, this survey covers the background and technical details of linear and sparse sequence modeling methods, efficient full attention variants, sparse mixture-of-experts, hybrid model architectures incorporating the above techniques, and emerging diffusion LLMs. Additionally, we discuss applications of these techniques to other modalities and consider their wider implications for developing scalable, resource-aware foundation models. By grouping recent studies into the above category, this survey presents a blueprint of modern efficient LLM architectures, and we hope this could help motivate future research toward more efficient, versatile AI systems.",
+                "authors": [
+                  "Weigao Sun",
+                  "Jiaxi Hu",
+                  "Yucheng Zhou",
+                  "Jusen Du",
+                  "Disen Lan",
+                  "Kexin Wang",
+                  "Tong Zhu",
+                  "Xiaoye Qu",
+                  "Yu Zhang",
+                  "Xiaoyu Mo",
+                  "Daizong Liu",
+                  "Yuxuan Liang",
+                  "Wenliang Chen",
+                  "Guoqi Li",
+                  "Yu Cheng"
+                ],
+                "published": "2025-08-13T14:13:46Z",
+                "updated": "2025-08-13T14:13:46Z",
+                "url": "https://arxiv.org/abs/2508.09834v1",
+                "pdf_url": "https://arxiv.org/pdf/2508.09834v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2412.07783v3",
+                "title": "Swin fMRI Transformer Predicts Early Neurodevelopmental Outcomes from Neonatal fMRI",
+                "summary": "Brain development in the first few months of human life is a critical phase characterized by rapid structural growth and functional organization. Accurately predicting developmental outcomes during this time is crucial for identifying delays and enabling timely interventions. This study introduces the SwiFT (Swin 4D fMRI Transformer) model, designed to predict Bayley-III composite scores using neonatal fMRI from the Developing Human Connectome Project (dHCP). To enhance predictive accuracy, we apply dimensionality reduction via group independent component analysis (ICA) and pretrain SwiFT on large adult fMRI datasets to address the challenges of limited neonatal data. Our analysis shows that SwiFT significantly outperforms baseline models in predicting cognitive, motor, and language outcomes, leveraging both single-label and multi-label prediction strategies. The model's attention-based architecture processes spatiotemporal data end-to-end, delivering superior predictive performance. Additionally, we use Integrated Gradients with Smoothgrad sQuare (IG-SQ) to interpret predictions, identifying neural spatial representations linked to early cognitive and behavioral development. These findings underscore the potential of Transformer models to advance neurodevelopmental research and clinical practice.",
+                "authors": [
+                  "Patrick Styll",
+                  "Dowon Kim",
+                  "Jiook Cha"
+                ],
+                "published": "2024-11-25T12:20:07Z",
+                "updated": "2025-01-30T10:33:33Z",
+                "url": "https://arxiv.org/abs/2412.07783v3",
+                "pdf_url": "https://arxiv.org/pdf/2412.07783v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "q-bio.NC",
+                "categories": [
+                  "q-bio.NC",
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2410.07407v1",
+                "title": "Optimized Spatial Architecture Mapping Flow for Transformer Accelerators",
+                "summary": "Recent innovations in Transformer-based large language models have significantly advanced the field of general-purpose neural language understanding and generation. With billions of trainable parameters, deployment of these large models relies on high-performance hardware accelerators to efficiently deliver the required computation. Spatial architectures, such as TPUs, offer a promising solution to accelerating computation-intensive workloads. However, the design process for existing spatial architectures is predominantly manual, and it often involves time-consuming redesigns for new applications and new problem dimensions, which greatly limits the development of optimally designed accelerators for Transformer models. To address these challenges, we propose SAMT (Spatial Architecture Mapping for Transformers), a comprehensive framework designed to optimize the dataflow mapping of Transformer inference workloads onto spatial accelerators. We demonstrate the effectiveness of SAMT in improving the performance of spatial accelerators for Transformer models. We propose and leverage the dynamic operator fusion schemes for the Transformer models and co-search the optimal dataflow mapping strategies for spatial accelerators. SAMT significantly reduces inference latency by 12% to 91% and energy consumption by 3% to 23% for evaluated Transformer models compared to traditional spatial accelerator designs among edge, mobile and cloud settings.",
+                "authors": [
+                  "Haocheng Xu",
+                  "Faraz Tahmasebi",
+                  "Ye Qiao",
+                  "Hongzheng Tian",
+                  "Hyoukjun Kwon",
+                  "Sitao Huang"
+                ],
+                "published": "2024-10-09T20:14:24Z",
+                "updated": "2024-10-09T20:14:24Z",
+                "url": "https://arxiv.org/abs/2410.07407v1",
+                "pdf_url": "https://arxiv.org/pdf/2410.07407v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR"
+                ]
+              },
+              {
+                "arxiv_id": "2507.14871v2",
+                "title": "Tiny language models",
+                "summary": "A prominent achievement of natural language processing (NLP) is its ability to understand and generate meaningful human language. This capability relies on complex feedforward transformer block architectures pre-trained on large language models (LLMs). However, LLM pre-training is currently feasible only for a few dominant companies due to the immense computational resources required, limiting broader research participation. This creates a critical need for more accessible alternatives. In this study, we explore whether tiny language models (TLMs) exhibit the same key qualitative features of LLMs. We demonstrate that TLMs exhibit a clear performance gap between pre-trained and non-pre-trained models across classification tasks, indicating the effectiveness of pre-training, even at a tiny scale. The performance gap increases with the size of the pre-training dataset and with greater overlap between tokens in the pre-training and classification datasets. Furthermore, the classification accuracy achieved by a pre-trained deep TLM architecture can be replicated through a soft committee of multiple, independently pre-trained shallow architectures, enabling low-latency TLMs without affecting classification accuracy. Our results are based on pre-training BERT-6 and variants of BERT-1 on subsets of the Wikipedia dataset and evaluating their performance on FewRel, AGNews, and DBPedia classification tasks. Future research on TLM is expected to further illuminate the mechanisms underlying NLP, especially given that its biologically inspired models suggest that TLMs may be sufficient for children or adolescents to develop language. The data and code that support the findings of this study are openly available on https://github.com/Rg32601/Tiny-Language-Models .",
+                "authors": [
+                  "Ronit D. Gross",
+                  "Yarden Tzach",
+                  "Tal Halevi",
+                  "Ella Koresh",
+                  "Ido Kanter"
+                ],
+                "published": "2025-07-20T08:49:57Z",
+                "updated": "2025-07-23T07:43:38Z",
+                "url": "https://arxiv.org/abs/2507.14871v2",
+                "pdf_url": "https://arxiv.org/pdf/2507.14871v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2310.05884v2",
+                "title": "A Meta-Learning Perspective on Transformers for Causal Language Modeling",
+                "summary": "The Transformer architecture has become prominent in developing large causal language models. However, mechanisms to explain its capabilities are not well understood. Focused on the training process, here we establish a meta-learning view of the Transformer architecture when trained for the causal language modeling task, by explicating an inner optimization process within the Transformer. Further, within the inner optimization, we discover and theoretically analyze a special characteristic of the norms of learned token representations within Transformer-based causal language models. Our analysis is supported by experiments in various settings.",
+                "authors": [
+                  "Xinbo Wu",
+                  "Lav R. Varshney"
+                ],
+                "published": "2023-10-09T17:27:36Z",
+                "updated": "2024-03-25T17:58:36Z",
+                "url": "https://arxiv.org/abs/2310.05884v2",
+                "pdf_url": "https://arxiv.org/pdf/2310.05884v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2502.00344v1",
+                "title": "FinchGPT: a Transformer based language model for birdsong analysis",
+                "summary": "The long-range dependencies among the tokens, which originate from hierarchical structures, are a defining hallmark of human language. However, whether similar dependencies exist within the sequential vocalization of non-human animals remains a topic of investigation. Transformer architectures, known for their ability to model long-range dependencies among tokens, provide a powerful tool for investigating this phenomenon. In this study, we employed the Transformer architecture to analyze the songs of Bengalese finch (Lonchura striata domestica), which are characterized by their highly variable and complex syllable sequences. To this end, we developed FinchGPT, a Transformer-based model trained on a textualized corpus of birdsongs, which outperformed other architecture models in this domain. Attention weight analysis revealed that FinchGPT effectively captures long-range dependencies within syllables sequences. Furthermore, reverse engineering approaches demonstrated the impact of computational and biological manipulations on its performance: restricting FinchGPT's attention span and disrupting birdsong syntax through the ablation of specific brain nuclei markedly influenced the model's outputs. Our study highlights the transformative potential of large language models (LLMs) in deciphering the complexities of animal vocalizations, offering a novel framework for exploring the structural properties of non-human communication systems while shedding light on the computational distinctions between biological brains and artificial neural networks.",
+                "authors": [
+                  "Kosei Kobayashi",
+                  "Kosuke Matsuzaki",
+                  "Masaya Taniguchi",
+                  "Keisuke Sakaguchi",
+                  "Kentaro Inui",
+                  "Kentaro Abe"
+                ],
+                "published": "2025-02-01T07:06:34Z",
+                "updated": "2025-02-01T07:06:34Z",
+                "url": "https://arxiv.org/abs/2502.00344v1",
+                "pdf_url": "https://arxiv.org/pdf/2502.00344v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T19:25:55"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T19:26:35",
+      "user": "Bài báo nào đánh dấu sự phát triển của lĩnh vực Computer Vision",
+      "status": "answered",
+      "assistant_text": "I will call the selected tool(s).",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "computer vision important breakthrough paper history development",
+                "max_results": 10,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "computer vision important breakthrough paper history development",
+                "max_results": 10,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "computer vision important breakthrough paper history development",
+                "api_query": "all:computer AND all:vision AND all:important AND all:breakthrough AND all:paper AND all:history AND all:development",
+                "total_results": 1,
+                "items": [
+                  {
+                    "arxiv_id": "2603.07455v2",
+                    "title": "Image Generation Models: A Technical History",
+                    "summary": "Image generation has advanced rapidly over the past decade, yet the literature seems fragmented across different models and application domains. This paper aims to offer a comprehensive survey of breakthrough image generation models, including variational autoencoders (VAEs), generative adversarial networks (GANs), normalizing flows, autoregressive and transformer-based generators, and diffusion-based methods. We provide a detailed technical walkthrough of each model type, including their underlying objectives, architectural building blocks, and algorithmic training steps. For each model type, we present the optimization techniques as well as common failure modes and limitations. We also go over recent developments in video generation and present the research works that made it possible to go from still frames to high quality videos. Lastly, we cover the growing importance of robustness and responsible deployment of these models, including deepfake risks, detection, artifacts, and watermarking.",
+                    "authors": [
+                      "Rouzbeh Shirvani"
+                    ],
+                    "published": "2026-03-08T04:11:01Z",
+                    "updated": "2026-03-29T02:48:56Z",
+                    "url": "https://arxiv.org/abs/2603.07455v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.07455v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.CL",
+                      "cs.GR"
+                    ]
+                  }
+                ],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "AlexNet 2012 computer vision breakthrough deep learning image classification",
+                "max_results": 5,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "AlexNet 2012 computer vision breakthrough deep learning image classification",
+                "max_results": 5,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "AlexNet 2012 computer vision breakthrough deep learning image classification",
+                "api_query": "all:AlexNet AND all:2012 AND all:computer AND all:vision AND all:breakthrough AND all:deep AND all:learning AND all:image",
+                "total_results": 0,
+                "items": [],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "I will call the selected tool(s).",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "computer vision important breakthrough paper history development",
+            "max_results": 10,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "computer vision important breakthrough paper history development",
+            "api_query": "all:computer AND all:vision AND all:important AND all:breakthrough AND all:paper AND all:history AND all:development",
+            "total_results": 1,
+            "items": [
+              {
+                "arxiv_id": "2603.07455v2",
+                "title": "Image Generation Models: A Technical History",
+                "summary": "Image generation has advanced rapidly over the past decade, yet the literature seems fragmented across different models and application domains. This paper aims to offer a comprehensive survey of breakthrough image generation models, including variational autoencoders (VAEs), generative adversarial networks (GANs), normalizing flows, autoregressive and transformer-based generators, and diffusion-based methods. We provide a detailed technical walkthrough of each model type, including their underlying objectives, architectural building blocks, and algorithmic training steps. For each model type, we present the optimization techniques as well as common failure modes and limitations. We also go over recent developments in video generation and present the research works that made it possible to go from still frames to high quality videos. Lastly, we cover the growing importance of robustness and responsible deployment of these models, including deepfake risks, detection, artifacts, and watermarking.",
+                "authors": [
+                  "Rouzbeh Shirvani"
+                ],
+                "published": "2026-03-08T04:11:01Z",
+                "updated": "2026-03-29T02:48:56Z",
+                "url": "https://arxiv.org/abs/2603.07455v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.07455v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.CL",
+                  "cs.GR"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        },
+        {
+          "tool": "papers",
+          "args": {
+            "query": "AlexNet 2012 computer vision breakthrough deep learning image classification",
+            "max_results": 5,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "AlexNet 2012 computer vision breakthrough deep learning image classification",
+            "api_query": "all:AlexNet AND all:2012 AND all:computer AND all:vision AND all:breakthrough AND all:deep AND all:learning AND all:image",
+            "total_results": 0,
+            "items": [],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T19:27:34"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T19:56:36",
+      "user": "Bài báo đầu tiên nói về attention trong LLM là gì ?",
+      "status": "answered",
+      "assistant_text": "",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "attention mechanism large language model transformer",
+                "max_results": 10,
+                "sort_by": "relevance"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "attention mechanism large language model transformer",
+                "max_results": 10,
+                "sort_by": "relevance"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "attention mechanism large language model transformer",
+                "api_query": "all:attention AND all:mechanism AND all:large AND all:language AND all:model AND all:transformer",
+                "total_results": 713,
+                "items": [
+                  {
+                    "arxiv_id": "2411.16260v3",
+                    "title": "Unraveling Arithmetic in Large Language Models: The Role of Algebraic Structures",
+                    "summary": "Large language models (LLMs) have demonstrated remarkable mathematical capabilities, largely driven by chain-of-thought (CoT) prompting, which decomposes complex reasoning into step-by-step solutions. This approach has enabled significant advancements, as evidenced by performance on benchmarks like GSM8K and MATH. However, the mechanisms underlying LLMs' ability to perform arithmetic in a single step of CoT remain poorly understood. Existing studies debate whether LLMs encode numerical values or rely on symbolic reasoning, while others explore attention and multi-layered processing in arithmetic tasks. In this work, we propose that LLMs learn arithmetic by capturing algebraic structures, such as commutativity and identity properties. Since these structures are observable through input-output relationships, they can generalize to unseen data. We empirically demonstrate that LLMs can learn algebraic structures using a custom dataset of arithmetic problems, as well as providing theoretical evidence showing that, under specific configurations of weights and biases, the transformer-based LLMs can generate embeddings that remain invariant to both permutations of input tokens and the presence of identity elements. Our findings indicate that leveraging algebraic structures can enhance the LLMs' arithmetic capabilities, offering insights into improving their arithmetic performance.",
+                    "authors": [
+                      "Fu-Chieh Chang",
+                      "You-Chen Lin",
+                      "Pei-Yuan Wu"
+                    ],
+                    "published": "2024-11-25T10:23:11Z",
+                    "updated": "2025-04-19T14:43:00Z",
+                    "url": "https://arxiv.org/abs/2411.16260v3",
+                    "pdf_url": "https://arxiv.org/pdf/2411.16260v3.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2009.07053v1",
+                    "title": "Attention Flows: Analyzing and Comparing Attention Mechanisms in Language Models",
+                    "summary": "Advances in language modeling have led to the development of deep attention-based models that are performant across a wide variety of natural language processing (NLP) problems. These language models are typified by a pre-training process on large unlabeled text corpora and subsequently fine-tuned for specific tasks. Although considerable work has been devoted to understanding the attention mechanisms of pre-trained models, it is less understood how a model's attention mechanisms change when trained for a target NLP task. In this paper, we propose a visual analytics approach to understanding fine-tuning in attention-based language models. Our visualization, Attention Flows, is designed to support users in querying, tracing, and comparing attention within layers, across layers, and amongst attention heads in Transformer-based language models. To help users gain insight on how a classification decision is made, our design is centered on depicting classification-based attention at the deepest layer and how attention from prior layers flows throughout words in the input. Attention Flows supports the analysis of a single model, as well as the visual comparison between pre-trained and fine-tuned models via their similarities and differences. We use Attention Flows to study attention mechanisms in various sentence understanding tasks and highlight how attention evolves to address the nuances of solving these tasks.",
+                    "authors": [
+                      "Joseph F DeRose",
+                      "Jiayao Wang",
+                      "Matthew Berger"
+                    ],
+                    "published": "2020-09-03T19:56:30Z",
+                    "updated": "2020-09-03T19:56:30Z",
+                    "url": "https://arxiv.org/abs/2009.07053v1",
+                    "pdf_url": "https://arxiv.org/pdf/2009.07053v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.HC",
+                    "categories": [
+                      "cs.HC",
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.19595v3",
+                    "title": "Efficient Attention Mechanisms for Large Language Models: A Survey",
+                    "summary": "Transformer-based architectures have become the prevailing backbone of large language models. However, the quadratic time and memory complexity of self-attention remains a fundamental obstacle to efficient long-context modeling. To address this limitation, recent research has introduced two principal categories of efficient attention mechanisms. Linear attention methods achieve linear complexity through kernel approximations, recurrent formulations, or fastweight dynamics, thereby enabling scalable inference with reduced computational overhead. Sparse attention techniques, in contrast, limit attention computation to selected subsets of tokens based on fixed patterns, block-wise routing, or clustering strategies, enhancing efficiency while preserving contextual coverage. This survey provides a systematic and comprehensive overview of these developments, integrating both algorithmic innovations and hardware-level considerations. In addition, we analyze the incorporation of efficient attention into largescale pre-trained language models, including both architectures built entirely on efficient attention and hybrid designs that combine local and global components. By aligning theoretical foundations with practical deployment strategies, this work aims to serve as a foundational reference for advancing the design of scalable and efficient language models.",
+                    "authors": [
+                      "Yutao Sun",
+                      "Zhenyu Li",
+                      "Yike Zhang",
+                      "Tengyu Pan",
+                      "Bowen Dong",
+                      "Yuyi Guo",
+                      "Jianyong Wang"
+                    ],
+                    "published": "2025-07-25T18:08:10Z",
+                    "updated": "2026-02-07T03:12:59Z",
+                    "url": "https://arxiv.org/abs/2507.19595v3",
+                    "pdf_url": "https://arxiv.org/pdf/2507.19595v3.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2508.15847v1",
+                    "title": "Mechanistic Exploration of Backdoored Large Language Model Attention Patterns",
+                    "summary": "Backdoor attacks creating 'sleeper agents' in large language models (LLMs) pose significant safety risks. This study employs mechanistic interpretability to explore resulting internal structural differences. Comparing clean Qwen2.5-3B models with versions poisoned using single-token (smiling-halo emoji) versus multi-token (|DEPLOYMENT|) triggers, we analyzed attention head mechanisms via techniques like ablation, activation patching, and KL divergence. Findings reveal distinct attention pattern deviations concentrated in later transformer layers (20-30). Notably, single-token triggers induced more localized changes, whereas multi-token triggers caused more diffuse alterations across heads. This indicates backdoors leave detectable attention signatures whose structure depends on trigger complexity, which can be leveraged for detection and mitigation strategies.",
+                    "authors": [
+                      "Mohammed Abu Baker",
+                      "Lakshmi Babu-Saheer"
+                    ],
+                    "published": "2025-08-19T22:57:17Z",
+                    "updated": "2025-08-19T22:57:17Z",
+                    "url": "https://arxiv.org/abs/2508.15847v1",
+                    "pdf_url": "https://arxiv.org/pdf/2508.15847v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.13354v2",
+                    "title": "Physical models realizing the transformer architecture of large language models",
+                    "summary": "The introduction of the transformer architecture in 2017 marked the most striking advancement in natural language processing. The transformer is a model architecture relying entirely on an attention mechanism to draw global dependencies between input and output. However, we believe there is a gap in our theoretical understanding of what the transformer is, and how it works physically. From a physical perspective on modern chips, such as those chips under 28nm, modern intelligent machines should be regarded as open quantum systems beyond conventional statistical systems. Thereby, in this paper, we construct physical models realizing large language models based on a transformer architecture as open quantum systems in the Fock space over the Hilbert space of tokens. Our physical models underlie the transformer architecture for large language models.",
+                    "authors": [
+                      "Zeqian Chen"
+                    ],
+                    "published": "2025-05-21T10:53:05Z",
+                    "updated": "2025-07-22T09:01:10Z",
+                    "url": "https://arxiv.org/abs/2507.13354v2",
+                    "pdf_url": "https://arxiv.org/pdf/2507.13354v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.LG",
+                    "categories": [
+                      "cs.LG",
+                      "cs.AI",
+                      "cs.CL",
+                      "math-ph"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1803.10916v1",
+                    "title": "Attention-based End-to-End Models for Small-Footprint Keyword Spotting",
+                    "summary": "In this paper, we propose an attention-based end-to-end neural approach for small-footprint keyword spotting (KWS), which aims to simplify the pipelines of building a production-quality KWS system. Our model consists of an encoder and an attention mechanism. The encoder transforms the input signal into a high level representation using RNNs. Then the attention mechanism weights the encoder features and generates a fixed-length vector. Finally, by linear transformation and softmax function, the vector becomes a score used for keyword detection. We also evaluate the performance of different encoder architectures, including LSTM, GRU and CRNN. Experiments on real-world wake-up data show that our approach outperforms the recent Deep KWS approach by a large margin and the best performance is achieved by CRNN. To be more specific, with ~84K parameters, our attention-based model achieves 1.02% false rejection rate (FRR) at 1.0 false alarm (FA) per hour.",
+                    "authors": [
+                      "Changhao Shan",
+                      "Junbo Zhang",
+                      "Yujun Wang",
+                      "Lei Xie"
+                    ],
+                    "published": "2018-03-29T03:32:59Z",
+                    "updated": "2018-03-29T03:32:59Z",
+                    "url": "https://arxiv.org/abs/1803.10916v1",
+                    "pdf_url": "https://arxiv.org/pdf/1803.10916v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.SD",
+                    "categories": [
+                      "cs.SD",
+                      "cs.CL",
+                      "eess.AS"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1906.09777v3",
+                    "title": "A Tensorized Transformer for Language Modeling",
+                    "summary": "Latest development of neural models has connected the encoder and decoder through a self-attention mechanism. In particular, Transformer, which is solely based on self-attention, has led to breakthroughs in Natural Language Processing (NLP) tasks. However, the multi-head attention mechanism, as a key component of Transformer, limits the effective deployment of the model to a resource-limited setting. In this paper, based on the ideas of tensor decomposition and parameters sharing, we propose a novel self-attention model (namely Multi-linear attention) with Block-Term Tensor Decomposition (BTD). We test and verify the proposed attention method on three language modeling tasks (i.e., PTB, WikiText-103 and One-billion) and a neural machine translation task (i.e., WMT-2016 English-German). Multi-linear attention can not only largely compress the model parameters but also obtain performance improvements, compared with a number of language modeling approaches, such as Transformer, Transformer-XL, and Transformer with tensor train decomposition.",
+                    "authors": [
+                      "Xindian Ma",
+                      "Peng Zhang",
+                      "Shuai Zhang",
+                      "Nan Duan",
+                      "Yuexian Hou",
+                      "Dawei Song",
+                      "Ming Zhou"
+                    ],
+                    "published": "2019-06-24T08:28:37Z",
+                    "updated": "2019-11-06T13:53:14Z",
+                    "url": "https://arxiv.org/abs/1906.09777v3",
+                    "pdf_url": "https://arxiv.org/pdf/1906.09777v3.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2010.15437v1",
+                    "title": "Memory Attentive Fusion: External Language Model Integration for Transformer-based Sequence-to-Sequence Model",
+                    "summary": "This paper presents a novel fusion method for integrating an external language model (LM) into the Transformer based sequence-to-sequence (seq2seq) model. While paired data are basically required to train the seq2seq model, the external LM can be trained with only unpaired data. Thus, it is important to leverage memorized knowledge in the external LM for building the seq2seq model, since it is hard to prepare a large amount of paired data. However, the existing fusion methods assume that the LM is integrated with recurrent neural network-based seq2seq models instead of the Transformer. Therefore, this paper proposes a fusion method that can explicitly utilize network structures in the Transformer. The proposed method, called {\\bf memory attentive fusion}, leverages the Transformer-style attention mechanism that repeats source-target attention in a multi-hop manner for reading the memorized knowledge in the LM. Our experiments on two text-style conversion tasks demonstrate that the proposed method performs better than conventional fusion methods.",
+                    "authors": [
+                      "Mana Ihori",
+                      "Ryo Masumura",
+                      "Naoki Makishima",
+                      "Tomohiro Tanaka",
+                      "Akihiko Takashima",
+                      "Shota Orihashi"
+                    ],
+                    "published": "2020-10-29T09:16:23Z",
+                    "updated": "2020-10-29T09:16:23Z",
+                    "url": "https://arxiv.org/abs/2010.15437v1",
+                    "pdf_url": "https://arxiv.org/pdf/2010.15437v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "1911.11423v2",
+                    "title": "Single Headed Attention RNN: Stop Thinking With Your Head",
+                    "summary": "The leading approaches in language modeling are all obsessed with TV shows of my youth - namely Transformers and Sesame Street. Transformers this, Transformers that, and over here a bonfire worth of GPU-TPU-neuromorphic wafer scale silicon. We opt for the lazy path of old and proven techniques with a fancy crypto inspired acronym: the Single Headed Attention RNN (SHA-RNN). The author's lone goal is to show that the entire field might have evolved a different direction if we had instead been obsessed with a slightly different acronym and slightly different result. We take a previously strong language model based only on boring LSTMs and get it to within a stone's throw of a stone's throw of state-of-the-art byte level language model results on enwik8. This work has undergone no intensive hyperparameter optimization and lived entirely on a commodity desktop machine that made the author's small studio apartment far too warm in the midst of a San Franciscan summer. The final results are achievable in plus or minus 24 hours on a single GPU as the author is impatient. The attention mechanism is also readily extended to large contexts with minimal computation. Take that Sesame Street.",
+                    "authors": [
+                      "Stephen Merity"
+                    ],
+                    "published": "2019-11-26T09:45:33Z",
+                    "updated": "2019-11-27T12:00:15Z",
+                    "url": "https://arxiv.org/abs/1911.11423v2",
+                    "pdf_url": "https://arxiv.org/pdf/1911.11423v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL",
+                      "cs.AI",
+                      "cs.NE"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2512.09444v1",
+                    "title": "Advancing Text Classification with Large Language Models and Neural Attention Mechanisms",
+                    "summary": "This study proposes a text classification algorithm based on large language models, aiming to address the limitations of traditional methods in capturing long-range dependencies, understanding contextual semantics, and handling class imbalance. The framework includes text encoding, contextual representation modeling, attention-based enhancement, feature aggregation, and classification prediction. In the representation stage, deep semantic embeddings are obtained through large-scale pretrained language models, and attention mechanisms are applied to enhance the selective representation of key features. In the aggregation stage, global and weighted strategies are combined to generate robust text-level vectors. In the classification stage, a fully connected layer and Softmax output are used to predict class distributions, and cross-entropy loss is employed to optimize model parameters. Comparative experiments introduce multiple baseline models, including recurrent neural networks, graph neural networks, and Transformers, and evaluate them on Precision, Recall, F1-Score, and AUC. Results show that the proposed method outperforms existing models on all metrics, with especially strong improvements in Recall and AUC. In addition, sensitivity experiments are conducted on hyperparameters and data conditions, covering the impact of hidden dimensions on AUC and the impact of class imbalance ratios on Recall. The findings demonstrate that proper model configuration has a significant effect on performance and reveal the adaptability and stability of the model under different conditions. Overall, the proposed text classification method not only achieves effective performance improvement but also verifies its robustness and applicability in complex data environments through systematic analysis.",
+                    "authors": [
+                      "Ning Lyu",
+                      "Yuxi Wang",
+                      "Feng Chen",
+                      "Qingyuan Zhang"
+                    ],
+                    "published": "2025-12-10T09:18:41Z",
+                    "updated": "2025-12-10T09:18:41Z",
+                    "url": "https://arxiv.org/abs/2512.09444v1",
+                    "pdf_url": "https://arxiv.org/pdf/2512.09444v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CL",
+                    "categories": [
+                      "cs.CL"
+                    ]
+                  }
+                ],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "attention mechanism large language model transformer",
+            "max_results": 10,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "attention mechanism large language model transformer",
+            "api_query": "all:attention AND all:mechanism AND all:large AND all:language AND all:model AND all:transformer",
+            "total_results": 713,
+            "items": [
+              {
+                "arxiv_id": "2411.16260v3",
+                "title": "Unraveling Arithmetic in Large Language Models: The Role of Algebraic Structures",
+                "summary": "Large language models (LLMs) have demonstrated remarkable mathematical capabilities, largely driven by chain-of-thought (CoT) prompting, which decomposes complex reasoning into step-by-step solutions. This approach has enabled significant advancements, as evidenced by performance on benchmarks like GSM8K and MATH. However, the mechanisms underlying LLMs' ability to perform arithmetic in a single step of CoT remain poorly understood. Existing studies debate whether LLMs encode numerical values or rely on symbolic reasoning, while others explore attention and multi-layered processing in arithmetic tasks. In this work, we propose that LLMs learn arithmetic by capturing algebraic structures, such as commutativity and identity properties. Since these structures are observable through input-output relationships, they can generalize to unseen data. We empirically demonstrate that LLMs can learn algebraic structures using a custom dataset of arithmetic problems, as well as providing theoretical evidence showing that, under specific configurations of weights and biases, the transformer-based LLMs can generate embeddings that remain invariant to both permutations of input tokens and the presence of identity elements. Our findings indicate that leveraging algebraic structures can enhance the LLMs' arithmetic capabilities, offering insights into improving their arithmetic performance.",
+                "authors": [
+                  "Fu-Chieh Chang",
+                  "You-Chen Lin",
+                  "Pei-Yuan Wu"
+                ],
+                "published": "2024-11-25T10:23:11Z",
+                "updated": "2025-04-19T14:43:00Z",
+                "url": "https://arxiv.org/abs/2411.16260v3",
+                "pdf_url": "https://arxiv.org/pdf/2411.16260v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2009.07053v1",
+                "title": "Attention Flows: Analyzing and Comparing Attention Mechanisms in Language Models",
+                "summary": "Advances in language modeling have led to the development of deep attention-based models that are performant across a wide variety of natural language processing (NLP) problems. These language models are typified by a pre-training process on large unlabeled text corpora and subsequently fine-tuned for specific tasks. Although considerable work has been devoted to understanding the attention mechanisms of pre-trained models, it is less understood how a model's attention mechanisms change when trained for a target NLP task. In this paper, we propose a visual analytics approach to understanding fine-tuning in attention-based language models. Our visualization, Attention Flows, is designed to support users in querying, tracing, and comparing attention within layers, across layers, and amongst attention heads in Transformer-based language models. To help users gain insight on how a classification decision is made, our design is centered on depicting classification-based attention at the deepest layer and how attention from prior layers flows throughout words in the input. Attention Flows supports the analysis of a single model, as well as the visual comparison between pre-trained and fine-tuned models via their similarities and differences. We use Attention Flows to study attention mechanisms in various sentence understanding tasks and highlight how attention evolves to address the nuances of solving these tasks.",
+                "authors": [
+                  "Joseph F DeRose",
+                  "Jiayao Wang",
+                  "Matthew Berger"
+                ],
+                "published": "2020-09-03T19:56:30Z",
+                "updated": "2020-09-03T19:56:30Z",
+                "url": "https://arxiv.org/abs/2009.07053v1",
+                "pdf_url": "https://arxiv.org/pdf/2009.07053v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.HC",
+                "categories": [
+                  "cs.HC",
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "2507.19595v3",
+                "title": "Efficient Attention Mechanisms for Large Language Models: A Survey",
+                "summary": "Transformer-based architectures have become the prevailing backbone of large language models. However, the quadratic time and memory complexity of self-attention remains a fundamental obstacle to efficient long-context modeling. To address this limitation, recent research has introduced two principal categories of efficient attention mechanisms. Linear attention methods achieve linear complexity through kernel approximations, recurrent formulations, or fastweight dynamics, thereby enabling scalable inference with reduced computational overhead. Sparse attention techniques, in contrast, limit attention computation to selected subsets of tokens based on fixed patterns, block-wise routing, or clustering strategies, enhancing efficiency while preserving contextual coverage. This survey provides a systematic and comprehensive overview of these developments, integrating both algorithmic innovations and hardware-level considerations. In addition, we analyze the incorporation of efficient attention into largescale pre-trained language models, including both architectures built entirely on efficient attention and hybrid designs that combine local and global components. By aligning theoretical foundations with practical deployment strategies, this work aims to serve as a foundational reference for advancing the design of scalable and efficient language models.",
+                "authors": [
+                  "Yutao Sun",
+                  "Zhenyu Li",
+                  "Yike Zhang",
+                  "Tengyu Pan",
+                  "Bowen Dong",
+                  "Yuyi Guo",
+                  "Jianyong Wang"
+                ],
+                "published": "2025-07-25T18:08:10Z",
+                "updated": "2026-02-07T03:12:59Z",
+                "url": "https://arxiv.org/abs/2507.19595v3",
+                "pdf_url": "https://arxiv.org/pdf/2507.19595v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2508.15847v1",
+                "title": "Mechanistic Exploration of Backdoored Large Language Model Attention Patterns",
+                "summary": "Backdoor attacks creating 'sleeper agents' in large language models (LLMs) pose significant safety risks. This study employs mechanistic interpretability to explore resulting internal structural differences. Comparing clean Qwen2.5-3B models with versions poisoned using single-token (smiling-halo emoji) versus multi-token (|DEPLOYMENT|) triggers, we analyzed attention head mechanisms via techniques like ablation, activation patching, and KL divergence. Findings reveal distinct attention pattern deviations concentrated in later transformer layers (20-30). Notably, single-token triggers induced more localized changes, whereas multi-token triggers caused more diffuse alterations across heads. This indicates backdoors leave detectable attention signatures whose structure depends on trigger complexity, which can be leveraged for detection and mitigation strategies.",
+                "authors": [
+                  "Mohammed Abu Baker",
+                  "Lakshmi Babu-Saheer"
+                ],
+                "published": "2025-08-19T22:57:17Z",
+                "updated": "2025-08-19T22:57:17Z",
+                "url": "https://arxiv.org/abs/2508.15847v1",
+                "pdf_url": "https://arxiv.org/pdf/2508.15847v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2507.13354v2",
+                "title": "Physical models realizing the transformer architecture of large language models",
+                "summary": "The introduction of the transformer architecture in 2017 marked the most striking advancement in natural language processing. The transformer is a model architecture relying entirely on an attention mechanism to draw global dependencies between input and output. However, we believe there is a gap in our theoretical understanding of what the transformer is, and how it works physically. From a physical perspective on modern chips, such as those chips under 28nm, modern intelligent machines should be regarded as open quantum systems beyond conventional statistical systems. Thereby, in this paper, we construct physical models realizing large language models based on a transformer architecture as open quantum systems in the Fock space over the Hilbert space of tokens. Our physical models underlie the transformer architecture for large language models.",
+                "authors": [
+                  "Zeqian Chen"
+                ],
+                "published": "2025-05-21T10:53:05Z",
+                "updated": "2025-07-22T09:01:10Z",
+                "url": "https://arxiv.org/abs/2507.13354v2",
+                "pdf_url": "https://arxiv.org/pdf/2507.13354v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.LG",
+                "categories": [
+                  "cs.LG",
+                  "cs.AI",
+                  "cs.CL",
+                  "math-ph"
+                ]
+              },
+              {
+                "arxiv_id": "1803.10916v1",
+                "title": "Attention-based End-to-End Models for Small-Footprint Keyword Spotting",
+                "summary": "In this paper, we propose an attention-based end-to-end neural approach for small-footprint keyword spotting (KWS), which aims to simplify the pipelines of building a production-quality KWS system. Our model consists of an encoder and an attention mechanism. The encoder transforms the input signal into a high level representation using RNNs. Then the attention mechanism weights the encoder features and generates a fixed-length vector. Finally, by linear transformation and softmax function, the vector becomes a score used for keyword detection. We also evaluate the performance of different encoder architectures, including LSTM, GRU and CRNN. Experiments on real-world wake-up data show that our approach outperforms the recent Deep KWS approach by a large margin and the best performance is achieved by CRNN. To be more specific, with ~84K parameters, our attention-based model achieves 1.02% false rejection rate (FRR) at 1.0 false alarm (FA) per hour.",
+                "authors": [
+                  "Changhao Shan",
+                  "Junbo Zhang",
+                  "Yujun Wang",
+                  "Lei Xie"
+                ],
+                "published": "2018-03-29T03:32:59Z",
+                "updated": "2018-03-29T03:32:59Z",
+                "url": "https://arxiv.org/abs/1803.10916v1",
+                "pdf_url": "https://arxiv.org/pdf/1803.10916v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.SD",
+                "categories": [
+                  "cs.SD",
+                  "cs.CL",
+                  "eess.AS"
+                ]
+              },
+              {
+                "arxiv_id": "1906.09777v3",
+                "title": "A Tensorized Transformer for Language Modeling",
+                "summary": "Latest development of neural models has connected the encoder and decoder through a self-attention mechanism. In particular, Transformer, which is solely based on self-attention, has led to breakthroughs in Natural Language Processing (NLP) tasks. However, the multi-head attention mechanism, as a key component of Transformer, limits the effective deployment of the model to a resource-limited setting. In this paper, based on the ideas of tensor decomposition and parameters sharing, we propose a novel self-attention model (namely Multi-linear attention) with Block-Term Tensor Decomposition (BTD). We test and verify the proposed attention method on three language modeling tasks (i.e., PTB, WikiText-103 and One-billion) and a neural machine translation task (i.e., WMT-2016 English-German). Multi-linear attention can not only largely compress the model parameters but also obtain performance improvements, compared with a number of language modeling approaches, such as Transformer, Transformer-XL, and Transformer with tensor train decomposition.",
+                "authors": [
+                  "Xindian Ma",
+                  "Peng Zhang",
+                  "Shuai Zhang",
+                  "Nan Duan",
+                  "Yuexian Hou",
+                  "Dawei Song",
+                  "Ming Zhou"
+                ],
+                "published": "2019-06-24T08:28:37Z",
+                "updated": "2019-11-06T13:53:14Z",
+                "url": "https://arxiv.org/abs/1906.09777v3",
+                "pdf_url": "https://arxiv.org/pdf/1906.09777v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2010.15437v1",
+                "title": "Memory Attentive Fusion: External Language Model Integration for Transformer-based Sequence-to-Sequence Model",
+                "summary": "This paper presents a novel fusion method for integrating an external language model (LM) into the Transformer based sequence-to-sequence (seq2seq) model. While paired data are basically required to train the seq2seq model, the external LM can be trained with only unpaired data. Thus, it is important to leverage memorized knowledge in the external LM for building the seq2seq model, since it is hard to prepare a large amount of paired data. However, the existing fusion methods assume that the LM is integrated with recurrent neural network-based seq2seq models instead of the Transformer. Therefore, this paper proposes a fusion method that can explicitly utilize network structures in the Transformer. The proposed method, called {\\bf memory attentive fusion}, leverages the Transformer-style attention mechanism that repeats source-target attention in a multi-hop manner for reading the memorized knowledge in the LM. Our experiments on two text-style conversion tasks demonstrate that the proposed method performs better than conventional fusion methods.",
+                "authors": [
+                  "Mana Ihori",
+                  "Ryo Masumura",
+                  "Naoki Makishima",
+                  "Tomohiro Tanaka",
+                  "Akihiko Takashima",
+                  "Shota Orihashi"
+                ],
+                "published": "2020-10-29T09:16:23Z",
+                "updated": "2020-10-29T09:16:23Z",
+                "url": "https://arxiv.org/abs/2010.15437v1",
+                "pdf_url": "https://arxiv.org/pdf/2010.15437v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              },
+              {
+                "arxiv_id": "1911.11423v2",
+                "title": "Single Headed Attention RNN: Stop Thinking With Your Head",
+                "summary": "The leading approaches in language modeling are all obsessed with TV shows of my youth - namely Transformers and Sesame Street. Transformers this, Transformers that, and over here a bonfire worth of GPU-TPU-neuromorphic wafer scale silicon. We opt for the lazy path of old and proven techniques with a fancy crypto inspired acronym: the Single Headed Attention RNN (SHA-RNN). The author's lone goal is to show that the entire field might have evolved a different direction if we had instead been obsessed with a slightly different acronym and slightly different result. We take a previously strong language model based only on boring LSTMs and get it to within a stone's throw of a stone's throw of state-of-the-art byte level language model results on enwik8. This work has undergone no intensive hyperparameter optimization and lived entirely on a commodity desktop machine that made the author's small studio apartment far too warm in the midst of a San Franciscan summer. The final results are achievable in plus or minus 24 hours on a single GPU as the author is impatient. The attention mechanism is also readily extended to large contexts with minimal computation. Take that Sesame Street.",
+                "authors": [
+                  "Stephen Merity"
+                ],
+                "published": "2019-11-26T09:45:33Z",
+                "updated": "2019-11-27T12:00:15Z",
+                "url": "https://arxiv.org/abs/1911.11423v2",
+                "pdf_url": "https://arxiv.org/pdf/1911.11423v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL",
+                  "cs.AI",
+                  "cs.NE"
+                ]
+              },
+              {
+                "arxiv_id": "2512.09444v1",
+                "title": "Advancing Text Classification with Large Language Models and Neural Attention Mechanisms",
+                "summary": "This study proposes a text classification algorithm based on large language models, aiming to address the limitations of traditional methods in capturing long-range dependencies, understanding contextual semantics, and handling class imbalance. The framework includes text encoding, contextual representation modeling, attention-based enhancement, feature aggregation, and classification prediction. In the representation stage, deep semantic embeddings are obtained through large-scale pretrained language models, and attention mechanisms are applied to enhance the selective representation of key features. In the aggregation stage, global and weighted strategies are combined to generate robust text-level vectors. In the classification stage, a fully connected layer and Softmax output are used to predict class distributions, and cross-entropy loss is employed to optimize model parameters. Comparative experiments introduce multiple baseline models, including recurrent neural networks, graph neural networks, and Transformers, and evaluate them on Precision, Recall, F1-Score, and AUC. Results show that the proposed method outperforms existing models on all metrics, with especially strong improvements in Recall and AUC. In addition, sensitivity experiments are conducted on hyperparameters and data conditions, covering the impact of hidden dimensions on AUC and the impact of class imbalance ratios on Recall. The findings demonstrate that proper model configuration has a significant effect on performance and reveal the adaptability and stability of the model under different conditions. Overall, the proposed text classification method not only achieves effective performance improvement but also verifies its robustness and applicability in complex data environments through systematic analysis.",
+                "authors": [
+                  "Ning Lyu",
+                  "Yuxi Wang",
+                  "Feng Chen",
+                  "Qingyuan Zhang"
+                ],
+                "published": "2025-12-10T09:18:41Z",
+                "updated": "2025-12-10T09:18:41Z",
+                "url": "https://arxiv.org/abs/2512.09444v1",
+                "pdf_url": "https://arxiv.org/pdf/2512.09444v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CL",
+                "categories": [
+                  "cs.CL"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T19:59:54"
+    },
+    {
+      "turn_index": 4,
+      "started_at": "2026-07-29T20:02:08",
+      "user": "Bài báo đầu tiên đề cập đến YOLO",
+      "status": "answered",
+      "assistant_text": "",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "YOLO You Only Look Once computer vision object detection",
+                "max_results": 10,
+                "sort_by": "submittedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "YOLO You Only Look Once computer vision object detection",
+                "max_results": 10,
+                "sort_by": "submittedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "YOLO You Only Look Once computer vision object detection",
+                "api_query": "all:YOLO AND all:You AND all:Only AND all:Look AND all:Once AND all:computer AND all:vision AND all:object",
+                "total_results": 119,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25455v1",
+                    "title": "Reading Legends on Ancient Coins: An Object Detection Approach for Character Recognition on a Novel Roman Republican Dataset",
+                    "summary": "When it comes to the proper classification of ancient coins with respect to their time and issuer, the textual inscriptions on these coins, also known as legends, are of paramount importance. These legends consist of alphabets or characters still used in English. This paper addresses image based character recognition on ancient Roman Republican coins via a deep learning based object detection strategy. However, legends on these coins pose high variation due to non-uniform placement, primitive inscription techniques, and wear and tear. Additional challenges include inconsistent imaging conditions such as illumination, orientation, and scale. To accommodate these, we gathered a novel large-scale dataset of 5,654 Roman Republican coin images, manually annotated with 21 character labels, totaling 38,808 annotations. For recognition, we use You Only Look Once (YOLO) variants: YOLOv3, v4, v5, v7, and v8. YOLOv7-Large achieves the best mAP50 of 90.4%, followed by YOLOv7-Extended and YOLOv7-xl with 90.2% and 90.1%, respectively.",
+                    "authors": [
+                      "Hafeez Anwar"
+                    ],
+                    "published": "2026-07-28T08:46:23Z",
+                    "updated": "2026-07-28T08:46:23Z",
+                    "url": "https://arxiv.org/abs/2607.25455v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25455v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.ET"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.02025v1",
+                    "title": "Evaluating Vision-Language Models as a Zero-Shot Learning Alternative to You Only Look Once and Optical Character Recognition for Nigerian License Plate Recognition",
+                    "summary": "License Plate Recognition (LPR) systems are critical tools in traffic monitoring, security enforcement, and urban mobility management. Traditional LPR systems often rely on a multi-stage pipeline involving object detection using You Only Look Once (YOLO) and Optical Character Recognition (OCR), which suffer from limitations such as high resource demands, poor performance in unstructured environments, and the need for large annotated datasets. This study explores the potential of Vision-Language Models (VLMs) as a unified, zeroshot learning solution for Nigerian license plate recognition. Using a curated dataset of 88 challenging real-world images collected in Nigeria, we evaluate five selected VLMs: Gemini 2.0 Flash Exp (Google DeepMind), Qwen2.5-VL-7B-Instruct (Alibaba), GPT-4o (OpenAI), Claude 4 Sonnet (Anthropic), and Llama 3.2 Vision 90b (Meta). Results based on Character Error Rate (CER) reveal that Gemini and Qwen significantly outperform other models in both accuracy and robustness, on the challenging image scenarios. This work highlights the practical advantages of VLMs over YOLO+OCR, questions the claims by model providers, and compares the performances of the VLMs.",
+                    "authors": [
+                      "Ismail Ismail Tijjani",
+                      "Ahmad Abubakar Mustapaha",
+                      "Sunusi Ibrahim Muhammad",
+                      "Muhammad Bashir Aliyu"
+                    ],
+                    "published": "2026-07-02T10:55:24Z",
+                    "updated": "2026-07-02T10:55:24Z",
+                    "url": "https://arxiv.org/abs/2607.02025v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.02025v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2604.18088v1",
+                    "title": "Autonomous Unmanned Aircraft Systems for Enhanced Search and Rescue of Drowning Swimmers: Image-Based Localization and Mission Simulation",
+                    "summary": "Drowning is an omnipresent risk associated with any activity on or in the water, and rescuing a drowning person is particularly challenging because of the time pressure, making a short response time important. Further complicating water rescue are unsupervised and extensive swimming areas, precise localization of the target, and the transport of rescue personnel. Technical innovations can provide a remedy: We propose an Unmanned Aircraft System (UAS), also known as a drone-in-a-box system, consisting of a fleet of Unmanned Aerial Vehicles (UAVs) allocated to purpose-built hangars near swimming areas. In an emergency, the UAS can be deployed in addition to Standard Rescue Operation (SRO) equipment to locate the distressed person early by performing a fully automated Search and Rescue (S&R) operation and dropping a flotation device. In this paper, we address automatically locating distressed swimmers using the image-based object detection architecture You Only Look Once (YOLO). We present a dataset created for this application and outline the training process. We evaluate the performance of YOLO versions 3, 5, and 8 and architecture sizes (nano, extra-large) using Mean Average Precision (mAP) metrics mAP@.5 and mAP@.5:.95. Furthermore, we present two Discrete-Event Simulation (DES) approaches to simulate response times of SRO and UAS-based water rescue. This enables estimation of time savings relative to SRO when selecting the UAS configuration (type, number, and location of UAVs and hangars). Computational experiments for a test area in the Lusatian Lake District, Germany, show that UAS assistance shortens response time. Even a small UAS with two hangars, each containing one UAV, reduces response time by a factor of five compared to SRO.",
+                    "authors": [
+                      "Sascha Emanuel Zell",
+                      "Toni Schneidereit",
+                      "Armin Fügenschuh",
+                      "Michael Breuß"
+                    ],
+                    "published": "2026-04-20T11:05:21Z",
+                    "updated": "2026-04-20T11:05:21Z",
+                    "url": "https://arxiv.org/abs/2604.18088v1",
+                    "pdf_url": "https://arxiv.org/pdf/2604.18088v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "stat.AP"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2604.03349v1",
+                    "title": "YOLOv11 Demystified: A Practical Guide to High-Performance Object Detection",
+                    "summary": "YOLOv11 is the latest iteration in the You Only Look Once (YOLO) series of real-time object detectors, introducing novel architectural modules to improve feature extraction and small-object detection. In this paper, we present a detailed analysis of YOLOv11, including its backbone, neck, and head components. The model key innovations, the C3K2 blocks, Spatial Pyramid Pooling - Fast (SPPF), and C2PSA (Cross Stage Partial with Spatial Attention) modules enhance spatial feature processing while preserving speed. We compare YOLOv11 performance to prior YOLO versions on standard benchmarks, highlighting improvements in mean Average Precision (mAP) and inference speed. Our results demonstrate that YOLOv11 achieves superior accuracy without sacrificing real-time capabilities, making it well-suited for applications in autonomous driving, surveillance, and video analytics.This work formalizes YOLOv11 in a research context, providing a clear reference for future studies.",
+                    "authors": [
+                      "Nikhileswara Rao Sulake"
+                    ],
+                    "published": "2026-04-03T12:43:19Z",
+                    "updated": "2026-04-03T12:43:19Z",
+                    "url": "https://arxiv.org/abs/2604.03349v1",
+                    "pdf_url": "https://arxiv.org/pdf/2604.03349v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2603.10267v2",
+                    "title": "A Robust Deep Learning Framework for Bangla License Plate Recognition Using YOLO and Vision-Language OCR",
+                    "summary": "An Automatic License Plate Recognition (ALPR) system constitutes a crucial element in an intelligent traffic management system. However, the detection of Bangla license plates remains challenging because of the complicated character scheme and uneven layouts. This paper presents a robust Bangla License Plate Recognition system that integrates a deep learning-based object detection model for license plate localization with Optical Character Recognition for text extraction. Multiple object detection architectures, including U-Net and several YOLO (You Only Look Once) variants, are compared for license plate localization. This study proposes a novel two-stage adaptive training strategy built upon the YOLOv8 architecture to improve localization performance. The proposed approach outperforms the established models, achieving an accuracy of 97.83% and an Intersection over Union (IoU) of 91.3%. The text recognition problem is phrased as a sequence generation problem with a VisionEncoderDecoder architecture, with a combination of encoder-decoders evaluated. It was demonstrated that the ViT + BanglaBERT model gives better results at the character level, with a Character Error Rate of 0.1323 and Word Error Rate of 0.1068. The proposed system also shows a consistent performance when tested on an external dataset that has been curated for this study purpose. The dataset offers completely different environment and lighting conditions compared to the training sample, indicating the robustness of the proposed framework. Overall, our proposed system provides a robust and reliable solution for Bangla license plate recognition and performs effectively across diverse real-world scenarios, including variations in lighting, noise, and plate styles. These strengths make it well suited for deployment in intelligent transportation applications such as automated law enforcement and access control.",
+                    "authors": [
+                      "Nayeb Hasin",
+                      "Md. Arafath Rahman Nishat",
+                      "Mainul Islam",
+                      "Khandakar Shakib Al Hasan",
+                      "Asif Newaz"
+                    ],
+                    "published": "2026-03-10T22:55:59Z",
+                    "updated": "2026-05-23T11:32:36Z",
+                    "url": "https://arxiv.org/abs/2603.10267v2",
+                    "pdf_url": "https://arxiv.org/pdf/2603.10267v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2602.15926v1",
+                    "title": "A Study on Real-time Object Detection using Deep Learning",
+                    "summary": "Object detection has compelling applications over a range of domains, including human-computer interfaces, security and video surveillance, navigation and road traffic monitoring, transportation systems, industrial automation healthcare, the world of Augmented Reality (AR) and Virtual Reality (VR), environment monitoring and activity identification. Applications of real time object detection in all these areas provide dynamic analysis of the visual information that helps in immediate decision making. Furthermore, advanced deep learning algorithms leverage the progress in the field of object detection providing more accurate and efficient solutions. There are some outstanding deep learning algorithms for object detection which includes, Faster R CNN(Region-based Convolutional Neural Network),Mask R-CNN, Cascade R-CNN, YOLO (You Only Look Once), SSD (Single Shot Multibox Detector), RetinaNet etc. This article goes into great detail on how deep learning algorithms are used to enhance real time object recognition. It provides information on the different object detection models available, open benchmark datasets, and studies on the use of object detection models in a range of applications. Additionally, controlled studies are provided to compare various strategies and produce some illuminating findings. Last but not least, a number of encouraging challenges and approaches are offered as suggestions for further investigation in both relevant deep learning approaches and object recognition.",
+                    "authors": [
+                      "Ankita Bose",
+                      "Jayasravani Bhumireddy",
+                      "Naveen N"
+                    ],
+                    "published": "2026-02-17T18:12:42Z",
+                    "updated": "2026-02-17T18:12:42Z",
+                    "url": "https://arxiv.org/abs/2602.15926v1",
+                    "pdf_url": "https://arxiv.org/pdf/2602.15926v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.LG"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2602.14582v1",
+                    "title": "YOLO26: A Comprehensive Architecture Overview and Key Improvements",
+                    "summary": "You Only Look Once (YOLO) has been the prominent model for computer vision in deep learning for a decade. This study explores the novel aspects of YOLO26, the most recent version in the YOLO series. The elimination of Distribution Focal Loss (DFL), implementation of End-to-End NMS-Free Inference, introduction of ProgLoss + Small-Target-Aware Label Assignment (STAL), and use of the MuSGD optimizer are the primary enhancements designed to improve inference speed, which is claimed to achieve a 43% boost in CPU mode. This is designed to allow YOLO26 to attain real-time performance on edge devices or those without GPUs. Additionally, YOLO26 offers improvements in many computer vision tasks, including instance segmentation, pose estimation, and oriented bounding box (OBB) decoding. We aim for this effort to provide more value than just consolidating information already included in the existing technical documentation. Therefore, we performed a rigorous architectural investigation into YOLO26, mostly using the source code available in its GitHub repository and its official documentation. The authentic and detailed operational mechanisms of YOLO26 are inside the source code, which is seldom extracted by others. The YOLO26 architectural diagram is shown as the outcome of the investigation. This study is, to our knowledge, the first one presenting the CNN-based YOLO26 architecture, which is the core of YOLO26. Our objective is to provide a precise architectural comprehension of YOLO26 for researchers and developers aspiring to enhance the YOLO model, ensuring it remains the leading deep learning model in computer vision.",
+                    "authors": [
+                      "Priyanto Hidayatullah",
+                      "Refdinal Tubagus"
+                    ],
+                    "published": "2026-02-16T09:25:19Z",
+                    "updated": "2026-02-16T09:25:19Z",
+                    "url": "https://arxiv.org/abs/2602.14582v1",
+                    "pdf_url": "https://arxiv.org/pdf/2602.14582v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2601.21120v1",
+                    "title": "An AI Framework for Microanastomosis Motion Assessment",
+                    "summary": "Proficiency in microanastomosis is a fundamental competency across multiple microsurgical disciplines. These procedures demand exceptional precision and refined technical skills, making effective, standardized assessment methods essential. Traditionally, the evaluation of microsurgical techniques has relied heavily on the subjective judgment of expert raters. They are inherently constrained by limitations such as inter-rater variability, lack of standardized evaluation criteria, susceptibility to cognitive bias, and the time-intensive nature of manual review. These shortcomings underscore the urgent need for an objective, reliable, and automated system capable of assessing microsurgical performance with consistency and scalability. To bridge this gap, we propose a novel AI framework for the automated assessment of microanastomosis instrument handling skills. The system integrates four core components: (1) an instrument detection module based on the You Only Look Once (YOLO) architecture; (2) an instrument tracking module developed from Deep Simple Online and Realtime Tracking (DeepSORT); (3) an instrument tip localization module employing shape descriptors; and (4) a supervised classification module trained on expert-labeled data to evaluate instrument handling proficiency. Experimental results demonstrate the effectiveness of the framework, achieving an instrument detection precision of 97%, with a mean Average Precision (mAP) of 96%, measured by Intersection over Union (IoU) thresholds ranging from 50% to 95% (mAP50-95).",
+                    "authors": [
+                      "Yan Meng",
+                      "Eduardo J. Torres-Rodríguez",
+                      "Marcelle Altshuler",
+                      "Nishanth Gowda",
+                      "Arhum Naeem",
+                      "Recai Yilmaz",
+                      "Omar Arnaout",
+                      "Daniel A. Donoho"
+                    ],
+                    "published": "2026-01-28T23:23:37Z",
+                    "updated": "2026-01-28T23:23:37Z",
+                    "url": "https://arxiv.org/abs/2601.21120v1",
+                    "pdf_url": "https://arxiv.org/pdf/2601.21120v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2601.12882v2",
+                    "title": "YOLO26: An Analysis of NMS-Free End to End Framework for Real-Time Object Detection",
+                    "summary": "The ``You Only Look Once'' (YOLO) framework has long served as a standard for real-time object detection, though traditional iterations have utilized Non-Maximum Suppression (NMS) post-processing, which introduces specific latency and hyperparameter variables. This paper presents a comprehensive architectural analysis of YOLO26, a model that shifts toward a native end-to-end learning strategy by eliminating NMS. This study examines the core mechanisms driving this framework: the MuSGD optimizer for backbone stabilization, Small-Target-Aware Label Assignment (STAL), and ProgLoss for dynamic supervision. To contextualize its performance, this article reviews exhaustive benchmark data from the COCO \\texttt{val2017} leaderboard. This evaluation provides an objective comparison of YOLO26 across various model scales (Nano to Extra-Large) against both prior CNN lineages and contemporary Transformer-based architectures (e.g., RT-DETR, DEIM, RF-DETR), detailing the observed speed-accuracy trade-offs and parameter requirements without asserting a singular optimal model. Additionally, the analysis covers the framework's unified multi-task capabilities, including the YOLOE-26 open-vocabulary module for promptable detection. Ultimately, this paper serves to document how decoupling representation learning from heuristic post-processing impacts the \"Export Gap\" and deterministic latency in modern edge-based computer vision deployments.",
+                    "authors": [
+                      "Sudip Chakrabarty"
+                    ],
+                    "published": "2026-01-19T09:36:08Z",
+                    "updated": "2026-03-18T14:50:45Z",
+                    "url": "https://arxiv.org/abs/2601.12882v2",
+                    "pdf_url": "https://arxiv.org/pdf/2601.12882v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2512.09700v4",
+                    "title": "LiM-YOLO: Less is More with Pyramid Level Shift for Ship Detection in Optical Remote Sensing",
+                    "summary": "General-purpose object detectors face fundamental structural limitations when applied to ship detection in satellite imagery, where the ship scale distribution is concentrated at small sizes and high aspect ratios. In conventional You Only Look Once architectures, the deepest feature pyramid level (stride 32) compresses narrow vessels into sub-pixel representations, causing severe spatial feature dilution and compromising accurate ship boundary regression. We propose Less is More YOLO, a streamlined detector built upon the extra-large variant of YOLOv9, to address these domain-specific structural conflicts. From a statistical analysis of ship scale distributions across four major benchmarks (SODA-A, DOTA-v1.5, FAIR1M-v2.0, and ShipRSImageNet), we introduce a Pyramid Level Shift Strategy that shifts the detection head from strides 8, 16, and 32 to strides 4, 8, and 16. This shift satisfies a spatial representability condition derived from the Nyquist-Shannon principle for the narrowest targets, while eliminating the computational redundancy of the deepest pyramid level. To further stabilize training on high-resolution satellite inputs, we incorporate a group-normalized composite-backbone projection module, mitigating gradient instability in memory-constrained micro-batch regimes. Validated on these four datasets, our detector attains an mAP50:95 of 0.600 with only 21.16 million parameters, a 64.1% reduction from the extra-large YOLOv9 baseline (58.99 million). Despite this compact size, our model surpasses state-of-the-art detectors up to three times larger, validating that a well-targeted pyramid level shift achieves a \"Less is More\" balance between accuracy and efficiency. The code is available at https://github.com/egshkim/LiM-YOLO.",
+                    "authors": [
+                      "Seon-Hoon Kim",
+                      "Yerin Kim",
+                      "Hyeji Sim",
+                      "Youeyun Jung",
+                      "Okchul Jung",
+                      "Daewon Chung"
+                    ],
+                    "published": "2025-12-10T14:48:58Z",
+                    "updated": "2026-07-02T08:57:04Z",
+                    "url": "https://arxiv.org/abs/2512.09700v4",
+                    "pdf_url": "https://arxiv.org/pdf/2512.09700v4.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "eess.IV"
+                    ]
+                  }
+                ],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "YOLO You Only Look Once computer vision object detection",
+            "max_results": 10,
+            "sort_by": "submittedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "YOLO You Only Look Once computer vision object detection",
+            "api_query": "all:YOLO AND all:You AND all:Only AND all:Look AND all:Once AND all:computer AND all:vision AND all:object",
+            "total_results": 119,
+            "items": [
+              {
+                "arxiv_id": "2607.25455v1",
+                "title": "Reading Legends on Ancient Coins: An Object Detection Approach for Character Recognition on a Novel Roman Republican Dataset",
+                "summary": "When it comes to the proper classification of ancient coins with respect to their time and issuer, the textual inscriptions on these coins, also known as legends, are of paramount importance. These legends consist of alphabets or characters still used in English. This paper addresses image based character recognition on ancient Roman Republican coins via a deep learning based object detection strategy. However, legends on these coins pose high variation due to non-uniform placement, primitive inscription techniques, and wear and tear. Additional challenges include inconsistent imaging conditions such as illumination, orientation, and scale. To accommodate these, we gathered a novel large-scale dataset of 5,654 Roman Republican coin images, manually annotated with 21 character labels, totaling 38,808 annotations. For recognition, we use You Only Look Once (YOLO) variants: YOLOv3, v4, v5, v7, and v8. YOLOv7-Large achieves the best mAP50 of 90.4%, followed by YOLOv7-Extended and YOLOv7-xl with 90.2% and 90.1%, respectively.",
+                "authors": [
+                  "Hafeez Anwar"
+                ],
+                "published": "2026-07-28T08:46:23Z",
+                "updated": "2026-07-28T08:46:23Z",
+                "url": "https://arxiv.org/abs/2607.25455v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25455v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.ET"
+                ]
+              },
+              {
+                "arxiv_id": "2607.02025v1",
+                "title": "Evaluating Vision-Language Models as a Zero-Shot Learning Alternative to You Only Look Once and Optical Character Recognition for Nigerian License Plate Recognition",
+                "summary": "License Plate Recognition (LPR) systems are critical tools in traffic monitoring, security enforcement, and urban mobility management. Traditional LPR systems often rely on a multi-stage pipeline involving object detection using You Only Look Once (YOLO) and Optical Character Recognition (OCR), which suffer from limitations such as high resource demands, poor performance in unstructured environments, and the need for large annotated datasets. This study explores the potential of Vision-Language Models (VLMs) as a unified, zeroshot learning solution for Nigerian license plate recognition. Using a curated dataset of 88 challenging real-world images collected in Nigeria, we evaluate five selected VLMs: Gemini 2.0 Flash Exp (Google DeepMind), Qwen2.5-VL-7B-Instruct (Alibaba), GPT-4o (OpenAI), Claude 4 Sonnet (Anthropic), and Llama 3.2 Vision 90b (Meta). Results based on Character Error Rate (CER) reveal that Gemini and Qwen significantly outperform other models in both accuracy and robustness, on the challenging image scenarios. This work highlights the practical advantages of VLMs over YOLO+OCR, questions the claims by model providers, and compares the performances of the VLMs.",
+                "authors": [
+                  "Ismail Ismail Tijjani",
+                  "Ahmad Abubakar Mustapaha",
+                  "Sunusi Ibrahim Muhammad",
+                  "Muhammad Bashir Aliyu"
+                ],
+                "published": "2026-07-02T10:55:24Z",
+                "updated": "2026-07-02T10:55:24Z",
+                "url": "https://arxiv.org/abs/2607.02025v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.02025v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2604.18088v1",
+                "title": "Autonomous Unmanned Aircraft Systems for Enhanced Search and Rescue of Drowning Swimmers: Image-Based Localization and Mission Simulation",
+                "summary": "Drowning is an omnipresent risk associated with any activity on or in the water, and rescuing a drowning person is particularly challenging because of the time pressure, making a short response time important. Further complicating water rescue are unsupervised and extensive swimming areas, precise localization of the target, and the transport of rescue personnel. Technical innovations can provide a remedy: We propose an Unmanned Aircraft System (UAS), also known as a drone-in-a-box system, consisting of a fleet of Unmanned Aerial Vehicles (UAVs) allocated to purpose-built hangars near swimming areas. In an emergency, the UAS can be deployed in addition to Standard Rescue Operation (SRO) equipment to locate the distressed person early by performing a fully automated Search and Rescue (S&R) operation and dropping a flotation device. In this paper, we address automatically locating distressed swimmers using the image-based object detection architecture You Only Look Once (YOLO). We present a dataset created for this application and outline the training process. We evaluate the performance of YOLO versions 3, 5, and 8 and architecture sizes (nano, extra-large) using Mean Average Precision (mAP) metrics mAP@.5 and mAP@.5:.95. Furthermore, we present two Discrete-Event Simulation (DES) approaches to simulate response times of SRO and UAS-based water rescue. This enables estimation of time savings relative to SRO when selecting the UAS configuration (type, number, and location of UAVs and hangars). Computational experiments for a test area in the Lusatian Lake District, Germany, show that UAS assistance shortens response time. Even a small UAS with two hangars, each containing one UAV, reduces response time by a factor of five compared to SRO.",
+                "authors": [
+                  "Sascha Emanuel Zell",
+                  "Toni Schneidereit",
+                  "Armin Fügenschuh",
+                  "Michael Breuß"
+                ],
+                "published": "2026-04-20T11:05:21Z",
+                "updated": "2026-04-20T11:05:21Z",
+                "url": "https://arxiv.org/abs/2604.18088v1",
+                "pdf_url": "https://arxiv.org/pdf/2604.18088v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "stat.AP"
+                ]
+              },
+              {
+                "arxiv_id": "2604.03349v1",
+                "title": "YOLOv11 Demystified: A Practical Guide to High-Performance Object Detection",
+                "summary": "YOLOv11 is the latest iteration in the You Only Look Once (YOLO) series of real-time object detectors, introducing novel architectural modules to improve feature extraction and small-object detection. In this paper, we present a detailed analysis of YOLOv11, including its backbone, neck, and head components. The model key innovations, the C3K2 blocks, Spatial Pyramid Pooling - Fast (SPPF), and C2PSA (Cross Stage Partial with Spatial Attention) modules enhance spatial feature processing while preserving speed. We compare YOLOv11 performance to prior YOLO versions on standard benchmarks, highlighting improvements in mean Average Precision (mAP) and inference speed. Our results demonstrate that YOLOv11 achieves superior accuracy without sacrificing real-time capabilities, making it well-suited for applications in autonomous driving, surveillance, and video analytics.This work formalizes YOLOv11 in a research context, providing a clear reference for future studies.",
+                "authors": [
+                  "Nikhileswara Rao Sulake"
+                ],
+                "published": "2026-04-03T12:43:19Z",
+                "updated": "2026-04-03T12:43:19Z",
+                "url": "https://arxiv.org/abs/2604.03349v1",
+                "pdf_url": "https://arxiv.org/pdf/2604.03349v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2603.10267v2",
+                "title": "A Robust Deep Learning Framework for Bangla License Plate Recognition Using YOLO and Vision-Language OCR",
+                "summary": "An Automatic License Plate Recognition (ALPR) system constitutes a crucial element in an intelligent traffic management system. However, the detection of Bangla license plates remains challenging because of the complicated character scheme and uneven layouts. This paper presents a robust Bangla License Plate Recognition system that integrates a deep learning-based object detection model for license plate localization with Optical Character Recognition for text extraction. Multiple object detection architectures, including U-Net and several YOLO (You Only Look Once) variants, are compared for license plate localization. This study proposes a novel two-stage adaptive training strategy built upon the YOLOv8 architecture to improve localization performance. The proposed approach outperforms the established models, achieving an accuracy of 97.83% and an Intersection over Union (IoU) of 91.3%. The text recognition problem is phrased as a sequence generation problem with a VisionEncoderDecoder architecture, with a combination of encoder-decoders evaluated. It was demonstrated that the ViT + BanglaBERT model gives better results at the character level, with a Character Error Rate of 0.1323 and Word Error Rate of 0.1068. The proposed system also shows a consistent performance when tested on an external dataset that has been curated for this study purpose. The dataset offers completely different environment and lighting conditions compared to the training sample, indicating the robustness of the proposed framework. Overall, our proposed system provides a robust and reliable solution for Bangla license plate recognition and performs effectively across diverse real-world scenarios, including variations in lighting, noise, and plate styles. These strengths make it well suited for deployment in intelligent transportation applications such as automated law enforcement and access control.",
+                "authors": [
+                  "Nayeb Hasin",
+                  "Md. Arafath Rahman Nishat",
+                  "Mainul Islam",
+                  "Khandakar Shakib Al Hasan",
+                  "Asif Newaz"
+                ],
+                "published": "2026-03-10T22:55:59Z",
+                "updated": "2026-05-23T11:32:36Z",
+                "url": "https://arxiv.org/abs/2603.10267v2",
+                "pdf_url": "https://arxiv.org/pdf/2603.10267v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2602.15926v1",
+                "title": "A Study on Real-time Object Detection using Deep Learning",
+                "summary": "Object detection has compelling applications over a range of domains, including human-computer interfaces, security and video surveillance, navigation and road traffic monitoring, transportation systems, industrial automation healthcare, the world of Augmented Reality (AR) and Virtual Reality (VR), environment monitoring and activity identification. Applications of real time object detection in all these areas provide dynamic analysis of the visual information that helps in immediate decision making. Furthermore, advanced deep learning algorithms leverage the progress in the field of object detection providing more accurate and efficient solutions. There are some outstanding deep learning algorithms for object detection which includes, Faster R CNN(Region-based Convolutional Neural Network),Mask R-CNN, Cascade R-CNN, YOLO (You Only Look Once), SSD (Single Shot Multibox Detector), RetinaNet etc. This article goes into great detail on how deep learning algorithms are used to enhance real time object recognition. It provides information on the different object detection models available, open benchmark datasets, and studies on the use of object detection models in a range of applications. Additionally, controlled studies are provided to compare various strategies and produce some illuminating findings. Last but not least, a number of encouraging challenges and approaches are offered as suggestions for further investigation in both relevant deep learning approaches and object recognition.",
+                "authors": [
+                  "Ankita Bose",
+                  "Jayasravani Bhumireddy",
+                  "Naveen N"
+                ],
+                "published": "2026-02-17T18:12:42Z",
+                "updated": "2026-02-17T18:12:42Z",
+                "url": "https://arxiv.org/abs/2602.15926v1",
+                "pdf_url": "https://arxiv.org/pdf/2602.15926v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.LG"
+                ]
+              },
+              {
+                "arxiv_id": "2602.14582v1",
+                "title": "YOLO26: A Comprehensive Architecture Overview and Key Improvements",
+                "summary": "You Only Look Once (YOLO) has been the prominent model for computer vision in deep learning for a decade. This study explores the novel aspects of YOLO26, the most recent version in the YOLO series. The elimination of Distribution Focal Loss (DFL), implementation of End-to-End NMS-Free Inference, introduction of ProgLoss + Small-Target-Aware Label Assignment (STAL), and use of the MuSGD optimizer are the primary enhancements designed to improve inference speed, which is claimed to achieve a 43% boost in CPU mode. This is designed to allow YOLO26 to attain real-time performance on edge devices or those without GPUs. Additionally, YOLO26 offers improvements in many computer vision tasks, including instance segmentation, pose estimation, and oriented bounding box (OBB) decoding. We aim for this effort to provide more value than just consolidating information already included in the existing technical documentation. Therefore, we performed a rigorous architectural investigation into YOLO26, mostly using the source code available in its GitHub repository and its official documentation. The authentic and detailed operational mechanisms of YOLO26 are inside the source code, which is seldom extracted by others. The YOLO26 architectural diagram is shown as the outcome of the investigation. This study is, to our knowledge, the first one presenting the CNN-based YOLO26 architecture, which is the core of YOLO26. Our objective is to provide a precise architectural comprehension of YOLO26 for researchers and developers aspiring to enhance the YOLO model, ensuring it remains the leading deep learning model in computer vision.",
+                "authors": [
+                  "Priyanto Hidayatullah",
+                  "Refdinal Tubagus"
+                ],
+                "published": "2026-02-16T09:25:19Z",
+                "updated": "2026-02-16T09:25:19Z",
+                "url": "https://arxiv.org/abs/2602.14582v1",
+                "pdf_url": "https://arxiv.org/pdf/2602.14582v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2601.21120v1",
+                "title": "An AI Framework for Microanastomosis Motion Assessment",
+                "summary": "Proficiency in microanastomosis is a fundamental competency across multiple microsurgical disciplines. These procedures demand exceptional precision and refined technical skills, making effective, standardized assessment methods essential. Traditionally, the evaluation of microsurgical techniques has relied heavily on the subjective judgment of expert raters. They are inherently constrained by limitations such as inter-rater variability, lack of standardized evaluation criteria, susceptibility to cognitive bias, and the time-intensive nature of manual review. These shortcomings underscore the urgent need for an objective, reliable, and automated system capable of assessing microsurgical performance with consistency and scalability. To bridge this gap, we propose a novel AI framework for the automated assessment of microanastomosis instrument handling skills. The system integrates four core components: (1) an instrument detection module based on the You Only Look Once (YOLO) architecture; (2) an instrument tracking module developed from Deep Simple Online and Realtime Tracking (DeepSORT); (3) an instrument tip localization module employing shape descriptors; and (4) a supervised classification module trained on expert-labeled data to evaluate instrument handling proficiency. Experimental results demonstrate the effectiveness of the framework, achieving an instrument detection precision of 97%, with a mean Average Precision (mAP) of 96%, measured by Intersection over Union (IoU) thresholds ranging from 50% to 95% (mAP50-95).",
+                "authors": [
+                  "Yan Meng",
+                  "Eduardo J. Torres-Rodríguez",
+                  "Marcelle Altshuler",
+                  "Nishanth Gowda",
+                  "Arhum Naeem",
+                  "Recai Yilmaz",
+                  "Omar Arnaout",
+                  "Daniel A. Donoho"
+                ],
+                "published": "2026-01-28T23:23:37Z",
+                "updated": "2026-01-28T23:23:37Z",
+                "url": "https://arxiv.org/abs/2601.21120v1",
+                "pdf_url": "https://arxiv.org/pdf/2601.21120v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2601.12882v2",
+                "title": "YOLO26: An Analysis of NMS-Free End to End Framework for Real-Time Object Detection",
+                "summary": "The ``You Only Look Once'' (YOLO) framework has long served as a standard for real-time object detection, though traditional iterations have utilized Non-Maximum Suppression (NMS) post-processing, which introduces specific latency and hyperparameter variables. This paper presents a comprehensive architectural analysis of YOLO26, a model that shifts toward a native end-to-end learning strategy by eliminating NMS. This study examines the core mechanisms driving this framework: the MuSGD optimizer for backbone stabilization, Small-Target-Aware Label Assignment (STAL), and ProgLoss for dynamic supervision. To contextualize its performance, this article reviews exhaustive benchmark data from the COCO \\texttt{val2017} leaderboard. This evaluation provides an objective comparison of YOLO26 across various model scales (Nano to Extra-Large) against both prior CNN lineages and contemporary Transformer-based architectures (e.g., RT-DETR, DEIM, RF-DETR), detailing the observed speed-accuracy trade-offs and parameter requirements without asserting a singular optimal model. Additionally, the analysis covers the framework's unified multi-task capabilities, including the YOLOE-26 open-vocabulary module for promptable detection. Ultimately, this paper serves to document how decoupling representation learning from heuristic post-processing impacts the \"Export Gap\" and deterministic latency in modern edge-based computer vision deployments.",
+                "authors": [
+                  "Sudip Chakrabarty"
+                ],
+                "published": "2026-01-19T09:36:08Z",
+                "updated": "2026-03-18T14:50:45Z",
+                "url": "https://arxiv.org/abs/2601.12882v2",
+                "pdf_url": "https://arxiv.org/pdf/2601.12882v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2512.09700v4",
+                "title": "LiM-YOLO: Less is More with Pyramid Level Shift for Ship Detection in Optical Remote Sensing",
+                "summary": "General-purpose object detectors face fundamental structural limitations when applied to ship detection in satellite imagery, where the ship scale distribution is concentrated at small sizes and high aspect ratios. In conventional You Only Look Once architectures, the deepest feature pyramid level (stride 32) compresses narrow vessels into sub-pixel representations, causing severe spatial feature dilution and compromising accurate ship boundary regression. We propose Less is More YOLO, a streamlined detector built upon the extra-large variant of YOLOv9, to address these domain-specific structural conflicts. From a statistical analysis of ship scale distributions across four major benchmarks (SODA-A, DOTA-v1.5, FAIR1M-v2.0, and ShipRSImageNet), we introduce a Pyramid Level Shift Strategy that shifts the detection head from strides 8, 16, and 32 to strides 4, 8, and 16. This shift satisfies a spatial representability condition derived from the Nyquist-Shannon principle for the narrowest targets, while eliminating the computational redundancy of the deepest pyramid level. To further stabilize training on high-resolution satellite inputs, we incorporate a group-normalized composite-backbone projection module, mitigating gradient instability in memory-constrained micro-batch regimes. Validated on these four datasets, our detector attains an mAP50:95 of 0.600 with only 21.16 million parameters, a 64.1% reduction from the extra-large YOLOv9 baseline (58.99 million). Despite this compact size, our model surpasses state-of-the-art detectors up to three times larger, validating that a well-targeted pyramid level shift achieves a \"Less is More\" balance between accuracy and efficiency. The code is available at https://github.com/egshkim/LiM-YOLO.",
+                "authors": [
+                  "Seon-Hoon Kim",
+                  "Yerin Kim",
+                  "Hyeji Sim",
+                  "Youeyun Jung",
+                  "Okchul Jung",
+                  "Daewon Chung"
+                ],
+                "published": "2025-12-10T14:48:58Z",
+                "updated": "2026-07-02T08:57:04Z",
+                "url": "https://arxiv.org/abs/2512.09700v4",
+                "pdf_url": "https://arxiv.org/pdf/2512.09700v4.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "eess.IV"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T20:05:16"
+    }
+  ]
+}

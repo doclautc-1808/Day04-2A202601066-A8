@@ -1,0 +1,517 @@
+{
+  "transcript_id": "v3_ollama_20260729T191157033690",
+  "version": "v3",
+  "artifact_version": "v3+p8f52d7fd7e7c+t7126e19db427",
+  "prompt_hash": "8f52d7fd7e7c28ce792e4b511c5cdd08e77c76b9d22b020ef7c9a51ee49708f4",
+  "tools_hash": "7126e19db427e0204e693426a2b7675501e081b490513be3cf61a10950e344f0",
+  "provider": "ollama",
+  "model": "qwen3.5:4b",
+  "system_prompt": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T19:11:57",
+  "updated_at": "2026-07-29T19:14:17",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T19:12:15",
+      "user": "Kiếm cho tôi bài báo liên quan đến YOLO bản mới nhất",
+      "status": "answered",
+      "assistant_text": "Based on the provided arXiv results, here's a summary of recent computer vision research:\n\n## Recent Computer Vision Research Highlights (2025-2026)\n\n### Medical Imaging & Clinical Applications\n**MAGE: Color-Invariant and Spatial Knowledge Distillation for Gastric Neoplasm Classification** [arxiv.org/abs/2607.12663v1](https://arxiv.org/abs/2607.12663v1)\n\nThis 2026 paper addresses the challenge of differentiating gastric adenoma from carcinoma during endoscopy, where inter-class similarity and ambiguous boundaries make classification difficult. The authors propose a **Masked Achromatic Guidance Expert (MAGE)** framework that:\n- Uses masked achromatic views to force learning purely structural features\n- Employs dual-objective distillation transferring both logits and spatial attention maps\n- Operates on images without annotated masks for real-time deployment\n\n**Key Results:** Outperforms detection-based methods like YOLO and classification models like Swin-Transformer with superior performance and interpretable attention maps.\n\n### Edge AI & FPGA Deployment\n**No Attention, No Problem: DPU-Aware Attention Approximation in Modern YOLO on FPGA** [arxiv.org/abs/2607.13106v1](https://arxiv.org/abs/2607.13106v1)\n\nThis paper evaluates **YOLOv26 and YOLOv11** variants deployed on AMD FPGAs (Xilinx ZCU104), addressing the trade-off between accuracy, speed, and power efficiency:\n- Replaces unsupported activation functions with 1x1 convolutions\n- Approximates spatial attention mechanisms for DPU compatibility\n\n**Key Results:** YOLOv26n achieves **34.05 FPS** throughput (vs ~9% lower mAP due to quantization) while achieving up to **3× power reduction** compared to state-of-the-art methods across COCO, Pascal VOC, KITTI, and other datasets.\n\n### Low-Light Pedestrian Detection\n**Automatic Labelling for Low-Light Pedestrian Detection** [arxiv.org/abs/2507.02513v5](https://arxiv.org/abs/2507.02513v5)\n\nThis research proposes an **automated infrared-RGB pipeline** to address the lack of large public datasets for low-light pedestrian detection:\n- Uses fine-tuned IR models for initial detection, then transfers labels to RGB counterparts\n- Trains DETR, YOLO, and RCNN on generated vs. ground-truth labels\n\n**Key Results:** Models trained on auto-generated labels **outperformed ground truth in 5/6 cases** (mAP@50) and all cases for mAP@50-95 metrics using the KAIST dataset. Source code available at [GitHub](https://github.com/BouzoulasDimitrios/IR-RGB-autoamed-low-light-pedestrian-labelling).\n\n---\n\n*Note: These are preprints from arXiv and not automatically peer-reviewed.*",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "papers",
+              "args": {
+                "query": "YOLO object detection",
+                "max_results": 10,
+                "sort_by": "lastUpdatedDate"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "papers",
+              "args": {
+                "query": "YOLO object detection",
+                "max_results": 10,
+                "sort_by": "lastUpdatedDate"
+              },
+              "result": {
+                "tool": "arxiv_search",
+                "query": "YOLO object detection",
+                "api_query": "all:YOLO AND all:object AND all:detection",
+                "total_results": 824,
+                "items": [
+                  {
+                    "arxiv_id": "2607.25455v1",
+                    "title": "Reading Legends on Ancient Coins: An Object Detection Approach for Character Recognition on a Novel Roman Republican Dataset",
+                    "summary": "When it comes to the proper classification of ancient coins with respect to their time and issuer, the textual inscriptions on these coins, also known as legends, are of paramount importance. These legends consist of alphabets or characters still used in English. This paper addresses image based character recognition on ancient Roman Republican coins via a deep learning based object detection strategy. However, legends on these coins pose high variation due to non-uniform placement, primitive inscription techniques, and wear and tear. Additional challenges include inconsistent imaging conditions such as illumination, orientation, and scale. To accommodate these, we gathered a novel large-scale dataset of 5,654 Roman Republican coin images, manually annotated with 21 character labels, totaling 38,808 annotations. For recognition, we use You Only Look Once (YOLO) variants: YOLOv3, v4, v5, v7, and v8. YOLOv7-Large achieves the best mAP50 of 90.4%, followed by YOLOv7-Extended and YOLOv7-xl with 90.2% and 90.1%, respectively.",
+                    "authors": [
+                      "Hafeez Anwar"
+                    ],
+                    "published": "2026-07-28T08:46:23Z",
+                    "updated": "2026-07-28T08:46:23Z",
+                    "url": "https://arxiv.org/abs/2607.25455v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.25455v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.ET"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.22913v1",
+                    "title": "Small-Pollinator Detection in Cluttered Field Video",
+                    "summary": "Detecting pollinators in field video is challenging: targets are small, visually similar, and observed against cluttered vegetation under blur and occlusion. We present a systematic empirical study of small-pollinator detection under a practical single-GPU compute budget. Using the BuzzSpot challenge dataset, we compare YOLO and RF-DETR models across input resolutions and evaluate sliced inference, class-gated fusion, size-routed ensembling, and post-hoc temporal processing. RF-DETR Large at 1344-pixel resolution achieved our best hidden-test result, reaching 0.405 mAP50:95 and outperforming the 1120-pixel model (0.379) and the best single-model YOLO26m baseline (0.366). The strongest gains came from adopting RF-DETR and increasing its input resolution, indicating that detector choice and input resolution were more effective levers than added inference-time complexity; the resolution gain was strongest for small objects and the rarer bumblebee and moth classes. Sliced-inference fusion, size-routed ensembling, and warm-started 1536-pixel continuation did not surpass this result, while post-hoc temporal processing did not improve the leaked diagnostic evaluation. Error analysis identified bee-hoverfly discrimination as the clearest remaining bottleneck: neighboring frames rarely supplied correctly classified hoverfly evidence for post-hoc correction. These findings motivate learned feature-level temporal aggregation before the final classification decision.",
+                    "authors": [
+                      "Onur Onal",
+                      "Chen Chen"
+                    ],
+                    "published": "2026-07-24T21:07:40Z",
+                    "updated": "2026-07-24T21:07:40Z",
+                    "url": "https://arxiv.org/abs/2607.22913v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.22913v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.21577v1",
+                    "title": "Synthetic data generation framework for quality control automation in gravure printing",
+                    "summary": "Quality control in printing, particularly in rotogravure printing, still depends on slow, costly, and subjective manual inspection. Automated surface defect detection is critical for maintaining high-quality standards in rotogravure printing. Deep learning models give prospects for automation. However, training robust deep learning models, such as YOLO or Vision Transformers, is heavily hindered by the extreme scarcity of real-world industrial defects images. To overcome this limitation, this paper introduces a novel synthetic data generation framework tailored for rotogravure printing quality control. The proposed pipeline automatically generates high-fidelity images of specific printing defects (creases, streaks, misregistration, etc.) and outputs corresponding bounding boxes and annotations. To validate the framework, a synthetic dataset of 7533 images was generated and used to train the state-of-the-art object-detection model RFDETR. Experimental results demonstrate that the model trained on our synthetic data achieves a Mean Average Precision (mAP) of 80.9\\% on real industrial testing samples. This framework provides a zero-cost, rapid-deployment solution for automating defect inspection in printing lines without requiring massive manual data collection.",
+                    "authors": [
+                      "Korota Arsène Coulibaly",
+                      "Mohamed Hamlich",
+                      "Khalid Hmali",
+                      "Andrea Trombin"
+                    ],
+                    "published": "2026-07-23T17:55:21Z",
+                    "updated": "2026-07-23T17:55:21Z",
+                    "url": "https://arxiv.org/abs/2607.21577v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.21577v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV",
+                      "cs.AI",
+                      "cs.LG",
+                      "eess.IV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.14675v3",
+                    "title": "An Intelligent-Cloud Edge Multimodal Interaction System for Robots",
+                    "summary": "Robust human-robot interaction in complex environments requires accurate gesture perception, semantic scene understanding, and reliable task planning under limited onboard computing resources. This paper presents a cloud-edge multimodal interaction framework that integrates an enhanced YOLO-based gesture detector with coordinated large language model (LLM) and vision-language model (VLM) agents. The proposed detector, incorporates the Convolutional Block Attention Module (CBAM) into the neck and replaces the baseline bounding-box regression objective with Distance-IoU (DIoU) loss. These modifications improve feature discrimination and localization for small or partially occluded gestures in complex backgrounds. The cloud layer performs gesture detection, scene understanding, multimodal fusion, and action planning, whereas the TonyPi robot locally handles data acquisition, communication, action execution, and feedback. Experiments on a public gesture dataset and a custom dataset show that YOLO-DC achieves precision values of 98.9% and 95.0%, with mAP@0.5 values of 90.7% and 92.7%, respectively. System-level evaluation yields success rates of 95%, 88%, and 82% for single-action, composite-action, and vision-dependent tasks. A 30 participant evaluation yields an overall mean satisfaction score of 3.69 out of 5. These results demonstrate the feasibility of combining refined gesture detection with multimodal agents for resource-constrained robotic interaction.",
+                    "authors": [
+                      "Zihan Guo",
+                      "Xiaoqi Li"
+                    ],
+                    "published": "2026-07-16T07:39:18Z",
+                    "updated": "2026-07-23T03:08:15Z",
+                    "url": "https://arxiv.org/abs/2607.14675v3",
+                    "pdf_url": "https://arxiv.org/pdf/2607.14675v3.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.RO",
+                    "categories": [
+                      "cs.RO",
+                      "cs.AI"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.18210v1",
+                    "title": "Optimization of sim-to-real transfer in the humanoid robot NICO",
+                    "summary": "Robotic grasping requires accurate coordination between visual perception, object localization, inverse kinematics, and hand control. However, when movements planned in simulation are executed on a physical robot, the sim-to-real gap can cause small positioning errors that prevent successful grasping. In our previous work, we introduced a low-cost haptic calibration method that improved 2D reaching accuracy of the humanoid robot NICO. In this paper, we extend this approach from reaching to tabletop object grasping by adding YOLO-based object and hand detection, stereo vision-based localization using the robot's built-in low-resolution fisheye cameras, and task-specific corrections for grasp execution. Together, these components form a novel calibration-based grasping pipeline that does not require RGB-D cameras, motion capture, or external tracking systems. We also implemented a visual feedback model that aligns the robot hand with the detected object before grasping. Our results show that the fully nonlinear calibration model achieved the best performance inside the calibrated area, while the visual feedback model achieved the highest overall grasping success across the full tabletop workspace.",
+                    "authors": [
+                      "Juraj Gavura",
+                      "Igor Farkaš"
+                    ],
+                    "published": "2026-07-20T17:45:04Z",
+                    "updated": "2026-07-20T17:45:04Z",
+                    "url": "https://arxiv.org/abs/2607.18210v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.18210v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.RO",
+                    "categories": [
+                      "cs.RO"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.17669v1",
+                    "title": "Attention from Above: A Multimodal Model for Drone-Based Object Localization",
+                    "summary": "Drone-based object detection technology has advanced rapidly, becoming increasingly sophisticated and efficient. Recently, research trends have expanded beyond the detection of predefined objects toward the identification of specified target objects. For example, desired targets can be specified through textual prompts, enabling accurate detection of objects of interest. To address this demand, this paper proposes an efficient multimodal-based object detection model aimed at improving small object detection performance. The proposed method is built upon the YOLO-World framework and replaces the C2f layers used in the YOLOv8 backbone with attention-based A2C2f layers. This modification enables more precise representation of local features, particularly for small objects or objects with well-defined boundaries. In addition, the incorporation of attention mechanisms and parallel processing structures significantly enhances the model's computational accuracy. Comparative experiments conducted on the VisDrone dataset demonstrate that the proposed model outperforms the original YOLO-World model. Specifically, precision increases from 43.0% to 45.1%, recall from 32.8% to 35.0%, the F1 score from 37.2% to 39.4%, mAP@0.5 from 32.5% to 35.2%, and mAP@0.5-0.95 from 18.5% to 19.9%, confirming a substantial improvement in detection accuracy. These results verify that the proposed approach provides an effective and highly accurate solution for object detection in drone-based image and video application environments.",
+                    "authors": [
+                      "Hyun-Ki Jung"
+                    ],
+                    "published": "2026-07-20T08:21:12Z",
+                    "updated": "2026-07-20T08:21:12Z",
+                    "url": "https://arxiv.org/abs/2607.17669v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.17669v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2512.12281v2",
+                    "title": "Cognitive-YOLO: LLM-Driven Architecture Synthesis from First Principles of Data for Object Detection",
+                    "summary": "General-purpose object detection algorithms face a domain-shift bottleneck when deployed in vertical scenarios, and manually customizing a network architecture relies heavily on expert experience with high trial-and-error cost. To address these problems, we present \\textbf{Cognitive-YOLO}, an adaptive object-detection model synthesis system driven by a large language model (LLM) collaborating with an autonomous agent. Cognitive-YOLO builds a fully automated \\emph{Analyze--Synthesize--Compile} pipeline. First, a data-profiling module quantitatively extracts dataset features, guiding a ReAct-paradigm agent to autonomously retrieve matching network modules from a curated component library. Second, the LLM performs logical reasoning and topological assembly conditioned on the data features, producing a specification-compliant neural architecture description. Finally, a backend hybrid compiler dynamically instantiates the model, closing the loop with end-to-end training and evaluation scheduling. Cross-validation on datasets including rail-surface defects and rice diseases shows that the lightweight models synthesized by Cognitive-YOLO markedly compress the parameter count (down to 1.9M) while matching or surpassing mainstream baselines such as YOLOv11n in mAP@0.5:0.95, effectively balancing model compactness and feature-representation capability.",
+                    "authors": [
+                      "Jiahao Zhao"
+                    ],
+                    "published": "2025-12-13T10:52:54Z",
+                    "updated": "2026-07-19T10:13:37Z",
+                    "url": "https://arxiv.org/abs/2512.12281v2",
+                    "pdf_url": "https://arxiv.org/pdf/2512.12281v2.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.12663v1",
+                    "title": "MAGE: Color-Invariant and Spatial Knowledge Distillation for Gastric Neoplasm Classification",
+                    "summary": "Accurate differentiation between gastric adenoma and carcinoma during endoscopy is critical for clinical decision-making. Yet, this task is highly challenging due to high inter-class similarity and ambiguous boundaries between the two classes. Existing ROI-based classification methods often suffer from detection/segmentation error propagation and loss of surrounding global context. In contrast, full-image classification lacks the necessary spatial focus. Furthermore, we observe that deep neural networks gravitate towards domain-specific texture biases(e.g. bleeding, lighting artifacts), often causing models to predict based on spurious correlations instead of intrinsic morphological features. To address these limitations, we propose a novel framework, Masked Achromatic Guidance Expert (MAGE). During training, we introduce an auxiliary local expert branch trained on masked achromatic views of the neoplasm. By suppressing background context and color, this branch is forced to learn highly discriminative, purely structural features. We then employ a dual-objective distillation strategy, transferring both classification logits and spatial attention maps to provide implicit spatial supervision to the main branch that receives full WLI as input. This dual-objective distillation forces the model to ground its predictions in morphology rather than relying on shortcuts, while still retaining clinically relevant color cues. At inference time, our deployable model operates on images without annotated masks, ensuring real-time deployability . Extensive experiments on a clinical gastric endoscopy dataset show that our method significantly outperforms existing detection-based methodologies (e.g. YOLO) and classification-based methodologies (e.g. Swin-Transformer), providing not only superior classification performance but also interpretable attention maps for clinical reliability.",
+                    "authors": [
+                      "Jiho Jun",
+                      "Jeongwon Woo",
+                      "Jaemin Song",
+                      "Thanh Bong Nguyen",
+                      "Dong-heon Yeon",
+                      "Donghoon Kang",
+                      "Jae-Myung Park",
+                      "Sung-Jea Ko",
+                      "Kwang-Hyun Uhm"
+                    ],
+                    "published": "2026-07-14T11:45:48Z",
+                    "updated": "2026-07-14T11:45:48Z",
+                    "url": "https://arxiv.org/abs/2607.12663v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.12663v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2607.13106v1",
+                    "title": "No Attention, No Problem: DPU-Aware Attention Approximation in Modern YOLO on FPGA",
+                    "summary": "Edge-based Artificial Intelligence (AI) acceleration has recently improved progress in real-time object detection. Object detection on edge devices requires a balance between accuracy, speed, and power efficiency. This paper proposes a customized Deep Learning Processor Unit (DPU)-aware architecture for attention-based YOLO variants deployed on AMD FPGAs. Specifically, we evaluate and benchmark YOLOv26 and YOLOv11, two modern attention-based YOLO variants, on the Xilinx ZCU104 across both standard and oriented object detection tasks. We replace unsupported activation functions, substitute split operations with 1x1 convolutions, and approximate the spatial attention mechanism in a DPU-compatible way. All models are then trained and evaluated across six benchmark datasets such as COCO, Pascal VOC, KITTI, DOTA, DIOR-R, and an in-house human presence dataset, and benchmarked across all eight DPU configurations (B512 to B4096) in terms of mAP, FPS, latency, power, and resource utilization. Notably, YOLOv26n and YOLOv26n-OBB deliver the highest end-to-end throughput at 34.05 and 29.55 FPS for standard and oriented detection, respectively, with an average of 5% absolute reduction in accuracy due to quantization while achieving up to approximately 3x lower power consumption compared with the state of the art.",
+                    "authors": [
+                      "Suraj Karki",
+                      "Qazi Arbab Ahmed",
+                      "Thorsten Jungeblut"
+                    ],
+                    "published": "2026-07-14T09:59:54Z",
+                    "updated": "2026-07-14T09:59:54Z",
+                    "url": "https://arxiv.org/abs/2607.13106v1",
+                    "pdf_url": "https://arxiv.org/pdf/2607.13106v1.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.AR",
+                    "categories": [
+                      "cs.AR",
+                      "eess.IV"
+                    ]
+                  },
+                  {
+                    "arxiv_id": "2507.02513v5",
+                    "title": "Automatic Labelling for Low-Light Pedestrian Detection",
+                    "summary": "Pedestrian detection in RGB images is a key task in pedestrian safety, as the most common sensor in autonomous vehicles and advanced driver assistance systems is the RGB camera. Low-light pedestrian detection lacks large public datasets and autolabelling pipelines. This research proposes a solution in the form of an automated infrared-RGB pipeline. The pipeline consists of 1) Infrared detection, where a fine-tuned model for infrared pedestrian detection is used 2) Label transfer process from the infrared detections to their RGB counterparts 3) Training object detection models using the generated labels for low-light RGB pedestrian detection. The research was performed using the KAIST dataset. For evaluation, three object detection models, DETR, YOLO, and RCNN, were trained on generated and ground truth labels. When compared on previously unseen images, the results showed that the models trained on generated labels out-performed the ones trained on ground-truth in 5 out of 6 cases for the mAP@50 and LAMR metrics, and outperformed ground-truth on mAP@50-95 in all cases. Acquired results indicate that the proposed auto-labelling pipeline could be used for scalable annotation of low-light datasets for pedestrian detection. The source code for this research is available on GitHub: https://github.com/BouzoulasDimitrios/IR-RGB-autoamed-low-light-pedestrian-labelling",
+                    "authors": [
+                      "Dimitrios Bouzoulas",
+                      "Eerik Alamikkotervo",
+                      "Risto Ojala"
+                    ],
+                    "published": "2025-07-03T10:20:17Z",
+                    "updated": "2026-07-14T08:18:10Z",
+                    "url": "https://arxiv.org/abs/2507.02513v5",
+                    "pdf_url": "https://arxiv.org/pdf/2507.02513v5.pdf",
+                    "source": "arxiv.org",
+                    "source_type": "preprint",
+                    "peer_review_status": "unknown_from_arxiv",
+                    "primary_category": "cs.CV",
+                    "categories": [
+                      "cs.CV"
+                    ]
+                  }
+                ],
+                "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+                "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+                "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Based on the provided arXiv results, here's a summary of recent computer vision research:\n\n## Recent Computer Vision Research Highlights (2025-2026)\n\n### Medical Imaging & Clinical Applications\n**MAGE: Color-Invariant and Spatial Knowledge Distillation for Gastric Neoplasm Classification** [arxiv.org/abs/2607.12663v1](https://arxiv.org/abs/2607.12663v1)\n\nThis 2026 paper addresses the challenge of differentiating gastric adenoma from carcinoma during endoscopy, where inter-class similarity and ambiguous boundaries make classification difficult. The authors propose a **Masked Achromatic Guidance Expert (MAGE)** framework that:\n- Uses masked achromatic views to force learning purely structural features\n- Employs dual-objective distillation transferring both logits and spatial attention maps\n- Operates on images without annotated masks for real-time deployment\n\n**Key Results:** Outperforms detection-based methods like YOLO and classification models like Swin-Transformer with superior performance and interpretable attention maps.\n\n### Edge AI & FPGA Deployment\n**No Attention, No Problem: DPU-Aware Attention Approximation in Modern YOLO on FPGA** [arxiv.org/abs/2607.13106v1](https://arxiv.org/abs/2607.13106v1)\n\nThis paper evaluates **YOLOv26 and YOLOv11** variants deployed on AMD FPGAs (Xilinx ZCU104), addressing the trade-off between accuracy, speed, and power efficiency:\n- Replaces unsupported activation functions with 1x1 convolutions\n- Approximates spatial attention mechanisms for DPU compatibility\n\n**Key Results:** YOLOv26n achieves **34.05 FPS** throughput (vs ~9% lower mAP due to quantization) while achieving up to **3× power reduction** compared to state-of-the-art methods across COCO, Pascal VOC, KITTI, and other datasets.\n\n### Low-Light Pedestrian Detection\n**Automatic Labelling for Low-Light Pedestrian Detection** [arxiv.org/abs/2507.02513v5](https://arxiv.org/abs/2507.02513v5)\n\nThis research proposes an **automated infrared-RGB pipeline** to address the lack of large public datasets for low-light pedestrian detection:\n- Uses fine-tuned IR models for initial detection, then transfers labels to RGB counterparts\n- Trains DETR, YOLO, and RCNN on generated vs. ground-truth labels\n\n**Key Results:** Models trained on auto-generated labels **outperformed ground truth in 5/6 cases** (mAP@50) and all cases for mAP@50-95 metrics using the KAIST dataset. Source code available at [GitHub](https://github.com/BouzoulasDimitrios/IR-RGB-autoamed-low-light-pedestrian-labelling).\n\n---\n\n*Note: These are preprints from arXiv and not automatically peer-reviewed.*",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "YOLO object detection",
+            "max_results": 10,
+            "sort_by": "lastUpdatedDate"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "YOLO object detection",
+            "api_query": "all:YOLO AND all:object AND all:detection",
+            "total_results": 824,
+            "items": [
+              {
+                "arxiv_id": "2607.25455v1",
+                "title": "Reading Legends on Ancient Coins: An Object Detection Approach for Character Recognition on a Novel Roman Republican Dataset",
+                "summary": "When it comes to the proper classification of ancient coins with respect to their time and issuer, the textual inscriptions on these coins, also known as legends, are of paramount importance. These legends consist of alphabets or characters still used in English. This paper addresses image based character recognition on ancient Roman Republican coins via a deep learning based object detection strategy. However, legends on these coins pose high variation due to non-uniform placement, primitive inscription techniques, and wear and tear. Additional challenges include inconsistent imaging conditions such as illumination, orientation, and scale. To accommodate these, we gathered a novel large-scale dataset of 5,654 Roman Republican coin images, manually annotated with 21 character labels, totaling 38,808 annotations. For recognition, we use You Only Look Once (YOLO) variants: YOLOv3, v4, v5, v7, and v8. YOLOv7-Large achieves the best mAP50 of 90.4%, followed by YOLOv7-Extended and YOLOv7-xl with 90.2% and 90.1%, respectively.",
+                "authors": [
+                  "Hafeez Anwar"
+                ],
+                "published": "2026-07-28T08:46:23Z",
+                "updated": "2026-07-28T08:46:23Z",
+                "url": "https://arxiv.org/abs/2607.25455v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.25455v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.ET"
+                ]
+              },
+              {
+                "arxiv_id": "2607.22913v1",
+                "title": "Small-Pollinator Detection in Cluttered Field Video",
+                "summary": "Detecting pollinators in field video is challenging: targets are small, visually similar, and observed against cluttered vegetation under blur and occlusion. We present a systematic empirical study of small-pollinator detection under a practical single-GPU compute budget. Using the BuzzSpot challenge dataset, we compare YOLO and RF-DETR models across input resolutions and evaluate sliced inference, class-gated fusion, size-routed ensembling, and post-hoc temporal processing. RF-DETR Large at 1344-pixel resolution achieved our best hidden-test result, reaching 0.405 mAP50:95 and outperforming the 1120-pixel model (0.379) and the best single-model YOLO26m baseline (0.366). The strongest gains came from adopting RF-DETR and increasing its input resolution, indicating that detector choice and input resolution were more effective levers than added inference-time complexity; the resolution gain was strongest for small objects and the rarer bumblebee and moth classes. Sliced-inference fusion, size-routed ensembling, and warm-started 1536-pixel continuation did not surpass this result, while post-hoc temporal processing did not improve the leaked diagnostic evaluation. Error analysis identified bee-hoverfly discrimination as the clearest remaining bottleneck: neighboring frames rarely supplied correctly classified hoverfly evidence for post-hoc correction. These findings motivate learned feature-level temporal aggregation before the final classification decision.",
+                "authors": [
+                  "Onur Onal",
+                  "Chen Chen"
+                ],
+                "published": "2026-07-24T21:07:40Z",
+                "updated": "2026-07-24T21:07:40Z",
+                "url": "https://arxiv.org/abs/2607.22913v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.22913v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2607.21577v1",
+                "title": "Synthetic data generation framework for quality control automation in gravure printing",
+                "summary": "Quality control in printing, particularly in rotogravure printing, still depends on slow, costly, and subjective manual inspection. Automated surface defect detection is critical for maintaining high-quality standards in rotogravure printing. Deep learning models give prospects for automation. However, training robust deep learning models, such as YOLO or Vision Transformers, is heavily hindered by the extreme scarcity of real-world industrial defects images. To overcome this limitation, this paper introduces a novel synthetic data generation framework tailored for rotogravure printing quality control. The proposed pipeline automatically generates high-fidelity images of specific printing defects (creases, streaks, misregistration, etc.) and outputs corresponding bounding boxes and annotations. To validate the framework, a synthetic dataset of 7533 images was generated and used to train the state-of-the-art object-detection model RFDETR. Experimental results demonstrate that the model trained on our synthetic data achieves a Mean Average Precision (mAP) of 80.9\\% on real industrial testing samples. This framework provides a zero-cost, rapid-deployment solution for automating defect inspection in printing lines without requiring massive manual data collection.",
+                "authors": [
+                  "Korota Arsène Coulibaly",
+                  "Mohamed Hamlich",
+                  "Khalid Hmali",
+                  "Andrea Trombin"
+                ],
+                "published": "2026-07-23T17:55:21Z",
+                "updated": "2026-07-23T17:55:21Z",
+                "url": "https://arxiv.org/abs/2607.21577v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.21577v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV",
+                  "cs.AI",
+                  "cs.LG",
+                  "eess.IV"
+                ]
+              },
+              {
+                "arxiv_id": "2607.14675v3",
+                "title": "An Intelligent-Cloud Edge Multimodal Interaction System for Robots",
+                "summary": "Robust human-robot interaction in complex environments requires accurate gesture perception, semantic scene understanding, and reliable task planning under limited onboard computing resources. This paper presents a cloud-edge multimodal interaction framework that integrates an enhanced YOLO-based gesture detector with coordinated large language model (LLM) and vision-language model (VLM) agents. The proposed detector, incorporates the Convolutional Block Attention Module (CBAM) into the neck and replaces the baseline bounding-box regression objective with Distance-IoU (DIoU) loss. These modifications improve feature discrimination and localization for small or partially occluded gestures in complex backgrounds. The cloud layer performs gesture detection, scene understanding, multimodal fusion, and action planning, whereas the TonyPi robot locally handles data acquisition, communication, action execution, and feedback. Experiments on a public gesture dataset and a custom dataset show that YOLO-DC achieves precision values of 98.9% and 95.0%, with mAP@0.5 values of 90.7% and 92.7%, respectively. System-level evaluation yields success rates of 95%, 88%, and 82% for single-action, composite-action, and vision-dependent tasks. A 30 participant evaluation yields an overall mean satisfaction score of 3.69 out of 5. These results demonstrate the feasibility of combining refined gesture detection with multimodal agents for resource-constrained robotic interaction.",
+                "authors": [
+                  "Zihan Guo",
+                  "Xiaoqi Li"
+                ],
+                "published": "2026-07-16T07:39:18Z",
+                "updated": "2026-07-23T03:08:15Z",
+                "url": "https://arxiv.org/abs/2607.14675v3",
+                "pdf_url": "https://arxiv.org/pdf/2607.14675v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.RO",
+                "categories": [
+                  "cs.RO",
+                  "cs.AI"
+                ]
+              },
+              {
+                "arxiv_id": "2607.18210v1",
+                "title": "Optimization of sim-to-real transfer in the humanoid robot NICO",
+                "summary": "Robotic grasping requires accurate coordination between visual perception, object localization, inverse kinematics, and hand control. However, when movements planned in simulation are executed on a physical robot, the sim-to-real gap can cause small positioning errors that prevent successful grasping. In our previous work, we introduced a low-cost haptic calibration method that improved 2D reaching accuracy of the humanoid robot NICO. In this paper, we extend this approach from reaching to tabletop object grasping by adding YOLO-based object and hand detection, stereo vision-based localization using the robot's built-in low-resolution fisheye cameras, and task-specific corrections for grasp execution. Together, these components form a novel calibration-based grasping pipeline that does not require RGB-D cameras, motion capture, or external tracking systems. We also implemented a visual feedback model that aligns the robot hand with the detected object before grasping. Our results show that the fully nonlinear calibration model achieved the best performance inside the calibrated area, while the visual feedback model achieved the highest overall grasping success across the full tabletop workspace.",
+                "authors": [
+                  "Juraj Gavura",
+                  "Igor Farkaš"
+                ],
+                "published": "2026-07-20T17:45:04Z",
+                "updated": "2026-07-20T17:45:04Z",
+                "url": "https://arxiv.org/abs/2607.18210v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.18210v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.RO",
+                "categories": [
+                  "cs.RO"
+                ]
+              },
+              {
+                "arxiv_id": "2607.17669v1",
+                "title": "Attention from Above: A Multimodal Model for Drone-Based Object Localization",
+                "summary": "Drone-based object detection technology has advanced rapidly, becoming increasingly sophisticated and efficient. Recently, research trends have expanded beyond the detection of predefined objects toward the identification of specified target objects. For example, desired targets can be specified through textual prompts, enabling accurate detection of objects of interest. To address this demand, this paper proposes an efficient multimodal-based object detection model aimed at improving small object detection performance. The proposed method is built upon the YOLO-World framework and replaces the C2f layers used in the YOLOv8 backbone with attention-based A2C2f layers. This modification enables more precise representation of local features, particularly for small objects or objects with well-defined boundaries. In addition, the incorporation of attention mechanisms and parallel processing structures significantly enhances the model's computational accuracy. Comparative experiments conducted on the VisDrone dataset demonstrate that the proposed model outperforms the original YOLO-World model. Specifically, precision increases from 43.0% to 45.1%, recall from 32.8% to 35.0%, the F1 score from 37.2% to 39.4%, mAP@0.5 from 32.5% to 35.2%, and mAP@0.5-0.95 from 18.5% to 19.9%, confirming a substantial improvement in detection accuracy. These results verify that the proposed approach provides an effective and highly accurate solution for object detection in drone-based image and video application environments.",
+                "authors": [
+                  "Hyun-Ki Jung"
+                ],
+                "published": "2026-07-20T08:21:12Z",
+                "updated": "2026-07-20T08:21:12Z",
+                "url": "https://arxiv.org/abs/2607.17669v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.17669v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2512.12281v2",
+                "title": "Cognitive-YOLO: LLM-Driven Architecture Synthesis from First Principles of Data for Object Detection",
+                "summary": "General-purpose object detection algorithms face a domain-shift bottleneck when deployed in vertical scenarios, and manually customizing a network architecture relies heavily on expert experience with high trial-and-error cost. To address these problems, we present \\textbf{Cognitive-YOLO}, an adaptive object-detection model synthesis system driven by a large language model (LLM) collaborating with an autonomous agent. Cognitive-YOLO builds a fully automated \\emph{Analyze--Synthesize--Compile} pipeline. First, a data-profiling module quantitatively extracts dataset features, guiding a ReAct-paradigm agent to autonomously retrieve matching network modules from a curated component library. Second, the LLM performs logical reasoning and topological assembly conditioned on the data features, producing a specification-compliant neural architecture description. Finally, a backend hybrid compiler dynamically instantiates the model, closing the loop with end-to-end training and evaluation scheduling. Cross-validation on datasets including rail-surface defects and rice diseases shows that the lightweight models synthesized by Cognitive-YOLO markedly compress the parameter count (down to 1.9M) while matching or surpassing mainstream baselines such as YOLOv11n in mAP@0.5:0.95, effectively balancing model compactness and feature-representation capability.",
+                "authors": [
+                  "Jiahao Zhao"
+                ],
+                "published": "2025-12-13T10:52:54Z",
+                "updated": "2026-07-19T10:13:37Z",
+                "url": "https://arxiv.org/abs/2512.12281v2",
+                "pdf_url": "https://arxiv.org/pdf/2512.12281v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2607.12663v1",
+                "title": "MAGE: Color-Invariant and Spatial Knowledge Distillation for Gastric Neoplasm Classification",
+                "summary": "Accurate differentiation between gastric adenoma and carcinoma during endoscopy is critical for clinical decision-making. Yet, this task is highly challenging due to high inter-class similarity and ambiguous boundaries between the two classes. Existing ROI-based classification methods often suffer from detection/segmentation error propagation and loss of surrounding global context. In contrast, full-image classification lacks the necessary spatial focus. Furthermore, we observe that deep neural networks gravitate towards domain-specific texture biases(e.g. bleeding, lighting artifacts), often causing models to predict based on spurious correlations instead of intrinsic morphological features. To address these limitations, we propose a novel framework, Masked Achromatic Guidance Expert (MAGE). During training, we introduce an auxiliary local expert branch trained on masked achromatic views of the neoplasm. By suppressing background context and color, this branch is forced to learn highly discriminative, purely structural features. We then employ a dual-objective distillation strategy, transferring both classification logits and spatial attention maps to provide implicit spatial supervision to the main branch that receives full WLI as input. This dual-objective distillation forces the model to ground its predictions in morphology rather than relying on shortcuts, while still retaining clinically relevant color cues. At inference time, our deployable model operates on images without annotated masks, ensuring real-time deployability . Extensive experiments on a clinical gastric endoscopy dataset show that our method significantly outperforms existing detection-based methodologies (e.g. YOLO) and classification-based methodologies (e.g. Swin-Transformer), providing not only superior classification performance but also interpretable attention maps for clinical reliability.",
+                "authors": [
+                  "Jiho Jun",
+                  "Jeongwon Woo",
+                  "Jaemin Song",
+                  "Thanh Bong Nguyen",
+                  "Dong-heon Yeon",
+                  "Donghoon Kang",
+                  "Jae-Myung Park",
+                  "Sung-Jea Ko",
+                  "Kwang-Hyun Uhm"
+                ],
+                "published": "2026-07-14T11:45:48Z",
+                "updated": "2026-07-14T11:45:48Z",
+                "url": "https://arxiv.org/abs/2607.12663v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.12663v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              },
+              {
+                "arxiv_id": "2607.13106v1",
+                "title": "No Attention, No Problem: DPU-Aware Attention Approximation in Modern YOLO on FPGA",
+                "summary": "Edge-based Artificial Intelligence (AI) acceleration has recently improved progress in real-time object detection. Object detection on edge devices requires a balance between accuracy, speed, and power efficiency. This paper proposes a customized Deep Learning Processor Unit (DPU)-aware architecture for attention-based YOLO variants deployed on AMD FPGAs. Specifically, we evaluate and benchmark YOLOv26 and YOLOv11, two modern attention-based YOLO variants, on the Xilinx ZCU104 across both standard and oriented object detection tasks. We replace unsupported activation functions, substitute split operations with 1x1 convolutions, and approximate the spatial attention mechanism in a DPU-compatible way. All models are then trained and evaluated across six benchmark datasets such as COCO, Pascal VOC, KITTI, DOTA, DIOR-R, and an in-house human presence dataset, and benchmarked across all eight DPU configurations (B512 to B4096) in terms of mAP, FPS, latency, power, and resource utilization. Notably, YOLOv26n and YOLOv26n-OBB deliver the highest end-to-end throughput at 34.05 and 29.55 FPS for standard and oriented detection, respectively, with an average of 5% absolute reduction in accuracy due to quantization while achieving up to approximately 3x lower power consumption compared with the state of the art.",
+                "authors": [
+                  "Suraj Karki",
+                  "Qazi Arbab Ahmed",
+                  "Thorsten Jungeblut"
+                ],
+                "published": "2026-07-14T09:59:54Z",
+                "updated": "2026-07-14T09:59:54Z",
+                "url": "https://arxiv.org/abs/2607.13106v1",
+                "pdf_url": "https://arxiv.org/pdf/2607.13106v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.AR",
+                "categories": [
+                  "cs.AR",
+                  "eess.IV"
+                ]
+              },
+              {
+                "arxiv_id": "2507.02513v5",
+                "title": "Automatic Labelling for Low-Light Pedestrian Detection",
+                "summary": "Pedestrian detection in RGB images is a key task in pedestrian safety, as the most common sensor in autonomous vehicles and advanced driver assistance systems is the RGB camera. Low-light pedestrian detection lacks large public datasets and autolabelling pipelines. This research proposes a solution in the form of an automated infrared-RGB pipeline. The pipeline consists of 1) Infrared detection, where a fine-tuned model for infrared pedestrian detection is used 2) Label transfer process from the infrared detections to their RGB counterparts 3) Training object detection models using the generated labels for low-light RGB pedestrian detection. The research was performed using the KAIST dataset. For evaluation, three object detection models, DETR, YOLO, and RCNN, were trained on generated and ground truth labels. When compared on previously unseen images, the results showed that the models trained on generated labels out-performed the ones trained on ground-truth in 5 out of 6 cases for the mAP@50 and LAMR metrics, and outperformed ground-truth on mAP@50-95 in all cases. Acquired results indicate that the proposed auto-labelling pipeline could be used for scalable annotation of low-light datasets for pedestrian detection. The source code for this research is available on GitHub: https://github.com/BouzoulasDimitrios/IR-RGB-autoamed-low-light-pedestrian-labelling",
+                "authors": [
+                  "Dimitrios Bouzoulas",
+                  "Eerik Alamikkotervo",
+                  "Risto Ojala"
+                ],
+                "published": "2025-07-03T10:20:17Z",
+                "updated": "2026-07-14T08:18:10Z",
+                "url": "https://arxiv.org/abs/2507.02513v5",
+                "pdf_url": "https://arxiv.org/pdf/2507.02513v5.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CV",
+                "categories": [
+                  "cs.CV"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T19:14:17"
+    }
+  ]
+}

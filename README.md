@@ -86,16 +86,16 @@ Trong fixed eval, chỉ đổi field tên tool để đồng bộ rename; không
 
 ## Các file quan trọng
 
-| Path | Mục đích |
-|---|---|
-| `artifacts/system_prompt.md` | instruction cho agent |
-| `artifacts/tools.yaml` | tên, mô tả và schema của tool |
-| `artifacts/version_log.csv` | giả thuyết và metric theo version |
-| `artifacts/REPORT.md` | tài liệu demo và bằng chứng nộp bài |
-| `data/eval_base.json` | base eval cố định |
-| `data/eval_group.json` | 10 case do nhóm tự viết |
-| `tools/<tool_name>/` | `TOOL.md` + implementation |
-| `scripts/preflight_provider.py` | kiểm tra provider |
+| Path                              | Mục đích                                |
+| --------------------------------- | ------------------------------------------ |
+| `artifacts/system_prompt.md`    | instruction cho agent                      |
+| `artifacts/tools.yaml`          | tên, mô tả và schema của tool         |
+| `artifacts/version_log.csv`     | giả thuyết và metric theo version       |
+| `artifacts/REPORT.md`           | tài liệu demo và bằng chứng nộp bài |
+| `data/eval_base.json`           | base eval cố định                       |
+| `data/eval_group.json`          | 10 case do nhóm tự viết                 |
+| `tools/<tool_name>/`            | `TOOL.md` + implementation               |
+| `scripts/preflight_provider.py` | kiểm tra provider                         |
 
 ## Tool tracks
 

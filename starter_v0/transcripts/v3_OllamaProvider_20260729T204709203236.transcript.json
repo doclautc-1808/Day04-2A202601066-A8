@@ -1,0 +1,236 @@
+{
+  "transcript_id": "v3_OllamaProvider_20260729T204709203236",
+  "version": "v3",
+  "artifact_version": "v3+p8f52d7fd7e7c+t7126e19db427",
+  "prompt_hash": "8f52d7fd7e7c28ce792e4b511c5cdd08e77c76b9d22b020ef7c9a51ee49708f4",
+  "tools_hash": "7126e19db427e0204e693426a2b7675501e081b490513be3cf61a10950e344f0",
+  "provider": "OllamaProvider",
+  "model": "qwen3.5:4b",
+  "system_prompt": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "D:\\AITHUCCHIEN\\LAB-ThucHanh\\Day04-2A202601066-A8\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T20:50:39",
+  "updated_at": "2026-07-29T20:50:39",
+  "request": "Tóm tắt bài báo có ảnh hưởng lớn nhất đến lĩnh vực LLM của AI",
+  "status": "answered",
+  "assistant_text": "",
+  "rounds": [
+    {
+      "round": 1,
+      "assistant_text": "",
+      "tool_calls": [
+        {
+          "name": "papers",
+          "args": {
+            "query": "Large Language Model LLM transformer attention mechanism influential paper",
+            "max_results": 10,
+            "sort_by": "relevance"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "tool": "papers",
+          "args": {
+            "query": "Large Language Model LLM transformer attention mechanism influential paper",
+            "max_results": 10,
+            "sort_by": "relevance"
+          },
+          "result": {
+            "tool": "arxiv_search",
+            "query": "Large Language Model LLM transformer attention mechanism influential paper",
+            "api_query": "all:Large AND all:Language AND all:Model AND all:LLM AND all:transformer AND all:attention AND all:mechanism AND all:influential",
+            "total_results": 3,
+            "items": [
+              {
+                "arxiv_id": "2504.08854v3",
+                "title": "Large Language Models and Attention-Based AI for Hardware Design and Security: Progress, Challenges, and Opportunities",
+                "summary": "Recent advances in attention-based artificial intelligence (AI) models have unlocked vast potential to automate digital hardware design while enhancing and strengthening security measures against various threats. This rapidly emerging field leverages Large Language Models (LLMs) to generate HDL code, identify vulnerabilities, and sometimes mitigate them. The state of the art in this design automation space utilizes optimized LLMs with HDL datasets, creating automated systems for register transfer level (RTL) generation, verification, and debugging, and establishing LLM-driven design environments for streamlined logic designs. Additionally, attention-based models like graph attention have shown promise in chip design applications, including floorplanning. This survey investigates the integration of these models into hardware-related domains, emphasizing logic design and hardware security, with or without the use of IP libraries. This study explores the commercial and academic landscape, highlighting technical hurdles and future prospects for automating hardware design and security. Moreover, it provides new insights into the study of LLM-driven design systems, advances in hardware security mechanisms, and the impact of influential works on industry practices. Through the examination of 30 representative approaches and illustrative case studies, this paper underscores the transformative potential of attention-based models in revolutionizing hardware design while addressing the challenges that lie ahead in this interdisciplinary domain.",
+                "authors": [
+                  "Sujan Ghimire",
+                  "Parsa Mirfasihi",
+                  "Muhtasim Alam Chowdhury",
+                  "Harish Kumar Dharavath",
+                  "Banafsheh Saber Latibari",
+                  "Muntasir Mamun",
+                  "Jaeden Wolf Carpenter",
+                  "Benjamin Tan",
+                  "Hammond Pearce",
+                  "Krishnendu Chakrabarty",
+                  "Pratik Satam",
+                  "Soheil Salehi"
+                ],
+                "published": "2025-04-11T03:48:57Z",
+                "updated": "2026-07-27T22:49:42Z",
+                "url": "https://arxiv.org/abs/2504.08854v3",
+                "pdf_url": "https://arxiv.org/pdf/2504.08854v3.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR"
+                ]
+              },
+              {
+                "arxiv_id": "2601.04443v2",
+                "title": "Large Language Models for Detecting Cyberattacks on Smart Grid Protective Relays",
+                "summary": "This paper presents a large language model (LLM)-based framework that adapts and fine-tunes compact LLMs for detecting cyberattacks on transformer current differential relays (TCDRs), which can otherwise cause false tripping of critical power transformers. The core idea is to textualize multivariate time-series current measurements from TCDRs, across phases and input/output sides, into structured natural-language prompts that are then processed by compact, locally deployable LLMs. Using this representation, we fine-tune DistilBERT, GPT-2, and DistilBERT+LoRA to distinguish cyberattacks from genuine fault-induced disturbances while preserving relay dependability. The proposed framework is evaluated against a broad set of state-of-the-art machine learning and deep learning baselines under nominal conditions, complex cyberattack scenarios, and measurement noise. Our results show that LLM-based detectors achieve competitive or superior cyberattack detection performance, with DistilBERT detecting up to 97.62% of attacks while maintaining perfect fault detection accuracy. Additional evaluations demonstrate robustness to prompt formulation variations, resilience under combined time-synchronization and false-data injection attacks, and stable performance under realistic measurement noise levels. The attention mechanisms of LLMs further enable intrinsic interpretability by highlighting the most influential time-phase regions of relay measurements. These results demonstrate that compact LLMs provide a practical, interpretable, and robust solution for enhancing cyberattack detection in modern digital substations. We provide the full dataset used in this study for reproducibility.",
+                "authors": [
+                  "Ahmad Mohammad Saber",
+                  "Saeed Jafari",
+                  "Zhengmao Ouyang",
+                  "Paul Budnarain",
+                  "Amr Youssef",
+                  "Deepa Kundur"
+                ],
+                "published": "2026-01-07T23:12:03Z",
+                "updated": "2026-01-28T20:07:59Z",
+                "url": "https://arxiv.org/abs/2601.04443v2",
+                "pdf_url": "https://arxiv.org/pdf/2601.04443v2.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.CR",
+                "categories": [
+                  "cs.CR",
+                  "cs.LG",
+                  "eess.SP"
+                ]
+              },
+              {
+                "arxiv_id": "2509.21163v1",
+                "title": "Distributed Specialization: Rare-Token Neurons in Large Language Models",
+                "summary": "Large language models (LLMs) struggle with representing and generating rare tokens despite their importance in specialized domains. We investigate whether LLMs develop internal specialization mechanisms through discrete modular architectures or distributed parameter-level differentiation. Through systematic analysis of final-layer MLP neurons across multiple model families, we discover that rare-token processing emerges via \\textit{distributed specialization}: functionally coordinated but spatially distributed subnetworks that exhibit three distinct organizational principles. First, we identify a reproducible three-regime influence hierarchy comprising highly influential plateau neurons(also termed as rare-token neurons), power-law decay neurons, and minimally contributing neurons, which is absent in common-token processing. Second, plateau neurons demonstrate coordinated activation patterns (reduced effective dimensionality) while remaining spatially distributed rather than forming discrete clusters. Third, these specialized mechanisms are universally accessible through standard attention pathways without requiring dedicated routing circuits. Training dynamics reveal that functional specialization emerges gradually through parameter differentiation, with specialized neurons developing increasingly heavy-tailed weight correlation spectra consistent with Heavy-Tailed Self-Regularization signatures. Our findings establish that LLMs process rare-tokens through distributed coordination within shared architectures rather than mixture-of-experts-style modularity. These results provide insights for interpretable model editing, computational efficiency optimization, and understanding emergent functional organization in transformer networks.",
+                "authors": [
+                  "Jing Liu",
+                  "Haozheng Wang",
+                  "Yueheng Li"
+                ],
+                "published": "2025-09-25T13:49:38Z",
+                "updated": "2025-09-25T13:49:38Z",
+                "url": "https://arxiv.org/abs/2509.21163v1",
+                "pdf_url": "https://arxiv.org/pdf/2509.21163v1.pdf",
+                "source": "arxiv.org",
+                "source_type": "preprint",
+                "peer_review_status": "unknown_from_arxiv",
+                "primary_category": "cs.AI",
+                "categories": [
+                  "cs.AI"
+                ]
+              }
+            ],
+            "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+            "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+            "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "assistant_text": "",
+      "tool_calls": [],
+      "tool_results": []
+    }
+  ],
+  "tool_events": [
+    {
+      "tool": "papers",
+      "args": {
+        "query": "Large Language Model LLM transformer attention mechanism influential paper",
+        "max_results": 10,
+        "sort_by": "relevance"
+      },
+      "result": {
+        "tool": "arxiv_search",
+        "query": "Large Language Model LLM transformer attention mechanism influential paper",
+        "api_query": "all:Large AND all:Language AND all:Model AND all:LLM AND all:transformer AND all:attention AND all:mechanism AND all:influential",
+        "total_results": 3,
+        "items": [
+          {
+            "arxiv_id": "2504.08854v3",
+            "title": "Large Language Models and Attention-Based AI for Hardware Design and Security: Progress, Challenges, and Opportunities",
+            "summary": "Recent advances in attention-based artificial intelligence (AI) models have unlocked vast potential to automate digital hardware design while enhancing and strengthening security measures against various threats. This rapidly emerging field leverages Large Language Models (LLMs) to generate HDL code, identify vulnerabilities, and sometimes mitigate them. The state of the art in this design automation space utilizes optimized LLMs with HDL datasets, creating automated systems for register transfer level (RTL) generation, verification, and debugging, and establishing LLM-driven design environments for streamlined logic designs. Additionally, attention-based models like graph attention have shown promise in chip design applications, including floorplanning. This survey investigates the integration of these models into hardware-related domains, emphasizing logic design and hardware security, with or without the use of IP libraries. This study explores the commercial and academic landscape, highlighting technical hurdles and future prospects for automating hardware design and security. Moreover, it provides new insights into the study of LLM-driven design systems, advances in hardware security mechanisms, and the impact of influential works on industry practices. Through the examination of 30 representative approaches and illustrative case studies, this paper underscores the transformative potential of attention-based models in revolutionizing hardware design while addressing the challenges that lie ahead in this interdisciplinary domain.",
+            "authors": [
+              "Sujan Ghimire",
+              "Parsa Mirfasihi",
+              "Muhtasim Alam Chowdhury",
+              "Harish Kumar Dharavath",
+              "Banafsheh Saber Latibari",
+              "Muntasir Mamun",
+              "Jaeden Wolf Carpenter",
+              "Benjamin Tan",
+              "Hammond Pearce",
+              "Krishnendu Chakrabarty",
+              "Pratik Satam",
+              "Soheil Salehi"
+            ],
+            "published": "2025-04-11T03:48:57Z",
+            "updated": "2026-07-27T22:49:42Z",
+            "url": "https://arxiv.org/abs/2504.08854v3",
+            "pdf_url": "https://arxiv.org/pdf/2504.08854v3.pdf",
+            "source": "arxiv.org",
+            "source_type": "preprint",
+            "peer_review_status": "unknown_from_arxiv",
+            "primary_category": "cs.CR",
+            "categories": [
+              "cs.CR"
+            ]
+          },
+          {
+            "arxiv_id": "2601.04443v2",
+            "title": "Large Language Models for Detecting Cyberattacks on Smart Grid Protective Relays",
+            "summary": "This paper presents a large language model (LLM)-based framework that adapts and fine-tunes compact LLMs for detecting cyberattacks on transformer current differential relays (TCDRs), which can otherwise cause false tripping of critical power transformers. The core idea is to textualize multivariate time-series current measurements from TCDRs, across phases and input/output sides, into structured natural-language prompts that are then processed by compact, locally deployable LLMs. Using this representation, we fine-tune DistilBERT, GPT-2, and DistilBERT+LoRA to distinguish cyberattacks from genuine fault-induced disturbances while preserving relay dependability. The proposed framework is evaluated against a broad set of state-of-the-art machine learning and deep learning baselines under nominal conditions, complex cyberattack scenarios, and measurement noise. Our results show that LLM-based detectors achieve competitive or superior cyberattack detection performance, with DistilBERT detecting up to 97.62% of attacks while maintaining perfect fault detection accuracy. Additional evaluations demonstrate robustness to prompt formulation variations, resilience under combined time-synchronization and false-data injection attacks, and stable performance under realistic measurement noise levels. The attention mechanisms of LLMs further enable intrinsic interpretability by highlighting the most influential time-phase regions of relay measurements. These results demonstrate that compact LLMs provide a practical, interpretable, and robust solution for enhancing cyberattack detection in modern digital substations. We provide the full dataset used in this study for reproducibility.",
+            "authors": [
+              "Ahmad Mohammad Saber",
+              "Saeed Jafari",
+              "Zhengmao Ouyang",
+              "Paul Budnarain",
+              "Amr Youssef",
+              "Deepa Kundur"
+            ],
+            "published": "2026-01-07T23:12:03Z",
+            "updated": "2026-01-28T20:07:59Z",
+            "url": "https://arxiv.org/abs/2601.04443v2",
+            "pdf_url": "https://arxiv.org/pdf/2601.04443v2.pdf",
+            "source": "arxiv.org",
+            "source_type": "preprint",
+            "peer_review_status": "unknown_from_arxiv",
+            "primary_category": "cs.CR",
+            "categories": [
+              "cs.CR",
+              "cs.LG",
+              "eess.SP"
+            ]
+          },
+          {
+            "arxiv_id": "2509.21163v1",
+            "title": "Distributed Specialization: Rare-Token Neurons in Large Language Models",
+            "summary": "Large language models (LLMs) struggle with representing and generating rare tokens despite their importance in specialized domains. We investigate whether LLMs develop internal specialization mechanisms through discrete modular architectures or distributed parameter-level differentiation. Through systematic analysis of final-layer MLP neurons across multiple model families, we discover that rare-token processing emerges via \\textit{distributed specialization}: functionally coordinated but spatially distributed subnetworks that exhibit three distinct organizational principles. First, we identify a reproducible three-regime influence hierarchy comprising highly influential plateau neurons(also termed as rare-token neurons), power-law decay neurons, and minimally contributing neurons, which is absent in common-token processing. Second, plateau neurons demonstrate coordinated activation patterns (reduced effective dimensionality) while remaining spatially distributed rather than forming discrete clusters. Third, these specialized mechanisms are universally accessible through standard attention pathways without requiring dedicated routing circuits. Training dynamics reveal that functional specialization emerges gradually through parameter differentiation, with specialized neurons developing increasingly heavy-tailed weight correlation spectra consistent with Heavy-Tailed Self-Regularization signatures. Our findings establish that LLMs process rare-tokens through distributed coordination within shared architectures rather than mixture-of-experts-style modularity. These results provide insights for interpretable model editing, computational efficiency optimization, and understanding emergent functional organization in transformer networks.",
+            "authors": [
+              "Jing Liu",
+              "Haozheng Wang",
+              "Yueheng Li"
+            ],
+            "published": "2025-09-25T13:49:38Z",
+            "updated": "2025-09-25T13:49:38Z",
+            "url": "https://arxiv.org/abs/2509.21163v1",
+            "pdf_url": "https://arxiv.org/pdf/2509.21163v1.pdf",
+            "source": "arxiv.org",
+            "source_type": "preprint",
+            "peer_review_status": "unknown_from_arxiv",
+            "primary_category": "cs.AI",
+            "categories": [
+              "cs.AI"
+            ]
+          }
+        ],
+        "selection_note": "Results use arXiv relevance by default. For a balanced shortlist, prefer topical match first and use the updated date as a tie-breaker.",
+        "source_note": "arXiv records are preprints and are not automatically peer reviewed.",
+        "rate_limit_note": "arXiv may return 429 if called too frequently; this tool waits at least 3 seconds between requests in-process."
+      }
+    }
+  ]
+}
